@@ -1,0 +1,311 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DiscoveRx_OrdersModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DiscoveRx_Orders.dbo.Orders' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="AmbitOrderID" />
+            <PropertyRef Name="OrderIDType" />
+            <PropertyRef Name="NumberOfCompounds" />
+            <PropertyRef Name="NumberOfAssays" />
+          </Key>
+          <Property Name="AmbitOrderID" Type="nvarchar" MaxLength="24" Nullable="false" />
+          <Property Name="QuoteID" Type="nvarchar" MaxLength="24" />
+          <Property Name="OrderIDType" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="Company" Type="nvarchar" MaxLength="255" />
+          <Property Name="ProfilingSet" Type="nvarchar" MaxLength="50" />
+          <Property Name="NumberOfCompounds" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="NumberOfAssays" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="NumberOfKds" Type="nvarchar" MaxLength="12" />
+          <Property Name="NumberOfTargets" Type="nvarchar" MaxLength="12" />
+          <Property Name="NumberOfReplicates" Type="nvarchar" MaxLength="12" />
+          <Property Name="NumberOfConcentrations" Type="nvarchar" MaxLength="12" />
+          <Property Name="NumberOfPlates" Type="nvarchar" MaxLength="12" />
+          <Property Name="PercentComplete" Type="nvarchar" MaxLength="12" />
+          <Property Name="RequestDate" Type="nvarchar" MaxLength="12" />
+          <Property Name="ReceivedDate" Type="nvarchar" MaxLength="12" />
+          <Property Name="DueDate" Type="nvarchar" MaxLength="12" />
+          <Property Name="SeedDate" Type="nvarchar" MaxLength="12" />
+          <Property Name="TargetDate" Type="nvarchar" MaxLength="12" />
+          <Property Name="CompletedDate" Type="nvarchar" MaxLength="12" />
+          <Property Name="ScreeningStatus" Type="nvarchar" MaxLength="64" />
+          <Property Name="Assignee" Type="nvarchar" MaxLength="255" />
+          <Property Name="OrderFolder" Type="nvarchar(max)" />
+          <Property Name="Comments" Type="nvarchar(max)" />
+          <Property Name="Priority" Type="nvarchar" MaxLength="12" />
+          <Property Name="RunID" Type="nvarchar" MaxLength="50" />
+          <Property Name="SeedEndDate" Type="nvarchar" MaxLength="12" />
+        </EntityType>
+        <Function Name="DX_GetAssayReportSummary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProjectID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="DX_GetPrimaryAssayData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="projectid" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="DX_GetPrimaryPlateControl" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProjectID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="DX_GetSecondaryAssayGraphData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="projectID" Type="varchar" Mode="In" />
+          <Parameter Name="componentName" Type="varchar" Mode="In" />
+          <Parameter Name="assayTarget" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="DiscoveRx_OrdersModelStoreContainer">
+          <EntitySet Name="Orders" EntityType="Self.Orders" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Orders].[AmbitOrderID] AS [AmbitOrderID], 
+    [Orders].[QuoteID] AS [QuoteID], 
+    [Orders].[OrderIDType] AS [OrderIDType], 
+    [Orders].[Company] AS [Company], 
+    [Orders].[ProfilingSet] AS [ProfilingSet], 
+    [Orders].[NumberOfCompounds] AS [NumberOfCompounds], 
+    [Orders].[NumberOfAssays] AS [NumberOfAssays], 
+    [Orders].[NumberOfKds] AS [NumberOfKds], 
+    [Orders].[NumberOfTargets] AS [NumberOfTargets], 
+    [Orders].[NumberOfReplicates] AS [NumberOfReplicates], 
+    [Orders].[NumberOfConcentrations] AS [NumberOfConcentrations], 
+    [Orders].[NumberOfPlates] AS [NumberOfPlates], 
+    [Orders].[PercentComplete] AS [PercentComplete], 
+    [Orders].[RequestDate] AS [RequestDate], 
+    [Orders].[ReceivedDate] AS [ReceivedDate], 
+    [Orders].[DueDate] AS [DueDate], 
+    [Orders].[SeedDate] AS [SeedDate], 
+    [Orders].[TargetDate] AS [TargetDate], 
+    [Orders].[CompletedDate] AS [CompletedDate], 
+    [Orders].[ScreeningStatus] AS [ScreeningStatus], 
+    [Orders].[Assignee] AS [Assignee], 
+    [Orders].[OrderFolder] AS [OrderFolder], 
+    [Orders].[Comments] AS [Comments], 
+    [Orders].[Priority] AS [Priority], 
+    [Orders].[RunID] AS [RunID], 
+    [Orders].[SeedEndDate] AS [SeedEndDate]
+    FROM [dbo].[Orders] AS [Orders]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DiscoveRx_OrdersModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="AmbitOrderID" />
+            <PropertyRef Name="OrderIDType" />
+            <PropertyRef Name="NumberOfCompounds" />
+            <PropertyRef Name="NumberOfAssays" />
+          </Key>
+          <Property Name="AmbitOrderID" Type="String" MaxLength="24" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="QuoteID" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Name="OrderIDType" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Company" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ProfilingSet" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NumberOfCompounds" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NumberOfAssays" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NumberOfKds" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="NumberOfTargets" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="NumberOfReplicates" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="NumberOfConcentrations" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="NumberOfPlates" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="PercentComplete" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="RequestDate" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="ReceivedDate" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="DueDate" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="SeedDate" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="TargetDate" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="CompletedDate" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="ScreeningStatus" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="Assignee" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="OrderFolder" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Priority" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="RunID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SeedEndDate" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <FunctionImport Name="DX_GetAssayReportSummary" ReturnType="Collection(DiscoveRx_OrdersModel.DX_GetAssayReportSummary_Result)">
+            <Parameter Name="ProjectID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="DX_GetPrimaryAssayData" ReturnType="Collection(DiscoveRx_OrdersModel.DX_GetPrimaryAssayData_Result)">
+            <Parameter Name="projectid" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="DX_GetPrimaryPlateControl" ReturnType="Collection(DiscoveRx_OrdersModel.DX_GetPrimaryPlateControl_Result)">
+            <Parameter Name="ProjectID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="DX_GetSecondaryAssayGraphData" ReturnType="Collection(DiscoveRx_OrdersModel.DX_GetSecondaryAssayGraphData_Result)">
+            <Parameter Name="projectID" Mode="In" Type="String" />
+            <Parameter Name="componentName" Mode="In" Type="String" />
+            <Parameter Name="assayTarget" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="DX_GetAssayReportSummary_Result">
+          <Property Type="String" Name="CompoundName" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="AssayID" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="AssayName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="AssayFormat" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="AssayTarget" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ResultType" Nullable="true" MaxLength="25" />
+          <Property Type="Double" Name="Hill" Nullable="true" />
+          <Property Type="Double" Name="CurveBottom" Nullable="true" />
+          <Property Type="Double" Name="CurveTop" Nullable="true" />
+          <Property Type="Double" Name="MaxResponse" Nullable="true" />
+          <Property Type="Int32" Name="ID" Nullable="true" />
+          <Property Type="String" Name="ProjectID" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="ResultValue" Nullable="true" />
+          <Property Type="String" Name="ValuePrefix" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="ResultUnit" Nullable="true" MaxLength="15" />
+        </ComplexType>
+        <ComplexType Name="DX_GetPrimaryAssayData_Result">
+          <Property Type="String" Name="CompoundName" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="ProjectID" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="AssayType" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="AssayFormat" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="AssayTarget" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="SubstanceID" Nullable="true" MaxLength="20" />
+          <Property Type="Double" Name="Concentration" Nullable="true" />
+          <Property Type="Double" Name="Value1" Nullable="true" />
+          <Property Type="Double" Name="Value2" Nullable="true" />
+          <Property Type="Double" Name="AvgValue" Nullable="true" />
+          <Property Type="Double" Name="SD" Nullable="true" />
+          <Property Type="String" Name="ContainerID" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="DX_GetPrimaryPlateControl_Result">
+          <Property Type="String" Name="ProjectID" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ContainerID" Nullable="true" MaxLength="30" />
+          <Property Type="Double" Name="Value" Nullable="true" />
+          <Property Type="String" Name="JobID" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="SubstanceID" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="DX_GetSecondaryAssayGraphData_Result">
+          <Property Type="String" Name="WellID" Nullable="true" MaxLength="5" />
+          <Property Type="Double" Name="Value" Nullable="true" />
+          <Property Type="Double" Name="Concentration" Nullable="true" />
+          <Property Type="Double" Name="PercentEfficacy" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DiscoveRx_OrdersModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="DiscoveRx_OrdersModel.Order">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="AmbitOrderID" ColumnName="AmbitOrderID" />
+                <ScalarProperty Name="QuoteID" ColumnName="QuoteID" />
+                <ScalarProperty Name="OrderIDType" ColumnName="OrderIDType" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="ProfilingSet" ColumnName="ProfilingSet" />
+                <ScalarProperty Name="NumberOfCompounds" ColumnName="NumberOfCompounds" />
+                <ScalarProperty Name="NumberOfAssays" ColumnName="NumberOfAssays" />
+                <ScalarProperty Name="NumberOfKds" ColumnName="NumberOfKds" />
+                <ScalarProperty Name="NumberOfTargets" ColumnName="NumberOfTargets" />
+                <ScalarProperty Name="NumberOfReplicates" ColumnName="NumberOfReplicates" />
+                <ScalarProperty Name="NumberOfConcentrations" ColumnName="NumberOfConcentrations" />
+                <ScalarProperty Name="NumberOfPlates" ColumnName="NumberOfPlates" />
+                <ScalarProperty Name="PercentComplete" ColumnName="PercentComplete" />
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+                <ScalarProperty Name="ReceivedDate" ColumnName="ReceivedDate" />
+                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+                <ScalarProperty Name="SeedDate" ColumnName="SeedDate" />
+                <ScalarProperty Name="TargetDate" ColumnName="TargetDate" />
+                <ScalarProperty Name="CompletedDate" ColumnName="CompletedDate" />
+                <ScalarProperty Name="ScreeningStatus" ColumnName="ScreeningStatus" />
+                <ScalarProperty Name="Assignee" ColumnName="Assignee" />
+                <ScalarProperty Name="OrderFolder" ColumnName="OrderFolder" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="RunID" ColumnName="RunID" />
+                <ScalarProperty Name="SeedEndDate" ColumnName="SeedEndDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="DX_GetAssayReportSummary" FunctionName="DiscoveRx_OrdersModel.Store.DX_GetAssayReportSummary">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DiscoveRx_OrdersModel.DX_GetAssayReportSummary_Result">
+                <ScalarProperty Name="CompoundName" ColumnName="CompoundName" />
+                <ScalarProperty Name="AssayID" ColumnName="AssayID" />
+                <ScalarProperty Name="AssayName" ColumnName="AssayName" />
+                <ScalarProperty Name="AssayFormat" ColumnName="AssayFormat" />
+                <ScalarProperty Name="AssayTarget" ColumnName="AssayTarget" />
+                <ScalarProperty Name="ResultType" ColumnName="ResultType" />
+                <ScalarProperty Name="Hill" ColumnName="Hill" />
+                <ScalarProperty Name="CurveBottom" ColumnName="CurveBottom" />
+                <ScalarProperty Name="CurveTop" ColumnName="CurveTop" />
+                <ScalarProperty Name="MaxResponse" ColumnName="MaxResponse" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="ResultValue" ColumnName="ResultValue" />
+                <ScalarProperty Name="ValuePrefix" ColumnName="ValuePrefix" />
+                <ScalarProperty Name="ResultUnit" ColumnName="ResultUnit" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="DX_GetPrimaryAssayData" FunctionName="DiscoveRx_OrdersModel.Store.DX_GetPrimaryAssayData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DiscoveRx_OrdersModel.DX_GetPrimaryAssayData_Result">
+                <ScalarProperty Name="CompoundName" ColumnName="CompoundName" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="AssayType" ColumnName="AssayType" />
+                <ScalarProperty Name="AssayFormat" ColumnName="AssayFormat" />
+                <ScalarProperty Name="AssayTarget" ColumnName="AssayTarget" />
+                <ScalarProperty Name="SubstanceID" ColumnName="SubstanceID" />
+                <ScalarProperty Name="Concentration" ColumnName="Concentration" />
+                <ScalarProperty Name="Value1" ColumnName="Value1" />
+                <ScalarProperty Name="Value2" ColumnName="Value2" />
+                <ScalarProperty Name="AvgValue" ColumnName="AvgValue" />
+                <ScalarProperty Name="SD" ColumnName="SD" />
+                <ScalarProperty Name="ContainerID" ColumnName="ContainerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="DX_GetPrimaryPlateControl" FunctionName="DiscoveRx_OrdersModel.Store.DX_GetPrimaryPlateControl">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DiscoveRx_OrdersModel.DX_GetPrimaryPlateControl_Result">
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="ContainerID" ColumnName="ContainerID" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="JobID" ColumnName="JobID" />
+                <ScalarProperty Name="SubstanceID" ColumnName="SubstanceID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="DX_GetSecondaryAssayGraphData" FunctionName="DiscoveRx_OrdersModel.Store.DX_GetSecondaryAssayGraphData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DiscoveRx_OrdersModel.DX_GetSecondaryAssayGraphData_Result">
+                <ScalarProperty Name="WellID" ColumnName="WellID" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Concentration" ColumnName="Concentration" />
+                <ScalarProperty Name="PercentEfficacy" ColumnName="PercentEfficacy" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

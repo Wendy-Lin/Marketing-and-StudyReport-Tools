@@ -1,0 +1,686 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CBIS_DB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Staging_DxFremontProductInfo.dbo.vw_TPL_Assays' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_TPL_Assays">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="BasePartNumber" Type="nvarchar" MaxLength="7" />
+          <Property Name="CellBkgdNumber" Type="nvarchar" MaxLength="1" />
+          <Property Name="TARGET" Type="nvarchar" MaxLength="255" />
+          <Property Name="Assay Type" Type="nvarchar" MaxLength="255" />
+          <Property Name="Brands" Type="nvarchar" MaxLength="255" />
+          <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="255" />
+          <Property Name="CellLinePN" Type="nvarchar" MaxLength="255" />
+          <Property Name="ExpressKitPN" Type="nvarchar" MaxLength="255" />
+          <Property Name="CellPoolPN" Type="nvarchar" MaxLength="255" />
+          <Property Name="Assay Readout" Type="nvarchar" MaxLength="255" />
+          <Property Name="Assay Measures" Type="nvarchar" MaxLength="255" />
+          <Property Name="Web Target Class" Type="nvarchar" MaxLength="255" />
+          <Property Name="PROF COMMERCIAL NAME PANEL" Type="nvarchar" MaxLength="255" />
+          <Property Name="PROF COMMERCIAL NAME PRIMARY ELECT" Type="nvarchar" MaxLength="255" />
+          <Property Name="MouseOrtholog" Type="nvarchar" MaxLength="255" />
+          <Property Name="RatOrtholog" Type="nvarchar" MaxLength="255" />
+          <Property Name="SimianOrtholog" Type="nvarchar" MaxLength="255" />
+          <Property Name="CanineOrtholog" Type="nvarchar" MaxLength="255" />
+          <Property Name="DateAdded" Type="nvarchar" MaxLength="255" />
+          <Property Name="CellBackGround" Type="nvarchar" MaxLength="255" />
+          <Property Name="GenBankAccessionNumber" Type="nvarchar" MaxLength="255" />
+          <Property Name="Ligand" Type="nvarchar" MaxLength="255" />
+          <Property Name="Family" Type="nvarchar" MaxLength="255" />
+          <Property Name="Product Type" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Staging_DxFremontProductInfo.dbo.vw_TPL_CellBasedKinase' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_TPL_CellBasedKinase">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="Family" Type="nvarchar" MaxLength="255" />
+          <Property Name="CommonName" Type="nvarchar" MaxLength="255" />
+          <Property Name="TARGET" Type="nvarchar" MaxLength="255" />
+          <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="255" />
+          <Property Name="CellLines" Type="nvarchar" MaxLength="255" />
+          <Property Name="ExpressKits" Type="nvarchar" MaxLength="255" />
+          <Property Name="InternalizationCellLines" Type="nvarchar" MaxLength="255" />
+          <Property Name="InternalizationKits" Type="nvarchar" MaxLength="255" />
+          <Property Name="ABHunterFunctionalKits" Type="nvarchar" MaxLength="255" />
+          <Property Name="ABHunterBindingKits" Type="nvarchar" MaxLength="255" />
+          <Property Name="PathHunterKits" Type="nvarchar" MaxLength="255" />
+          <Property Name="AN Target Class" Type="nvarchar" MaxLength="255" />
+          <Property Name="Web Target Class" Type="nvarchar" MaxLength="255" />
+          <Property Name="AbHunterKit" Type="nvarchar" MaxLength="255" />
+          <Property Name="LeadHunterServiceMax" Type="nvarchar" MaxLength="255" />
+          <Property Name="LeadHunterServiceProfiling" Type="nvarchar" MaxLength="255" />
+          <Property Name="PartnerProtein" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Staging_DxFremontProductInfo.dbo.vw_TPL_ProductPrice' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_TPL_ProductPrice">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="PartNumber" />
+            <PropertyRef Name="CONFIGURATION" />
+            <PropertyRef Name="PRICE USD" />
+            <PropertyRef Name="PRICE GBP" />
+            <PropertyRef Name="PRICE EUR" />
+            <PropertyRef Name="PRICE CHF" />
+            <PropertyRef Name="PRICE DKK" />
+            <PropertyRef Name="PRICE SEK" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="PartNumber" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="TARGET" Type="nvarchar" MaxLength="255" />
+          <Property Name="Brands" Type="nvarchar" MaxLength="255" />
+          <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="255" />
+          <Property Name="Web Target Class" Type="nvarchar" MaxLength="255" />
+          <Property Name="Assay Measures" Type="nvarchar" MaxLength="255" />
+          <Property Name="Assay Readout" Type="nvarchar" MaxLength="255" />
+          <Property Name="Assay Type" Type="nvarchar" MaxLength="255" />
+          <Property Name="Technology" Type="nvarchar" MaxLength="255" />
+          <Property Name="Web_Product_Category_Primary" Type="nvarchar" MaxLength="255" />
+          <Property Name="Web_Product_Category_Tertiary" Type="nvarchar" MaxLength="255" />
+          <Property Name="Web_Cellular or Biochemical" Type="nvarchar" MaxLength="255" />
+          <Property Name="Assay Format" Type="nvarchar" MaxLength="255" />
+          <Property Name="Web_Product_Category_Secondary" Type="nvarchar" MaxLength="255" />
+          <Property Name="web Target Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="WebCoTarget" Type="nvarchar" MaxLength="255" />
+          <Property Name="CONFIGURATION" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Date Added" Type="nvarchar" MaxLength="255" />
+          <Property Name="PRICE USD" Type="money" Nullable="false" />
+          <Property Name="PRICE GBP" Type="money" Nullable="false" />
+          <Property Name="PRICE EUR" Type="money" Nullable="false" />
+          <Property Name="PRICE CHF" Type="money" Nullable="false" />
+          <Property Name="PRICE DKK" Type="money" Nullable="false" />
+          <Property Name="PRICE SEK" Type="money" Nullable="false" />
+          <Property Name="NFP_DISCOUNT" Type="money" />
+          <Property Name="Family" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Staging_DxFremontProductInfo.dbo.vw_TPL_Synergy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_TPL_Synergy">
+          <Key>
+            <PropertyRef Name="PartNumber" />
+            <PropertyRef Name="ProductCategory" />
+          </Key>
+          <Property Name="GroupID" Type="varchar" MaxLength="66" />
+          <Property Name="PartNumber" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CoreNumber" Type="nvarchar" MaxLength="255" />
+          <Property Name="TARGET" Type="nvarchar" MaxLength="255" />
+          <Property Name="ProductCategory" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="LigandPartNumber" Type="nvarchar" MaxLength="255" />
+          <Property Name="LigandDescription" Type="nvarchar" MaxLength="255" />
+          <Property Name="CellCultureKit" Type="nvarchar" MaxLength="255" />
+          <Property Name="CellPlatingReagent" Type="nvarchar" MaxLength="255" />
+          <Property Name="DetectionReagents" Type="nvarchar" MaxLength="255" />
+          <Property Name="ReviveMedia" Type="nvarchar" MaxLength="255" />
+          <Property Name="PreserveFreezingReagent" Type="nvarchar" MaxLength="255" />
+          <Property Name="CellProliferationKit" Type="nvarchar" MaxLength="255" />
+          <Property Name="LDHQuantificationKit" Type="nvarchar" MaxLength="255" />
+          <Property Name="GlutathionQuantificationKit" Type="nvarchar" MaxLength="255" />
+          <Property Name="DNADamageQuantificationKit" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Staging_DxFremontProductInfo.dbo.vw_TPL_TotalGPCR' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_TPL_TotalGPCR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="Family" Type="nvarchar" MaxLength="255" />
+          <Property Name="CommonName" Type="nvarchar" MaxLength="255" />
+          <Property Name="TARGET" Type="nvarchar" MaxLength="255" />
+          <Property Name="ArrestinCellLineMouseOrtholog" Type="nvarchar" MaxLength="255" />
+          <Property Name="ArrestinCellLineRatOrtholog" Type="nvarchar" MaxLength="255" />
+          <Property Name="ArrestinCellLineCanineOrtholog" Type="nvarchar" MaxLength="255" />
+          <Property Name="ArrestinCellLineSimianOrtholog" Type="nvarchar" MaxLength="255" />
+          <Property Name="ArrestinKitsMouseOrtholog" Type="nvarchar" MaxLength="255" />
+          <Property Name="ArrestinKitsRatOrtholog" Type="nvarchar" MaxLength="255" />
+          <Property Name="ArrestinKitsCanineOrtholog" Type="nvarchar" MaxLength="255" />
+          <Property Name="ArrestinKitsSimianOrtholog" Type="nvarchar" MaxLength="255" />
+          <Property Name="ArrestinCellLines" Type="nvarchar" MaxLength="255" />
+          <Property Name="ArrestinKits" Type="nvarchar" MaxLength="255" />
+          <Property Name="cAMPCellLines" Type="nvarchar" MaxLength="255" />
+          <Property Name="cAMPKits" Type="nvarchar" MaxLength="255" />
+          <Property Name="cAMPCellLineMouseOrtholog" Type="nvarchar" MaxLength="255" />
+          <Property Name="cAMPKitMouseOrtholog" Type="nvarchar" MaxLength="255" />
+          <Property Name="cAMPCellLineRatOrtholog" Type="nvarchar" MaxLength="255" />
+          <Property Name="cAMPKitRatOrtholog" Type="nvarchar" MaxLength="255" />
+          <Property Name="cAMPCellLineSimianOrtholog" Type="nvarchar" MaxLength="255" />
+          <Property Name="cAMPKitSimianOrtholog" Type="nvarchar" MaxLength="255" />
+          <Property Name="cAMPCellLineCanineOrtholog" Type="nvarchar" MaxLength="255" />
+          <Property Name="cAMPKitCanineOrtholog" Type="nvarchar" MaxLength="255" />
+          <Property Name="cAMPReadout" Type="nvarchar" MaxLength="4" />
+          <Property Name="InternalizationCellLines" Type="nvarchar" MaxLength="255" />
+          <Property Name="InternalizationKits" Type="nvarchar" MaxLength="255" />
+          <Property Name="CalciumCellLine" Type="nvarchar" MaxLength="255" />
+          <Property Name="Coupling" Type="nvarchar" MaxLength="255" />
+          <Property Name="ABHunterFunctionalKits" Type="nvarchar" MaxLength="255" />
+          <Property Name="ABHunterBindingKits" Type="nvarchar" MaxLength="255" />
+          <Property Name="PathHunterKits" Type="nvarchar" MaxLength="255" />
+          <Property Name="CALCIUMKits" Type="nvarchar" MaxLength="255" />
+          <Property Name="AN Target Class" Type="nvarchar" MaxLength="255" />
+          <Property Name="Web Target Class" Type="nvarchar" MaxLength="255" />
+          <Property Name="Assay Measures" Type="nvarchar" MaxLength="255" />
+          <Property Name="AbHunterKit" Type="nvarchar" MaxLength="255" />
+          <Property Name="LeadHunterServiceMax" Type="nvarchar" MaxLength="255" />
+          <Property Name="LeadHunterServiceProfiling" Type="nvarchar" MaxLength="255" />
+          <Property Name="cAMPProfiling" Type="nvarchar" MaxLength="255" />
+          <Property Name="CalciumProfiling" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityContainer Name="CBIS_DBStoreContainer">
+          <EntitySet Name="vw_TPL_Assays" EntityType="Self.vw_TPL_Assays" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_TPL_Assays].[ID] AS [ID], 
+    [vw_TPL_Assays].[BasePartNumber] AS [BasePartNumber], 
+    [vw_TPL_Assays].[CellBkgdNumber] AS [CellBkgdNumber], 
+    [vw_TPL_Assays].[TARGET] AS [TARGET], 
+    [vw_TPL_Assays].[Assay Type] AS [Assay Type], 
+    [vw_TPL_Assays].[Brands] AS [Brands], 
+    [vw_TPL_Assays].[DESCRIPTION] AS [DESCRIPTION], 
+    [vw_TPL_Assays].[CellLinePN] AS [CellLinePN], 
+    [vw_TPL_Assays].[ExpressKitPN] AS [ExpressKitPN], 
+    [vw_TPL_Assays].[CellPoolPN] AS [CellPoolPN], 
+    [vw_TPL_Assays].[Assay Readout] AS [Assay Readout], 
+    [vw_TPL_Assays].[Assay Measures] AS [Assay Measures], 
+    [vw_TPL_Assays].[Web Target Class] AS [Web Target Class], 
+    [vw_TPL_Assays].[PROF COMMERCIAL NAME PANEL] AS [PROF COMMERCIAL NAME PANEL], 
+    [vw_TPL_Assays].[PROF COMMERCIAL NAME PRIMARY ELECT] AS [PROF COMMERCIAL NAME PRIMARY ELECT], 
+    [vw_TPL_Assays].[MouseOrtholog] AS [MouseOrtholog], 
+    [vw_TPL_Assays].[RatOrtholog] AS [RatOrtholog], 
+    [vw_TPL_Assays].[SimianOrtholog] AS [SimianOrtholog], 
+    [vw_TPL_Assays].[CanineOrtholog] AS [CanineOrtholog], 
+    [vw_TPL_Assays].[DateAdded] AS [DateAdded], 
+    [vw_TPL_Assays].[CellBackGround] AS [CellBackGround], 
+    [vw_TPL_Assays].[GenBankAccessionNumber] AS [GenBankAccessionNumber], 
+    [vw_TPL_Assays].[Ligand] AS [Ligand], 
+    [vw_TPL_Assays].[Family] AS [Family], 
+    [vw_TPL_Assays].[Product Type] AS [Product Type]
+    FROM [dbo].[vw_TPL_Assays] AS [vw_TPL_Assays]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_TPL_CellBasedKinase" EntityType="Self.vw_TPL_CellBasedKinase" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_TPL_CellBasedKinase].[ID] AS [ID], 
+    [vw_TPL_CellBasedKinase].[Family] AS [Family], 
+    [vw_TPL_CellBasedKinase].[CommonName] AS [CommonName], 
+    [vw_TPL_CellBasedKinase].[TARGET] AS [TARGET], 
+    [vw_TPL_CellBasedKinase].[DESCRIPTION] AS [DESCRIPTION], 
+    [vw_TPL_CellBasedKinase].[CellLines] AS [CellLines], 
+    [vw_TPL_CellBasedKinase].[ExpressKits] AS [ExpressKits], 
+    [vw_TPL_CellBasedKinase].[InternalizationCellLines] AS [InternalizationCellLines], 
+    [vw_TPL_CellBasedKinase].[InternalizationKits] AS [InternalizationKits], 
+    [vw_TPL_CellBasedKinase].[ABHunterFunctionalKits] AS [ABHunterFunctionalKits], 
+    [vw_TPL_CellBasedKinase].[ABHunterBindingKits] AS [ABHunterBindingKits], 
+    [vw_TPL_CellBasedKinase].[PathHunterKits] AS [PathHunterKits], 
+    [vw_TPL_CellBasedKinase].[AN Target Class] AS [AN Target Class], 
+    [vw_TPL_CellBasedKinase].[Web Target Class] AS [Web Target Class], 
+    [vw_TPL_CellBasedKinase].[AbHunterKit] AS [AbHunterKit], 
+    [vw_TPL_CellBasedKinase].[LeadHunterServiceMax] AS [LeadHunterServiceMax], 
+    [vw_TPL_CellBasedKinase].[LeadHunterServiceProfiling] AS [LeadHunterServiceProfiling], 
+    [vw_TPL_CellBasedKinase].[PartnerProtein] AS [PartnerProtein]
+    FROM [dbo].[vw_TPL_CellBasedKinase] AS [vw_TPL_CellBasedKinase]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_TPL_ProductPrice" EntityType="Self.vw_TPL_ProductPrice" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_TPL_ProductPrice].[ID] AS [ID], 
+    [vw_TPL_ProductPrice].[PartNumber] AS [PartNumber], 
+    [vw_TPL_ProductPrice].[TARGET] AS [TARGET], 
+    [vw_TPL_ProductPrice].[Brands] AS [Brands], 
+    [vw_TPL_ProductPrice].[DESCRIPTION] AS [DESCRIPTION], 
+    [vw_TPL_ProductPrice].[Web Target Class] AS [Web Target Class], 
+    [vw_TPL_ProductPrice].[Assay Measures] AS [Assay Measures], 
+    [vw_TPL_ProductPrice].[Assay Readout] AS [Assay Readout], 
+    [vw_TPL_ProductPrice].[Assay Type] AS [Assay Type], 
+    [vw_TPL_ProductPrice].[Technology] AS [Technology], 
+    [vw_TPL_ProductPrice].[Web_Product_Category_Primary] AS [Web_Product_Category_Primary], 
+    [vw_TPL_ProductPrice].[Web_Product_Category_Tertiary] AS [Web_Product_Category_Tertiary], 
+    [vw_TPL_ProductPrice].[Web_Cellular or Biochemical] AS [Web_Cellular or Biochemical], 
+    [vw_TPL_ProductPrice].[Assay Format] AS [Assay Format], 
+    [vw_TPL_ProductPrice].[Web_Product_Category_Secondary] AS [Web_Product_Category_Secondary], 
+    [vw_TPL_ProductPrice].[web Target Name] AS [web Target Name], 
+    [vw_TPL_ProductPrice].[WebCoTarget] AS [WebCoTarget], 
+    [vw_TPL_ProductPrice].[CONFIGURATION] AS [CONFIGURATION], 
+    [vw_TPL_ProductPrice].[Date Added] AS [Date Added], 
+    [vw_TPL_ProductPrice].[PRICE USD] AS [PRICE USD], 
+    [vw_TPL_ProductPrice].[PRICE GBP] AS [PRICE GBP], 
+    [vw_TPL_ProductPrice].[PRICE EUR] AS [PRICE EUR], 
+    [vw_TPL_ProductPrice].[PRICE CHF] AS [PRICE CHF], 
+    [vw_TPL_ProductPrice].[PRICE DKK] AS [PRICE DKK], 
+    [vw_TPL_ProductPrice].[PRICE SEK] AS [PRICE SEK], 
+    [vw_TPL_ProductPrice].[NFP_DISCOUNT] AS [NFP_DISCOUNT], 
+    [vw_TPL_ProductPrice].[Family] AS [Family]
+    FROM [dbo].[vw_TPL_ProductPrice] AS [vw_TPL_ProductPrice]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_TPL_Synergy" EntityType="Self.vw_TPL_Synergy" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_TPL_Synergy].[GroupID] AS [GroupID], 
+    [vw_TPL_Synergy].[PartNumber] AS [PartNumber], 
+    [vw_TPL_Synergy].[CoreNumber] AS [CoreNumber], 
+    [vw_TPL_Synergy].[TARGET] AS [TARGET], 
+    [vw_TPL_Synergy].[ProductCategory] AS [ProductCategory], 
+    [vw_TPL_Synergy].[LigandPartNumber] AS [LigandPartNumber], 
+    [vw_TPL_Synergy].[LigandDescription] AS [LigandDescription], 
+    [vw_TPL_Synergy].[CellCultureKit] AS [CellCultureKit], 
+    [vw_TPL_Synergy].[CellPlatingReagent] AS [CellPlatingReagent], 
+    [vw_TPL_Synergy].[DetectionReagents] AS [DetectionReagents], 
+    [vw_TPL_Synergy].[ReviveMedia] AS [ReviveMedia], 
+    [vw_TPL_Synergy].[PreserveFreezingReagent] AS [PreserveFreezingReagent], 
+    [vw_TPL_Synergy].[CellProliferationKit] AS [CellProliferationKit], 
+    [vw_TPL_Synergy].[LDHQuantificationKit] AS [LDHQuantificationKit], 
+    [vw_TPL_Synergy].[GlutathionQuantificationKit] AS [GlutathionQuantificationKit], 
+    [vw_TPL_Synergy].[DNADamageQuantificationKit] AS [DNADamageQuantificationKit]
+    FROM [dbo].[vw_TPL_Synergy] AS [vw_TPL_Synergy]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_TPL_TotalGPCR" EntityType="Self.vw_TPL_TotalGPCR" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_TPL_TotalGPCR].[ID] AS [ID], 
+    [vw_TPL_TotalGPCR].[Family] AS [Family], 
+    [vw_TPL_TotalGPCR].[CommonName] AS [CommonName], 
+    [vw_TPL_TotalGPCR].[TARGET] AS [TARGET], 
+    [vw_TPL_TotalGPCR].[ArrestinCellLineMouseOrtholog] AS [ArrestinCellLineMouseOrtholog], 
+    [vw_TPL_TotalGPCR].[ArrestinCellLineRatOrtholog] AS [ArrestinCellLineRatOrtholog], 
+    [vw_TPL_TotalGPCR].[ArrestinCellLineCanineOrtholog] AS [ArrestinCellLineCanineOrtholog], 
+    [vw_TPL_TotalGPCR].[ArrestinCellLineSimianOrtholog] AS [ArrestinCellLineSimianOrtholog], 
+    [vw_TPL_TotalGPCR].[ArrestinKitsMouseOrtholog] AS [ArrestinKitsMouseOrtholog], 
+    [vw_TPL_TotalGPCR].[ArrestinKitsRatOrtholog] AS [ArrestinKitsRatOrtholog], 
+    [vw_TPL_TotalGPCR].[ArrestinKitsCanineOrtholog] AS [ArrestinKitsCanineOrtholog], 
+    [vw_TPL_TotalGPCR].[ArrestinKitsSimianOrtholog] AS [ArrestinKitsSimianOrtholog], 
+    [vw_TPL_TotalGPCR].[ArrestinCellLines] AS [ArrestinCellLines], 
+    [vw_TPL_TotalGPCR].[ArrestinKits] AS [ArrestinKits], 
+    [vw_TPL_TotalGPCR].[cAMPCellLines] AS [cAMPCellLines], 
+    [vw_TPL_TotalGPCR].[cAMPKits] AS [cAMPKits], 
+    [vw_TPL_TotalGPCR].[cAMPCellLineMouseOrtholog] AS [cAMPCellLineMouseOrtholog], 
+    [vw_TPL_TotalGPCR].[cAMPKitMouseOrtholog] AS [cAMPKitMouseOrtholog], 
+    [vw_TPL_TotalGPCR].[cAMPCellLineRatOrtholog] AS [cAMPCellLineRatOrtholog], 
+    [vw_TPL_TotalGPCR].[cAMPKitRatOrtholog] AS [cAMPKitRatOrtholog], 
+    [vw_TPL_TotalGPCR].[cAMPCellLineSimianOrtholog] AS [cAMPCellLineSimianOrtholog], 
+    [vw_TPL_TotalGPCR].[cAMPKitSimianOrtholog] AS [cAMPKitSimianOrtholog], 
+    [vw_TPL_TotalGPCR].[cAMPCellLineCanineOrtholog] AS [cAMPCellLineCanineOrtholog], 
+    [vw_TPL_TotalGPCR].[cAMPKitCanineOrtholog] AS [cAMPKitCanineOrtholog], 
+    [vw_TPL_TotalGPCR].[cAMPReadout] AS [cAMPReadout], 
+    [vw_TPL_TotalGPCR].[InternalizationCellLines] AS [InternalizationCellLines], 
+    [vw_TPL_TotalGPCR].[InternalizationKits] AS [InternalizationKits], 
+    [vw_TPL_TotalGPCR].[CalciumCellLine] AS [CalciumCellLine], 
+    [vw_TPL_TotalGPCR].[Coupling] AS [Coupling], 
+    [vw_TPL_TotalGPCR].[ABHunterFunctionalKits] AS [ABHunterFunctionalKits], 
+    [vw_TPL_TotalGPCR].[ABHunterBindingKits] AS [ABHunterBindingKits], 
+    [vw_TPL_TotalGPCR].[PathHunterKits] AS [PathHunterKits], 
+    [vw_TPL_TotalGPCR].[CALCIUMKits] AS [CALCIUMKits], 
+    [vw_TPL_TotalGPCR].[AN Target Class] AS [AN Target Class], 
+    [vw_TPL_TotalGPCR].[Web Target Class] AS [Web Target Class], 
+    [vw_TPL_TotalGPCR].[Assay Measures] AS [Assay Measures], 
+    [vw_TPL_TotalGPCR].[AbHunterKit] AS [AbHunterKit], 
+    [vw_TPL_TotalGPCR].[LeadHunterServiceMax] AS [LeadHunterServiceMax], 
+    [vw_TPL_TotalGPCR].[LeadHunterServiceProfiling] AS [LeadHunterServiceProfiling], 
+    [vw_TPL_TotalGPCR].[cAMPProfiling] AS [cAMPProfiling], 
+    [vw_TPL_TotalGPCR].[CalciumProfiling] AS [CalciumProfiling]
+    FROM [dbo].[vw_TPL_TotalGPCR] AS [vw_TPL_TotalGPCR]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CBIS_DB" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="vw_TPL_ProductPrice">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="PartNumber" />
+            <PropertyRef Name="CONFIGURATION" />
+            <PropertyRef Name="PRICE_USD" />
+            <PropertyRef Name="PRICE_GBP" />
+            <PropertyRef Name="PRICE_EUR" />
+            <PropertyRef Name="PRICE_CHF" />
+            <PropertyRef Name="PRICE_DKK" />
+            <PropertyRef Name="PRICE_SEK" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="PartNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TARGET" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Brands" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Web_Target_Class" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Assay_Measures" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Assay_Readout" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Assay_Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Technology" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Web_Product_Category_Primary" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Web_Product_Category_Tertiary" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Web_Cellular_or_Biochemical" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Assay_Format" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Web_Product_Category_Secondary" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="web_Target_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="WebCoTarget" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CONFIGURATION" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date_Added" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PRICE_USD" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="PRICE_GBP" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="PRICE_EUR" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="PRICE_CHF" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="PRICE_DKK" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="PRICE_SEK" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="NFP_DISCOUNT" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Family" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vw_TPL_TotalGPCR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="Family" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CommonName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="TARGET" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ArrestinCellLineMouseOrtholog" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ArrestinCellLineRatOrtholog" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ArrestinCellLineCanineOrtholog" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ArrestinCellLineSimianOrtholog" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ArrestinKitsMouseOrtholog" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ArrestinKitsRatOrtholog" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ArrestinKitsCanineOrtholog" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ArrestinKitsSimianOrtholog" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ArrestinCellLines" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ArrestinKits" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="cAMPCellLines" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="cAMPKits" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="cAMPCellLineMouseOrtholog" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="cAMPKitMouseOrtholog" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="cAMPCellLineRatOrtholog" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="cAMPKitRatOrtholog" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="cAMPCellLineSimianOrtholog" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="cAMPKitSimianOrtholog" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="cAMPCellLineCanineOrtholog" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="cAMPKitCanineOrtholog" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="cAMPReadout" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="InternalizationCellLines" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="InternalizationKits" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ABHunterFunctionalKits" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ABHunterBindingKits" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PathHunterKits" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CALCIUMKits" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="AN_Target_Class" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Web_Target_Class" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Assay_Measures" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="AbHunterKit" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="LeadHunterServiceMax" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="LeadHunterServiceProfiling" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="cAMPProfiling" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CalciumProfiling" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CalciumCellLine" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Coupling" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="Staging_DxFremontProductInfoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="vw_TPL_ProductPrice" EntityType="Self.vw_TPL_ProductPrice" />
+          <EntitySet Name="vw_TPL_TotalGPCR" EntityType="Self.vw_TPL_TotalGPCR" />
+          <EntitySet Name="vw_TPL_CellBasedKinase" EntityType="CBIS_DB.vw_TPL_CellBasedKinase" />
+          <EntitySet Name="vw_TPL_Assays" EntityType="CBIS_DB.vw_TPL_Assays" />
+          <EntitySet Name="vw_TPL_Synergy" EntityType="CBIS_DB.vw_TPL_Synergy" />
+        </EntityContainer>
+        <EntityType Name="vw_TPL_CellBasedKinase">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="Family" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CommonName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="TARGET" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CellLines" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ExpressKits" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="InternalizationCellLines" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="InternalizationKits" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ABHunterFunctionalKits" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ABHunterBindingKits" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PathHunterKits" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="AN_Target_Class" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Web_Target_Class" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="AbHunterKit" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="LeadHunterServiceMax" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="LeadHunterServiceProfiling" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PartnerProtein" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vw_TPL_Assays">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="BasePartNumber" Type="String" MaxLength="7" FixedLength="false" Unicode="true" />
+          <Property Name="CellBkgdNumber" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="TARGET" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Assay_Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Brands" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CellLinePN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ExpressKitPN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CellPoolPN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Assay_Readout" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Assay_Measures" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Web_Target_Class" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PROF_COMMERCIAL_NAME_PANEL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PROF_COMMERCIAL_NAME_PRIMARY_ELECT" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="MouseOrtholog" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="RatOrtholog" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SimianOrtholog" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CanineOrtholog" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DateAdded" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CellBackGround" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="GenBankAccessionNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Ligand" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Family" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Product_Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vw_TPL_Synergy">
+          <Key>
+            <PropertyRef Name="PartNumber" />
+            <PropertyRef Name="ProductCategory" />
+          </Key>
+          <Property Name="GroupID" Type="String" MaxLength="66" FixedLength="false" Unicode="false" />
+          <Property Name="PartNumber" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CoreNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="TARGET" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ProductCategory" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="LigandPartNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="LigandDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CellCultureKit" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CellPlatingReagent" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DetectionReagents" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ReviveMedia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PreserveFreezingReagent" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CellProliferationKit" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="LDHQuantificationKit" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="GlutathionQuantificationKit" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DNADamageQuantificationKit" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CBIS_DBStoreContainer" CdmEntityContainer="Staging_DxFremontProductInfoEntities">
+          <EntitySetMapping Name="vw_TPL_ProductPrice">
+            <EntityTypeMapping TypeName="CBIS_DB.vw_TPL_ProductPrice">
+              <MappingFragment StoreEntitySet="vw_TPL_ProductPrice">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+                <ScalarProperty Name="TARGET" ColumnName="TARGET" />
+                <ScalarProperty Name="Brands" ColumnName="Brands" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="Web_Target_Class" ColumnName="Web Target Class" />
+                <ScalarProperty Name="Assay_Measures" ColumnName="Assay Measures" />
+                <ScalarProperty Name="Assay_Readout" ColumnName="Assay Readout" />
+                <ScalarProperty Name="Assay_Type" ColumnName="Assay Type" />
+                <ScalarProperty Name="Technology" ColumnName="Technology" />
+                <ScalarProperty Name="Web_Product_Category_Primary" ColumnName="Web_Product_Category_Primary" />
+                <ScalarProperty Name="Web_Product_Category_Tertiary" ColumnName="Web_Product_Category_Tertiary" />
+                <ScalarProperty Name="Web_Cellular_or_Biochemical" ColumnName="Web_Cellular or Biochemical" />
+                <ScalarProperty Name="Assay_Format" ColumnName="Assay Format" />
+                <ScalarProperty Name="Web_Product_Category_Secondary" ColumnName="Web_Product_Category_Secondary" />
+                <ScalarProperty Name="web_Target_Name" ColumnName="web Target Name" />
+                <ScalarProperty Name="WebCoTarget" ColumnName="WebCoTarget" />
+                <ScalarProperty Name="CONFIGURATION" ColumnName="CONFIGURATION" />
+                <ScalarProperty Name="Date_Added" ColumnName="Date Added" />
+                <ScalarProperty Name="PRICE_USD" ColumnName="PRICE USD" />
+                <ScalarProperty Name="PRICE_GBP" ColumnName="PRICE GBP" />
+                <ScalarProperty Name="PRICE_EUR" ColumnName="PRICE EUR" />
+                <ScalarProperty Name="PRICE_CHF" ColumnName="PRICE CHF" />
+                <ScalarProperty Name="PRICE_DKK" ColumnName="PRICE DKK" />
+                <ScalarProperty Name="PRICE_SEK" ColumnName="PRICE SEK" />
+                <ScalarProperty Name="NFP_DISCOUNT" ColumnName="NFP_DISCOUNT" />
+                <ScalarProperty Name="Family" ColumnName="Family" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_TPL_TotalGPCR">
+            <EntityTypeMapping TypeName="CBIS_DB.vw_TPL_TotalGPCR">
+              <MappingFragment StoreEntitySet="vw_TPL_TotalGPCR">
+                <ScalarProperty Name="Coupling" ColumnName="Coupling" />
+                <ScalarProperty Name="CalciumCellLine" ColumnName="CalciumCellLine" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Family" ColumnName="Family" />
+                <ScalarProperty Name="CommonName" ColumnName="CommonName" />
+                <ScalarProperty Name="TARGET" ColumnName="TARGET" />
+                <ScalarProperty Name="ArrestinCellLineMouseOrtholog" ColumnName="ArrestinCellLineMouseOrtholog" />
+                <ScalarProperty Name="ArrestinCellLineRatOrtholog" ColumnName="ArrestinCellLineRatOrtholog" />
+                <ScalarProperty Name="ArrestinCellLineCanineOrtholog" ColumnName="ArrestinCellLineCanineOrtholog" />
+                <ScalarProperty Name="ArrestinCellLineSimianOrtholog" ColumnName="ArrestinCellLineSimianOrtholog" />
+                <ScalarProperty Name="ArrestinKitsMouseOrtholog" ColumnName="ArrestinKitsMouseOrtholog" />
+                <ScalarProperty Name="ArrestinKitsRatOrtholog" ColumnName="ArrestinKitsRatOrtholog" />
+                <ScalarProperty Name="ArrestinKitsCanineOrtholog" ColumnName="ArrestinKitsCanineOrtholog" />
+                <ScalarProperty Name="ArrestinKitsSimianOrtholog" ColumnName="ArrestinKitsSimianOrtholog" />
+                <ScalarProperty Name="ArrestinCellLines" ColumnName="ArrestinCellLines" />
+                <ScalarProperty Name="ArrestinKits" ColumnName="ArrestinKits" />
+                <ScalarProperty Name="cAMPCellLines" ColumnName="cAMPCellLines" />
+                <ScalarProperty Name="cAMPKits" ColumnName="cAMPKits" />
+                <ScalarProperty Name="cAMPCellLineMouseOrtholog" ColumnName="cAMPCellLineMouseOrtholog" />
+                <ScalarProperty Name="cAMPKitMouseOrtholog" ColumnName="cAMPKitMouseOrtholog" />
+                <ScalarProperty Name="cAMPCellLineRatOrtholog" ColumnName="cAMPCellLineRatOrtholog" />
+                <ScalarProperty Name="cAMPKitRatOrtholog" ColumnName="cAMPKitRatOrtholog" />
+                <ScalarProperty Name="cAMPCellLineSimianOrtholog" ColumnName="cAMPCellLineSimianOrtholog" />
+                <ScalarProperty Name="cAMPKitSimianOrtholog" ColumnName="cAMPKitSimianOrtholog" />
+                <ScalarProperty Name="cAMPCellLineCanineOrtholog" ColumnName="cAMPCellLineCanineOrtholog" />
+                <ScalarProperty Name="cAMPKitCanineOrtholog" ColumnName="cAMPKitCanineOrtholog" />
+                <ScalarProperty Name="cAMPReadout" ColumnName="cAMPReadout" />
+                <ScalarProperty Name="InternalizationCellLines" ColumnName="InternalizationCellLines" />
+                <ScalarProperty Name="InternalizationKits" ColumnName="InternalizationKits" />
+                <ScalarProperty Name="ABHunterFunctionalKits" ColumnName="ABHunterFunctionalKits" />
+                <ScalarProperty Name="ABHunterBindingKits" ColumnName="ABHunterBindingKits" />
+                <ScalarProperty Name="PathHunterKits" ColumnName="PathHunterKits" />
+                <ScalarProperty Name="CALCIUMKits" ColumnName="CALCIUMKits" />
+                <ScalarProperty Name="AN_Target_Class" ColumnName="AN Target Class" />
+                <ScalarProperty Name="Web_Target_Class" ColumnName="Web Target Class" />
+                <ScalarProperty Name="Assay_Measures" ColumnName="Assay Measures" />
+                <ScalarProperty Name="AbHunterKit" ColumnName="AbHunterKit" />
+                <ScalarProperty Name="LeadHunterServiceMax" ColumnName="LeadHunterServiceMax" />
+                <ScalarProperty Name="LeadHunterServiceProfiling" ColumnName="LeadHunterServiceProfiling" />
+                <ScalarProperty Name="cAMPProfiling" ColumnName="cAMPProfiling" />
+                <ScalarProperty Name="CalciumProfiling" ColumnName="CalciumProfiling" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_TPL_CellBasedKinase">
+            <EntityTypeMapping TypeName="CBIS_DB.vw_TPL_CellBasedKinase">
+              <MappingFragment StoreEntitySet="vw_TPL_CellBasedKinase">
+                <ScalarProperty Name="PartnerProtein" ColumnName="PartnerProtein" />
+                <ScalarProperty Name="LeadHunterServiceProfiling" ColumnName="LeadHunterServiceProfiling" />
+                <ScalarProperty Name="LeadHunterServiceMax" ColumnName="LeadHunterServiceMax" />
+                <ScalarProperty Name="AbHunterKit" ColumnName="AbHunterKit" />
+                <ScalarProperty Name="Web_Target_Class" ColumnName="Web Target Class" />
+                <ScalarProperty Name="AN_Target_Class" ColumnName="AN Target Class" />
+                <ScalarProperty Name="PathHunterKits" ColumnName="PathHunterKits" />
+                <ScalarProperty Name="ABHunterBindingKits" ColumnName="ABHunterBindingKits" />
+                <ScalarProperty Name="ABHunterFunctionalKits" ColumnName="ABHunterFunctionalKits" />
+                <ScalarProperty Name="InternalizationKits" ColumnName="InternalizationKits" />
+                <ScalarProperty Name="InternalizationCellLines" ColumnName="InternalizationCellLines" />
+                <ScalarProperty Name="ExpressKits" ColumnName="ExpressKits" />
+                <ScalarProperty Name="CellLines" ColumnName="CellLines" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="TARGET" ColumnName="TARGET" />
+                <ScalarProperty Name="CommonName" ColumnName="CommonName" />
+                <ScalarProperty Name="Family" ColumnName="Family" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_TPL_Assays">
+            <EntityTypeMapping TypeName="CBIS_DB.vw_TPL_Assays">
+              <MappingFragment StoreEntitySet="vw_TPL_Assays">
+                <ScalarProperty Name="Product_Type" ColumnName="Product Type" />
+                <ScalarProperty Name="Family" ColumnName="Family" />
+                <ScalarProperty Name="Ligand" ColumnName="Ligand" />
+                <ScalarProperty Name="GenBankAccessionNumber" ColumnName="GenBankAccessionNumber" />
+                <ScalarProperty Name="CellBackGround" ColumnName="CellBackGround" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="CanineOrtholog" ColumnName="CanineOrtholog" />
+                <ScalarProperty Name="SimianOrtholog" ColumnName="SimianOrtholog" />
+                <ScalarProperty Name="RatOrtholog" ColumnName="RatOrtholog" />
+                <ScalarProperty Name="MouseOrtholog" ColumnName="MouseOrtholog" />
+                <ScalarProperty Name="PROF_COMMERCIAL_NAME_PRIMARY_ELECT" ColumnName="PROF COMMERCIAL NAME PRIMARY ELECT" />
+                <ScalarProperty Name="PROF_COMMERCIAL_NAME_PANEL" ColumnName="PROF COMMERCIAL NAME PANEL" />
+                <ScalarProperty Name="Web_Target_Class" ColumnName="Web Target Class" />
+                <ScalarProperty Name="Assay_Measures" ColumnName="Assay Measures" />
+                <ScalarProperty Name="Assay_Readout" ColumnName="Assay Readout" />
+                <ScalarProperty Name="CellPoolPN" ColumnName="CellPoolPN" />
+                <ScalarProperty Name="ExpressKitPN" ColumnName="ExpressKitPN" />
+                <ScalarProperty Name="CellLinePN" ColumnName="CellLinePN" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="Brands" ColumnName="Brands" />
+                <ScalarProperty Name="Assay_Type" ColumnName="Assay Type" />
+                <ScalarProperty Name="TARGET" ColumnName="TARGET" />
+                <ScalarProperty Name="CellBkgdNumber" ColumnName="CellBkgdNumber" />
+                <ScalarProperty Name="BasePartNumber" ColumnName="BasePartNumber" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_TPL_Synergy">
+            <EntityTypeMapping TypeName="CBIS_DB.vw_TPL_Synergy">
+              <MappingFragment StoreEntitySet="vw_TPL_Synergy">
+                <ScalarProperty Name="DNADamageQuantificationKit" ColumnName="DNADamageQuantificationKit" />
+                <ScalarProperty Name="GlutathionQuantificationKit" ColumnName="GlutathionQuantificationKit" />
+                <ScalarProperty Name="LDHQuantificationKit" ColumnName="LDHQuantificationKit" />
+                <ScalarProperty Name="CellProliferationKit" ColumnName="CellProliferationKit" />
+                <ScalarProperty Name="PreserveFreezingReagent" ColumnName="PreserveFreezingReagent" />
+                <ScalarProperty Name="ReviveMedia" ColumnName="ReviveMedia" />
+                <ScalarProperty Name="DetectionReagents" ColumnName="DetectionReagents" />
+                <ScalarProperty Name="CellPlatingReagent" ColumnName="CellPlatingReagent" />
+                <ScalarProperty Name="CellCultureKit" ColumnName="CellCultureKit" />
+                <ScalarProperty Name="LigandDescription" ColumnName="LigandDescription" />
+                <ScalarProperty Name="LigandPartNumber" ColumnName="LigandPartNumber" />
+                <ScalarProperty Name="ProductCategory" ColumnName="ProductCategory" />
+                <ScalarProperty Name="TARGET" ColumnName="TARGET" />
+                <ScalarProperty Name="CoreNumber" ColumnName="CoreNumber" />
+                <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

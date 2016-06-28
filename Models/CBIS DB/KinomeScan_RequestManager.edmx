@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="KinomeScan_RequestManagerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Dx_Request">
+          <Key>
+            <PropertyRef Name="Dx_RequestID" />
+          </Key>
+          <Property Name="Dx_RequestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RequestDate" Type="datetime" Nullable="false" />
+          <Property Name="RequestContactID" Type="int" Nullable="false" />
+          <Property Name="AssigneeID" Type="int" Nullable="false" />
+          <Property Name="NumberOfCompounds" Type="int" Nullable="false" />
+          <Property Name="RequestStatusID" Type="int" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="WebRequestID" Type="uniqueidentifier" />
+          <Property Name="Note" Type="varchar" MaxLength="500" />
+          <Property Name="RequestCompleted" Type="bit" />
+          <Property Name="Experiment" Type="varchar" MaxLength="50" />
+          <Property Name="NumberOfInteractions" Type="int" />
+          <Property Name="PricePerInteraction" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="DiscountPerInteraction" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Discount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TotalPrice" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PriceKdFollowUp" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="QuoteDate" Type="datetime" />
+          <Property Name="QuoteExpiresDate" Type="datetime" />
+          <Property Name="QuoteActive" Type="bit" />
+          <Property Name="QuoteContent" Type="text" />
+          <Property Name="QuoteImage" Type="varbinary" MaxLength="50" />
+          <Property Name="Concentration" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="QuoteComment" Type="varchar" MaxLength="2000" />
+          <Property Name="OrderNotes" Type="varchar" MaxLength="2000" />
+          <Property Name="dupl_singl" Type="int" />
+          <Property Name="actions" Type="varchar" MaxLength="2000" />
+          <Property Name="RequestSourceID" Type="int" />
+          <Property Name="QuoteNumber" Type="varchar" MaxLength="50" />
+          <Property Name="ContractExists" Type="int" />
+          <Property Name="Is_Custom" Type="bit" Nullable="false" />
+          <Property Name="Number_Of_Custom_Targets" Type="int" Nullable="false" />
+          <Property Name="Number_Of_Custom_Modes" Type="int" Nullable="false" />
+          <Property Name="Number_Of_Predefined_Panels" Type="int" Nullable="false" />
+          <Property Name="Is_Single_Point" Type="bit" Nullable="false" />
+          <Property Name="Number_Of_Single_Point_Concentrations" Type="int" Nullable="false" />
+          <Property Name="mtCreatedBy" Type="varchar" MaxLength="100" />
+          <Property Name="mtCreatedDate" Type="datetime" />
+          <Property Name="mtLastModifiedBy" Type="varchar" MaxLength="100" />
+          <Property Name="mtLastModifiedDate" Type="datetime" />
+          <Property Name="CurrencyID" Type="int" />
+          <Property Name="CurrencyExchangeRate" Type="decimal" Precision="18" Scale="9" />
+          <Property Name="ShippingID" Type="int" />
+          <Property Name="ShippingSurchargePercent" Type="decimal" Precision="18" Scale="9" />
+          <Property Name="SignedDate" Type="datetime" />
+          <Property Name="Number_Of_Dose_Response_Concentrations" Type="int" Nullable="false" />
+          <Property Name="MaterialsCost" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="SalesID" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <Function Name="mtp_Dx_RequestAssaysSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Dx_RequestID" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="KinomeScan_RequestManagerModelStoreContainer">
+          <EntitySet Name="Dx_Request" EntityType="Self.Dx_Request" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KinomeScan_RequestManagerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="KinomeScan_RequestManagerEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="mtp_Dx_RequestAssaysSelect" ReturnType="Collection(KinomeScan_RequestManagerModel.mtp_Dx_RequestAssaysSelect_Result)">
+          <Parameter Name="Dx_RequestID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Dx_Request" EntityType="KinomeScan_RequestManagerModel.Dx_Request" />
+        </EntityContainer>
+        <ComplexType Name="mtp_Dx_RequestAssaysSelect_Result">
+          <Property Type="Int32" Name="Dx_RequestID" Nullable="false" />
+          <Property Type="Int32" Name="Dx_AssayID" Nullable="false" />
+          <Property Type="String" Name="Product" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Panel" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Target" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Class" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Type" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Mode" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <EntityType Name="Dx_Request">
+          <Key>
+            <PropertyRef Name="Dx_RequestID" />
+          </Key>
+          <Property Name="Dx_RequestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RequestDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="RequestContactID" Type="Int32" Nullable="false" />
+          <Property Name="AssigneeID" Type="Int32" Nullable="false" />
+          <Property Name="NumberOfCompounds" Type="Int32" Nullable="false" />
+          <Property Name="RequestStatusID" Type="Int32" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="WebRequestID" Type="Guid" />
+          <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="RequestCompleted" Type="Boolean" />
+          <Property Name="Experiment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NumberOfInteractions" Type="Int32" />
+          <Property Name="PricePerInteraction" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="DiscountPerInteraction" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Discount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TotalPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PriceKdFollowUp" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="QuoteDate" Type="DateTime" Precision="3" />
+          <Property Name="QuoteExpiresDate" Type="DateTime" Precision="3" />
+          <Property Name="QuoteActive" Type="Boolean" />
+          <Property Name="QuoteContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="QuoteImage" Type="Binary" MaxLength="50" FixedLength="false" />
+          <Property Name="Concentration" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="QuoteComment" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="OrderNotes" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="dupl_singl" Type="Int32" />
+          <Property Name="actions" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="RequestSourceID" Type="Int32" />
+          <Property Name="QuoteNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ContractExists" Type="Int32" />
+          <Property Name="Is_Custom" Type="Boolean" Nullable="false" />
+          <Property Name="Number_Of_Custom_Targets" Type="Int32" Nullable="false" />
+          <Property Name="Number_Of_Custom_Modes" Type="Int32" Nullable="false" />
+          <Property Name="Number_Of_Predefined_Panels" Type="Int32" Nullable="false" />
+          <Property Name="Is_Single_Point" Type="Boolean" Nullable="false" />
+          <Property Name="Number_Of_Single_Point_Concentrations" Type="Int32" Nullable="false" />
+          <Property Name="mtCreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="mtCreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="mtLastModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="mtLastModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="CurrencyID" Type="Int32" />
+          <Property Name="CurrencyExchangeRate" Type="Decimal" Precision="18" Scale="9" />
+          <Property Name="ShippingID" Type="Int32" />
+          <Property Name="ShippingSurchargePercent" Type="Decimal" Precision="18" Scale="9" />
+          <Property Name="SignedDate" Type="DateTime" Precision="3" />
+          <Property Name="Number_Of_Dose_Response_Concentrations" Type="Int32" Nullable="false" />
+          <Property Name="MaterialsCost" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SalesID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KinomeScan_RequestManagerModelStoreContainer" CdmEntityContainer="KinomeScan_RequestManagerEntities" >
+          <FunctionImportMapping FunctionImportName="mtp_Dx_RequestAssaysSelect" FunctionName="KinomeScan_RequestManagerModel.Store.mtp_Dx_RequestAssaysSelect">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KinomeScan_RequestManagerModel.mtp_Dx_RequestAssaysSelect_Result">
+                <ScalarProperty Name="Dx_RequestID" ColumnName="Dx_RequestID" />
+                <ScalarProperty Name="Dx_AssayID" ColumnName="Dx_AssayID" />
+                <ScalarProperty Name="Product" ColumnName="Product" />
+                <ScalarProperty Name="Panel" ColumnName="Panel" />
+                <ScalarProperty Name="Target" ColumnName="Target" />
+                <ScalarProperty Name="Class" ColumnName="Class" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Mode" ColumnName="Mode" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Dx_Request">
+            <EntityTypeMapping TypeName="KinomeScan_RequestManagerModel.Dx_Request">
+              <MappingFragment StoreEntitySet="Dx_Request">
+                <ScalarProperty Name="SalesID" ColumnName="SalesID" />
+                <ScalarProperty Name="MaterialsCost" ColumnName="MaterialsCost" />
+                <ScalarProperty Name="Number_Of_Dose_Response_Concentrations" ColumnName="Number_Of_Dose_Response_Concentrations" />
+                <ScalarProperty Name="SignedDate" ColumnName="SignedDate" />
+                <ScalarProperty Name="ShippingSurchargePercent" ColumnName="ShippingSurchargePercent" />
+                <ScalarProperty Name="ShippingID" ColumnName="ShippingID" />
+                <ScalarProperty Name="CurrencyExchangeRate" ColumnName="CurrencyExchangeRate" />
+                <ScalarProperty Name="CurrencyID" ColumnName="CurrencyID" />
+                <ScalarProperty Name="mtLastModifiedDate" ColumnName="mtLastModifiedDate" />
+                <ScalarProperty Name="mtLastModifiedBy" ColumnName="mtLastModifiedBy" />
+                <ScalarProperty Name="mtCreatedDate" ColumnName="mtCreatedDate" />
+                <ScalarProperty Name="mtCreatedBy" ColumnName="mtCreatedBy" />
+                <ScalarProperty Name="Number_Of_Single_Point_Concentrations" ColumnName="Number_Of_Single_Point_Concentrations" />
+                <ScalarProperty Name="Is_Single_Point" ColumnName="Is_Single_Point" />
+                <ScalarProperty Name="Number_Of_Predefined_Panels" ColumnName="Number_Of_Predefined_Panels" />
+                <ScalarProperty Name="Number_Of_Custom_Modes" ColumnName="Number_Of_Custom_Modes" />
+                <ScalarProperty Name="Number_Of_Custom_Targets" ColumnName="Number_Of_Custom_Targets" />
+                <ScalarProperty Name="Is_Custom" ColumnName="Is_Custom" />
+                <ScalarProperty Name="ContractExists" ColumnName="ContractExists" />
+                <ScalarProperty Name="QuoteNumber" ColumnName="QuoteNumber" />
+                <ScalarProperty Name="RequestSourceID" ColumnName="RequestSourceID" />
+                <ScalarProperty Name="actions" ColumnName="actions" />
+                <ScalarProperty Name="dupl_singl" ColumnName="dupl_singl" />
+                <ScalarProperty Name="OrderNotes" ColumnName="OrderNotes" />
+                <ScalarProperty Name="QuoteComment" ColumnName="QuoteComment" />
+                <ScalarProperty Name="Concentration" ColumnName="Concentration" />
+                <ScalarProperty Name="QuoteImage" ColumnName="QuoteImage" />
+                <ScalarProperty Name="QuoteContent" ColumnName="QuoteContent" />
+                <ScalarProperty Name="QuoteActive" ColumnName="QuoteActive" />
+                <ScalarProperty Name="QuoteExpiresDate" ColumnName="QuoteExpiresDate" />
+                <ScalarProperty Name="QuoteDate" ColumnName="QuoteDate" />
+                <ScalarProperty Name="PriceKdFollowUp" ColumnName="PriceKdFollowUp" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="DiscountPerInteraction" ColumnName="DiscountPerInteraction" />
+                <ScalarProperty Name="PricePerInteraction" ColumnName="PricePerInteraction" />
+                <ScalarProperty Name="NumberOfInteractions" ColumnName="NumberOfInteractions" />
+                <ScalarProperty Name="Experiment" ColumnName="Experiment" />
+                <ScalarProperty Name="RequestCompleted" ColumnName="RequestCompleted" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="WebRequestID" ColumnName="WebRequestID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="RequestStatusID" ColumnName="RequestStatusID" />
+                <ScalarProperty Name="NumberOfCompounds" ColumnName="NumberOfCompounds" />
+                <ScalarProperty Name="AssigneeID" ColumnName="AssigneeID" />
+                <ScalarProperty Name="RequestContactID" ColumnName="RequestContactID" />
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+                <ScalarProperty Name="Dx_RequestID" ColumnName="Dx_RequestID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

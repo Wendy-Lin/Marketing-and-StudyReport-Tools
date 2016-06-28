@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HTSContractsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Contract">
+          <Key>
+            <PropertyRef Name="ContractID" />
+          </Key>
+          <Property Name="ContractID" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="QuoteID" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Product" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="NumberOfCompounds" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="NumberOfAssays" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="PricePerInteraction" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="TotalPrice" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="BillingTerms" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="PONumber" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="DateSigned" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="DateExpires" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="DateCompleted" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ContactName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="AssigneeName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="StateProvince" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Country" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="DistributionList" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Comments" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="OrderStatus" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ReportFormat" Type="nvarchar" MaxLength="255" />
+          <Property Name="RevenueClass" Type="nvarchar" MaxLength="255" />
+          <Property Name="Redundancy" Type="nvarchar" MaxLength="255" />
+          <Property Name="PublishStatus" Type="nvarchar" MaxLength="255" />
+          <Property Name="Address2" Type="nvarchar" MaxLength="255" />
+          <Property Name="BillingAddress" Type="nvarchar" MaxLength="255" />
+          <Property Name="BillingAddress2" Type="nvarchar" MaxLength="255" />
+          <Property Name="BillingCity" Type="nvarchar" MaxLength="255" />
+          <Property Name="BillingStateProvince" Type="nvarchar" MaxLength="255" />
+          <Property Name="BillingCountry" Type="nvarchar" MaxLength="255" />
+          <Property Name="BillingPostalCode" Type="nvarchar" MaxLength="255" />
+          <Property Name="BillingDistribution" Type="nvarchar" MaxLength="255" />
+          <Property Name="Address3" Type="nvarchar" MaxLength="255" />
+          <Property Name="BillingAddress3" Type="nvarchar" MaxLength="255" />
+          <Property Name="CreditCardNumber" Type="nvarchar" MaxLength="255" />
+          <Property Name="CreditCardType" Type="nvarchar" MaxLength="255" />
+          <Property Name="CreditCardName" Type="nvarchar" MaxLength="255" />
+          <Property Name="CreditCardExpDate" Type="nvarchar" MaxLength="255" />
+          <Property Name="CreditCardCode" Type="nvarchar" MaxLength="255" />
+          <Property Name="GetSignedDate" Type="nvarchar" MaxLength="255" />
+          <Property Name="NumberOfConcentrations" Type="nvarchar" MaxLength="255" />
+          <Property Name="MaterialsCost" Type="nvarchar" MaxLength="255" />
+          <Property Name="SalesID" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityContainer Name="HTSContractsModelStoreContainer">
+          <EntitySet Name="Contract" EntityType="Self.Contract" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HTSContractsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Contract">
+          <Key>
+            <PropertyRef Name="ContractID" />
+          </Key>
+          <Property Name="ContractID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="QuoteID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Product" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NumberOfCompounds" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NumberOfAssays" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PricePerInteraction" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TotalPrice" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BillingTerms" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PONumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateSigned" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateExpires" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateCompleted" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContactName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AssigneeName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StateProvince" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Country" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PostalCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DistributionList" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OrderStatus" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ReportFormat" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="RevenueClass" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Redundancy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PublishStatus" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Address2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="BillingAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="BillingAddress2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="BillingCity" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="BillingStateProvince" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="BillingCountry" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="BillingPostalCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="BillingDistribution" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Address3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="BillingAddress3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CreditCardNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CreditCardType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CreditCardName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CreditCardExpDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CreditCardCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="GetSignedDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NumberOfConcentrations" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="MaterialsCost" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SalesID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="HTSContractsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Contracts" EntityType="Self.Contract" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HTSContractsModelStoreContainer" CdmEntityContainer="HTSContractsEntities">
+          <EntitySetMapping Name="Contracts">
+            <EntityTypeMapping TypeName="HTSContractsModel.Contract">
+              <MappingFragment StoreEntitySet="Contract">
+                <ScalarProperty Name="ContractID" ColumnName="ContractID" />
+                <ScalarProperty Name="QuoteID" ColumnName="QuoteID" />
+                <ScalarProperty Name="Product" ColumnName="Product" />
+                <ScalarProperty Name="NumberOfCompounds" ColumnName="NumberOfCompounds" />
+                <ScalarProperty Name="NumberOfAssays" ColumnName="NumberOfAssays" />
+                <ScalarProperty Name="PricePerInteraction" ColumnName="PricePerInteraction" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="BillingTerms" ColumnName="BillingTerms" />
+                <ScalarProperty Name="PONumber" ColumnName="PONumber" />
+                <ScalarProperty Name="DateSigned" ColumnName="DateSigned" />
+                <ScalarProperty Name="DateExpires" ColumnName="DateExpires" />
+                <ScalarProperty Name="DateCompleted" ColumnName="DateCompleted" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="AssigneeName" ColumnName="AssigneeName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="StateProvince" ColumnName="StateProvince" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="DistributionList" ColumnName="DistributionList" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+                <ScalarProperty Name="ReportFormat" ColumnName="ReportFormat" />
+                <ScalarProperty Name="RevenueClass" ColumnName="RevenueClass" />
+                <ScalarProperty Name="Redundancy" ColumnName="Redundancy" />
+                <ScalarProperty Name="PublishStatus" ColumnName="PublishStatus" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="BillingAddress" ColumnName="BillingAddress" />
+                <ScalarProperty Name="BillingAddress2" ColumnName="BillingAddress2" />
+                <ScalarProperty Name="BillingCity" ColumnName="BillingCity" />
+                <ScalarProperty Name="BillingStateProvince" ColumnName="BillingStateProvince" />
+                <ScalarProperty Name="BillingCountry" ColumnName="BillingCountry" />
+                <ScalarProperty Name="BillingPostalCode" ColumnName="BillingPostalCode" />
+                <ScalarProperty Name="BillingDistribution" ColumnName="BillingDistribution" />
+                <ScalarProperty Name="Address3" ColumnName="Address3" />
+                <ScalarProperty Name="BillingAddress3" ColumnName="BillingAddress3" />
+                <ScalarProperty Name="CreditCardNumber" ColumnName="CreditCardNumber" />
+                <ScalarProperty Name="CreditCardType" ColumnName="CreditCardType" />
+                <ScalarProperty Name="CreditCardName" ColumnName="CreditCardName" />
+                <ScalarProperty Name="CreditCardExpDate" ColumnName="CreditCardExpDate" />
+                <ScalarProperty Name="CreditCardCode" ColumnName="CreditCardCode" />
+                <ScalarProperty Name="GetSignedDate" ColumnName="GetSignedDate" />
+                <ScalarProperty Name="NumberOfConcentrations" ColumnName="NumberOfConcentrations" />
+                <ScalarProperty Name="MaterialsCost" ColumnName="MaterialsCost" />
+                <ScalarProperty Name="SalesID" ColumnName="SalesID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

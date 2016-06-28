@@ -1,0 +1,840 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{91BCF34E-2B6C-4F7B-B346-6D9A50745B11}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Discoverx</RootNamespace>
+    <AssemblyName>Discoverx</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EPPlus, Version=4.0.1.1, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="HiQPdf, Version=8.9.0.0, Culture=neutral, PublicKeyToken=acd8b62594985b24, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\HiQPdf.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\iTextSharp.5.5.0\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.pdfa, Version=5.5.3.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\iTextSharp\itextsharp.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xmlworker">
+      <HintPath>..\packages\itextsharp.xmlworker.5.5.0\lib\itextsharp.xmlworker.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xtra, Version=5.5.3.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\iTextSharp\itextsharp.xtra.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.0\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.0\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.1.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.1.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.2.1.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.1.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.1.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PHStudyReportController.cs" />
+    <Compile Include="Controllers\PriceListController.cs" />
+    <Compile Include="Controllers\TargetListController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BaseViewModel.cs" />
+    <Compile Include="Models\CBIS DB\CBIS_DB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CBIS_DB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CBIS DB\CBIS_DB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CBIS_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CBIS DB\CBIS_DB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CBIS_DB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CBIS DB\Contract.cs">
+      <DependentUpon>HTSContracts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CBIS DB\DiscoveRx_Orders.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DiscoveRx_Orders.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CBIS DB\DiscoveRx_Orders.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DiscoveRx_Orders.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CBIS DB\DiscoveRx_Orders.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DiscoveRx_Orders.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CBIS DB\DX_GetAssayReportSummary_Result.cs">
+      <DependentUpon>DiscoveRx_Orders.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CBIS DB\DX_GetPrimaryAssayData_Result.cs">
+      <DependentUpon>DiscoveRx_Orders.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CBIS DB\DX_GetPrimaryPlateControl_Result.cs">
+      <DependentUpon>DiscoveRx_Orders.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CBIS DB\DX_GetSecondaryAssayGraphData_Result.cs">
+      <DependentUpon>DiscoveRx_Orders.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CBIS DB\Dx_Request.cs">
+      <DependentUpon>KinomeScan_RequestManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CBIS DB\HTSContracts.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HTSContracts.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CBIS DB\HTSContracts.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HTSContracts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CBIS DB\HTSContracts.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HTSContracts.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CBIS DB\KinomeScan_RequestManager.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KinomeScan_RequestManager.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CBIS DB\KinomeScan_RequestManager.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KinomeScan_RequestManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CBIS DB\KinomeScan_RequestManager.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KinomeScan_RequestManager.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CBIS DB\mtp_Dx_RequestAssaysSelect_Result.cs">
+      <DependentUpon>KinomeScan_RequestManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CBIS DB\Order.cs">
+      <DependentUpon>DiscoveRx_Orders.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CBIS DB\vw_TPL_Assays.cs">
+      <DependentUpon>CBIS_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CBIS DB\vw_TPL_CellBasedKinase.cs">
+      <DependentUpon>CBIS_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CBIS DB\vw_TPL_ProductPrice.cs">
+      <DependentUpon>CBIS_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CBIS DB\vw_TPL_Synergy.cs">
+      <DependentUpon>CBIS_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CBIS DB\vw_TPL_TotalGPCR.cs">
+      <DependentUpon>CBIS_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ExcelWorkSheet\ExcelWorkSheetModel.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\PDF\PDFManager.cs" />
+    <Compile Include="Models\PDF\PDFModel.cs" />
+    <Compile Include="Models\StudyReport\ExcelPHStudyReportModel.cs" />
+    <Compile Include="Models\StudyReport\PHStudyReportViewModel.cs" />
+    <Compile Include="Models\TargetPriceList\BaseTargetListViewModel.cs" />
+    <Compile Include="Models\TargetPriceList\ExcelTargetListModel.cs" />
+    <Compile Include="Models\TargetPriceList\PDFTargetListViewModel.cs" />
+    <Compile Include="Models\TargetPriceList\PriceListViewModel.cs" />
+    <Compile Include="Models\TargetPriceList\TargetListViewModel.cs" />
+    <Compile Include="Models\Utility.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\PDFCover\10409_SMcellimage.png" />
+    <Content Include="Content\images\PDFCover\2529.png" />
+    <Content Include="Content\images\PDFCover\2555.png" />
+    <Content Include="Content\images\PDFCover\2587.png" />
+    <Content Include="Content\images\PDFCover\2589.png" />
+    <Content Include="Content\images\PDFCover\3019.png" />
+    <Content Include="Content\images\PDFCover\3050.png" />
+    <Content Include="Content\images\PDFCover\3081.png" />
+    <Content Include="Content\images\PDFCover\3112.png" />
+    <Content Include="Content\images\PDFCover\DRx_logo_2013.png" />
+    <Content Include="Content\images\PHStudyReport\cytokineSCAN.jpg" />
+    <Content Include="Content\images\PHStudyReport\DrxLogo.jpg" />
+    <Content Include="Content\images\PHStudyReport\DrxLogo_old.jpg" />
+    <Content Include="Content\images\PHStudyReport\gpcrSCAN.jpg" />
+    <Content Include="Content\images\PHStudyReport\InCell Epigenetics.jpg" />
+    <Content Include="Content\images\PHStudyReport\LeadHunterLogo.jpg" />
+    <Content Include="Content\images\PHStudyReport\nhrSCAN.jpg" />
+    <Content Include="Content\images\PHStudyReport\pathSCAN.jpg" />
+    <Content Include="Content\images\PHStudyReport\signiture.png" />
+    <Content Include="Content\images\PHStudyReport\TechCytokine_1.jpg" />
+    <Content Include="Content\images\PHStudyReport\TechCytokine_2.jpg" />
+    <Content Include="Content\images\PHStudyReport\TechEpigenetic_1.png" />
+    <Content Include="Content\images\PHStudyReport\TechGPCR_1.jpg" />
+    <Content Include="Content\images\PHStudyReport\TechGPCR_2.jpg" />
+    <Content Include="Content\images\PHStudyReport\TechGPCR_3.jpg" />
+    <Content Include="Content\images\PHStudyReport\TechGPCR_4.jpg" />
+    <Content Include="Content\images\PHStudyReport\TechGPCR_5.jpg" />
+    <Content Include="Content\images\PHStudyReport\TechKinase_1.jpg" />
+    <Content Include="Content\images\PHStudyReport\TechKinase_2.jpg" />
+    <Content Include="Content\images\PHStudyReport\TechKinase_3.jpg" />
+    <Content Include="Content\images\PHStudyReport\TechNHR_1.png" />
+    <Content Include="Content\images\PHStudyReport\TechNHR_2.png" />
+    <Content Include="Content\images\PHStudyReport\TechPath_1.png" />
+    <Content Include="Content\images\PHStudyReport\tkSCAN.jpg" />
+    <Content Include="Content\jquery-ui.css" />
+    <Content Include="Content\jquery.ui.accordion.css" />
+    <Content Include="Content\jquery.ui.all.css" />
+    <Content Include="Content\jquery.ui.autocomplete.css" />
+    <Content Include="Content\jquery.ui.base.css" />
+    <Content Include="Content\jquery.ui.button.css" />
+    <Content Include="Content\jquery.ui.core.css" />
+    <Content Include="Content\jquery.ui.datepicker.css" />
+    <Content Include="Content\jquery.ui.dialog.css" />
+    <Content Include="Content\jquery.ui.menu.css" />
+    <Content Include="Content\jquery.ui.progressbar.css" />
+    <Content Include="Content\jquery.ui.resizable.css" />
+    <Content Include="Content\jquery.ui.selectable.css" />
+    <Content Include="Content\jquery.ui.slider.css" />
+    <Content Include="Content\jquery.ui.spinner.css" />
+    <Content Include="Content\jquery.ui.tabs.css" />
+    <Content Include="Content\jquery.ui.theme.css" />
+    <Content Include="Content\jquery.ui.tooltip.css" />
+    <Content Include="Content\PDFCover.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\CBIS DB\CBIS_DB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CBIS_DB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\CBIS DB\CBIS_DB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CBIS_DB.edmx</DependentUpon>
+      <LastGenOutput>CBIS_DB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\CBIS DB\CBIS_DB.edmx.diagram">
+      <DependentUpon>CBIS_DB.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\CBIS DB\CBIS_DB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CBIS_DB.edmx</DependentUpon>
+      <LastGenOutput>CBIS_DB.cs</LastGenOutput>
+    </Content>
+    <EntityDeploy Include="Models\CBIS DB\HTSContracts.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>HTSContracts.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\CBIS DB\HTSContracts.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HTSContracts.edmx</DependentUpon>
+      <LastGenOutput>HTSContracts.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\CBIS DB\HTSContracts.edmx.diagram">
+      <DependentUpon>HTSContracts.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\CBIS DB\HTSContracts.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HTSContracts.edmx</DependentUpon>
+      <LastGenOutput>HTSContracts.cs</LastGenOutput>
+    </Content>
+    <EntityDeploy Include="Models\CBIS DB\KinomeScan_RequestManager.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>KinomeScan_RequestManager.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\CBIS DB\KinomeScan_RequestManager.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>KinomeScan_RequestManager.edmx</DependentUpon>
+      <LastGenOutput>KinomeScan_RequestManager.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\CBIS DB\KinomeScan_RequestManager.edmx.diagram">
+      <DependentUpon>KinomeScan_RequestManager.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\CBIS DB\KinomeScan_RequestManager.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>KinomeScan_RequestManager.edmx</DependentUpon>
+      <LastGenOutput>KinomeScan_RequestManager.cs</LastGenOutput>
+    </Content>
+    <Content Include="ClassDiagram1.cd" />
+    <EntityDeploy Include="Models\CBIS DB\DiscoveRx_Orders.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DiscoveRx_Orders.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\CBIS DB\DiscoveRx_Orders.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DiscoveRx_Orders.edmx</DependentUpon>
+      <LastGenOutput>DiscoveRx_Orders.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\CBIS DB\DiscoveRx_Orders.edmx.diagram">
+      <DependentUpon>DiscoveRx_Orders.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\CBIS DB\DiscoveRx_Orders.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DiscoveRx_Orders.edmx</DependentUpon>
+      <LastGenOutput>DiscoveRx_Orders.cs</LastGenOutput>
+    </Content>
+    <None Include="Properties\PublishProfiles\File System.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Drx\ControllerUtility.js" />
+    <Content Include="Scripts\Drx\PHStudyReport.js" />
+    <Content Include="Scripts\EditorHookup.js" />
+    <Content Include="Scripts\external\globalize.culture.de-DE.js" />
+    <Content Include="Scripts\external\globalize.culture.ja-JP.js" />
+    <Content Include="Scripts\external\globalize.js" />
+    <Content Include="Scripts\external\jquery.blockUI.js" />
+    <Content Include="Scripts\external\jquery.mousewheel.js" />
+    <Content Include="Scripts\external\jshint.js" />
+    <Content Include="Scripts\external\qunit.css" />
+    <Content Include="Scripts\external\qunit.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.8.3.min.js" />
+    <Content Include="Scripts\jquery-extra-selectors.js" />
+    <Content Include="Scripts\jquery-migrate-1.2.1.js" />
+    <Content Include="Scripts\jquery-migrate-1.2.1.min.js" />
+    <Content Include="Scripts\jquery.easing.1.3.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\RangeDateValidator.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\ui\i18n\jquery-ui-i18n.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-af.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-ar-DZ.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-ar.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-az.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-be.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-bg.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-bs.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-ca.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-cs.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-cy-GB.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-da.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-de.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-el.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-en-AU.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-en-GB.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-en-NZ.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-eo.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-es.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-et.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-eu.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-fa.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-fi.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-fo.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-fr-CA.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-fr-CH.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-fr.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-gl.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-he.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-hi.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-hr.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-hu.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-hy.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-id.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-is.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-it.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-ja.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-ka.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-kk.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-km.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-ko.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-ky.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-lb.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-lt.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-lv.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-mk.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-ml.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-ms.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-nb.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-nl-BE.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-nl.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-nn.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-no.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-pl.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-pt-BR.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-pt.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-rm.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-ro.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-ru.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-sk.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-sl.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-sq.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-sr-SR.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-sr.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-sv.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-ta.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-th.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-tj.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-tr.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-uk.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-vi.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-zh-CN.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-zh-HK.js" />
+    <Content Include="Scripts\ui\i18n\jquery.ui.datepicker-zh-TW.js" />
+    <Content Include="Scripts\ui\jquery-ui.js" />
+    <Content Include="Scripts\ui\jquery.ui.accordion.js" />
+    <Content Include="Scripts\ui\jquery.ui.autocomplete.js" />
+    <Content Include="Scripts\ui\jquery.ui.button.js" />
+    <Content Include="Scripts\ui\jquery.ui.core.js" />
+    <Content Include="Scripts\ui\jquery.ui.datepicker.js" />
+    <Content Include="Scripts\ui\jquery.ui.dialog.js" />
+    <Content Include="Scripts\ui\jquery.ui.draggable.js" />
+    <Content Include="Scripts\ui\jquery.ui.droppable.js" />
+    <Content Include="Scripts\ui\jquery.ui.effect-blind.js" />
+    <Content Include="Scripts\ui\jquery.ui.effect-bounce.js" />
+    <Content Include="Scripts\ui\jquery.ui.effect-clip.js" />
+    <Content Include="Scripts\ui\jquery.ui.effect-drop.js" />
+    <Content Include="Scripts\ui\jquery.ui.effect-explode.js" />
+    <Content Include="Scripts\ui\jquery.ui.effect-fade.js" />
+    <Content Include="Scripts\ui\jquery.ui.effect-fold.js" />
+    <Content Include="Scripts\ui\jquery.ui.effect-highlight.js" />
+    <Content Include="Scripts\ui\jquery.ui.effect-pulsate.js" />
+    <Content Include="Scripts\ui\jquery.ui.effect-scale.js" />
+    <Content Include="Scripts\ui\jquery.ui.effect-shake.js" />
+    <Content Include="Scripts\ui\jquery.ui.effect-slide.js" />
+    <Content Include="Scripts\ui\jquery.ui.effect-transfer.js" />
+    <Content Include="Scripts\ui\jquery.ui.effect.js" />
+    <Content Include="Scripts\ui\jquery.ui.menu.js" />
+    <Content Include="Scripts\ui\jquery.ui.mouse.js" />
+    <Content Include="Scripts\ui\jquery.ui.position.js" />
+    <Content Include="Scripts\ui\jquery.ui.progressbar.js" />
+    <Content Include="Scripts\ui\jquery.ui.resizable.js" />
+    <Content Include="Scripts\ui\jquery.ui.selectable.js" />
+    <Content Include="Scripts\ui\jquery.ui.slider.js" />
+    <Content Include="Scripts\ui\jquery.ui.sortable.js" />
+    <Content Include="Scripts\ui\jquery.ui.spinner.js" />
+    <Content Include="Scripts\ui\jquery.ui.tabs.js" />
+    <Content Include="Scripts\ui\jquery.ui.tooltip.js" />
+    <Content Include="Scripts\ui\jquery.ui.widget.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery-ui-i18n.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-af.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-ar-DZ.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-ar.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-az.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-be.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-bg.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-bs.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-ca.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-cs.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-cy-GB.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-da.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-de.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-el.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-en-AU.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-en-GB.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-en-NZ.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-eo.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-es.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-et.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-eu.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-fa.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-fi.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-fo.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-fr-CA.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-fr-CH.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-fr.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-gl.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-he.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-hi.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-hr.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-hu.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-hy.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-id.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-is.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-it.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-ja.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-ka.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-kk.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-km.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-ko.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-ky.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-lb.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-lt.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-lv.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-mk.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-ml.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-ms.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-nb.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-nl-BE.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-nl.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-nn.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-no.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-pl.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-pt-BR.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-pt.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-rm.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-ro.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-ru.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-sk.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-sl.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-sq.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-sr-SR.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-sr.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-sv.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-ta.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-th.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-tj.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-tr.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-uk.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-vi.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-zh-CN.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-zh-HK.min.js" />
+    <Content Include="Scripts\ui\minified\i18n\jquery.ui.datepicker-zh-TW.min.js" />
+    <Content Include="Scripts\ui\minified\jquery-ui.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.accordion.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.autocomplete.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.button.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.core.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.datepicker.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.dialog.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.draggable.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.droppable.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.effect-blind.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.effect-bounce.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.effect-clip.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.effect-drop.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.effect-explode.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.effect-fade.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.effect-fold.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.effect-highlight.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.effect-pulsate.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.effect-scale.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.effect-shake.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.effect-slide.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.effect-transfer.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.effect.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.menu.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.mouse.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.position.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.progressbar.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.resizable.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.selectable.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.slider.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.sortable.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.spinner.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.tabs.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.tooltip.min.js" />
+    <Content Include="Scripts\ui\minified\jquery.ui.widget.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Views\PHStudyReport\Index.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Shared\_PDFLayout.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
+    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\TargetList\Index.cshtml" />
+    <Content Include="Views\TargetList\PathHunterPharmacotraffickingAssayList.cshtml" />
+    <Content Include="Views\TargetList\DiscoveRxInCELLHunterAssaysList.cshtml" />
+    <Content Include="Views\TargetList\PathHunterPathwayAssaysList.cshtml" />
+    <Content Include="Views\TargetList\PathHunterDimerizationAssaysList.cshtml" />
+    <Content Include="Views\TargetList\NuclearHormoneReceptorActivationAssaysList.cshtml" />
+    <Content Include="Views\TargetList\PathHunterArrestinOrphanGPCRTotalOfferingList.cshtml" />
+    <Content Include="Views\TargetList\DiscoveRxTotalGPCRProductOfferingList.cshtml" />
+    <Content Include="Views\TargetList\PathHunterCellBasedKinaseAssaysList.cshtml" />
+    <Content Include="Views\PriceList\Index.cshtml" />
+    <Content Include="Views\PriceList\IndexPDF.cshtml" />
+    <Content Include="Views\PriceList\SubPriceList.cshtml" />
+    <Content Include="Views\TargetList\ContentPage.cshtml" />
+    <Content Include="Views\Shared\_PDFCoverLayout.cshtml" />
+    <Content Include="Views\TargetList\CoverPage.cshtml" />
+    <Content Include="Scripts\ui\.jshintrc" />
+    <Content Include="Views\PHStudyReport\_CoverPageTab.cshtml" />
+    <Content Include="Views\PHStudyReport\_SummaryTab.cshtml" />
+    <Content Include="Views\PHStudyReport\_TechPrincipleTab.cshtml" />
+    <Content Include="Views\PHStudyReport\_AssayDesignTab.cshtml" />
+    <Content Include="Views\PHStudyReport\_ResultTab.cshtml" />
+    <Content Include="Views\PHStudyReport\_GPCRTechPrinciple.cshtml" />
+    <Content Include="Views\PHStudyReport\_NHRTechPrinciple.cshtml" />
+    <Content Include="Views\PHStudyReport\_KinaseTechPrinciple.cshtml" />
+    <Content Include="Views\PHStudyReport\_PathwayTechPrinciple.cshtml" />
+    <Content Include="Views\PHStudyReport\_EpigeneticsTechPrinciple.cshtml" />
+    <Content Include="Views\PHStudyReport\_GPCRArrestinAssayDesign.cshtml" />
+    <Content Include="Views\PHStudyReport\_OrphanGPCRArrestinAssayDesign.cshtml" />
+    <Content Include="Views\PHStudyReport\_GPCRcAMPPathhunterCellAssayDesign.cshtml" />
+    <Content Include="Views\PHStudyReport\_PathwayAssayDesign.cshtml" />
+    <Content Include="Views\PHStudyReport\_GPCRCalciumAssayDesign.cshtml" />
+    <Content Include="Views\PHStudyReport\_NHRAssayDesign.cshtml" />
+    <Content Include="Views\PHStudyReport\_GPCRcAMPModulationAssayDesign.cshtml" />
+    <Content Include="Views\PHStudyReport\_FinalSummaryTab.cshtml" />
+    <Content Include="Views\PHStudyReport\_CytokineTechPrinciple.cshtml" />
+    <Content Include="Views\PHStudyReport\_KinaseCytokineDimerizationAssayDesign.cshtml" />
+    <Content Include="Views\PHStudyReport\_KinaseCellBaseAssayDesign.cshtml" />
+    <Content Include="Views\PHStudyReport\_CellularBindingTargetEngagementAssayDesign.cshtml" />
+    <Content Include="Views\PHStudyReport\_OrphanGPCRcAMPModulationAssayDesign.cshtml" />
+    <Content Include="Views\TargetList\OrderingInformation.cshtml" />
+    <Content Include="Views\PHStudyReport\_PharmacochaperoneTraffickingAssayDesign.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\NewFolder1\" />
+    <Folder Include="Views\Base\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50553</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:50553/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
