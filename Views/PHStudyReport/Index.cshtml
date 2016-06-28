@@ -1,0 +1,180 @@
+﻿@using Discoverx.Models;
+
+@model Discoverx.Models.StudyReport.PHStudyReportViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    
+    table td{
+        page-break-inside: avoid; 
+    }
+
+    table{
+        font-size:14pt;
+        font-family:Arial;
+        border-collapse: collapse;
+    }
+
+    table, th, td 
+    {
+        border: 1px solid black;
+    }
+
+    .div_column{
+        display: inline-block; 
+        vertical-align:top; 
+        width:540px
+    }
+
+    .right{
+        margin-left:35px;
+    }
+
+    .PrincipleTable {
+    border: hidden;
+    line-height: 200%;
+    font-size: 14pt;
+    text-align: left;
+    
+}
+    /* WebGrid style */
+    .webGrid { border-collapse: collapse; width: 1100px; font-family:Arial; font-size:12px }
+    .header { background-color: #23608A; font-weight: bold; color: white; }
+    .webGrid th, .webGrid td { border: 1px solid #C0C0C0; padding: 1px 2px 1px 2px; }
+    .webGrid th {text-align:center}
+    .alt, .altImg { background-color: #E4E9F5; color: #000; }
+    .altImg td:last-of-type {
+            background-color:white;
+        }
+    .gridHead a:hover {text-decoration:underline;}
+    .description { width:auto}
+    .select {background-color: #71857C}
+    .number {text-align:right}
+
+    /* Study Report Style*/
+    .tech_principle_title{
+        font-weight:bold; 
+        font-style:italic
+    }
+
+    .main
+    {
+        font-size:20pt;
+
+    }
+    .sub{
+        font-size:16pt;
+    }
+
+    .sub-sub{
+        font-size:14pt;
+        font-weight:bold;
+    }
+
+    li{
+        line-height:1.5em;
+    }
+
+    .center{
+        text-align:center;
+    }
+
+    .align-right{
+        text-align:right;
+    }
+   
+    .cirle_img {
+        width:400px;
+    }
+
+    .no_border {
+        border:hidden
+    }
+</style>
+
+
+<h2>PathHunter Study Report</h2>
+<br />
+@using (Html.BeginForm("Index", "PHStudyReport", FormMethod.Post))
+{
+<fieldset>
+ <p>Order/Contract ID: @Html.TextBoxFor(m => m.orderID, new { style = "width:250px;" })
+    <input class="bluebutton" type="submit" value="Submit" name="submitButton" style="margin-left:20px" />
+    @if(Model.orderID.ParseString()!=string.Empty)
+    { 
+    <input class="bluebutton" type="submit" value="Export to PDF" name="submitButton" style="margin-left:100px" />
+    <input type="button" title="Download Excel Data Sheet" value="Download Excel Data Sheet" onclick="location.href='@Url.Action("DownLoadExcelFile",  new { orderid = @Model.orderID })'" style="margin-left:100px " />
+    }
+ </p>
+    
+</fieldset>
+
+
+if (Model != null && Model.order != null && Model.contractList.Count > 0)
+{ 
+
+<style>
+    .ui-tabs-disabled {
+        display: none; /* disabled tabs don't show up */
+    }
+
+  
+</style>
+
+    <div id="tabs">
+        <div id="progressbar"></div>
+        <ul>
+
+            <li><a href="#tabs-Cover">Cover Page</a></li>
+
+            <li><a href="#tabs-Summary">Summary</a></li>
+
+            <li><a href="#tabs-TechPrinciple">Technology Principle</a></li>
+
+            <li><a href="#tabs-AssayDesign">Assay Design</a></li>
+
+            <li><a href="#tabs-Result">Result</a></li>
+
+            <li><a href="#tabs-FinalSummary">Final Summary</a></li>
+
+        </ul>
+        <div id="Content">
+        <div id="tabs-Cover">
+
+            @{ Html.RenderPartial("_CoverPageTab"); }
+        </div>
+
+        <div id="tabs-Summary">
+
+            @{ Html.RenderPartial("_SummaryTab"); }
+        </div>
+
+        <div id="tabs-TechPrinciple">
+
+            @{ Html.RenderPartial("_TechPrincipleTab"); }
+        </div>
+        <div id="tabs-AssayDesign">
+
+            @{ Html.RenderPartial("_AssayDesignTab"); }
+        </div>
+        <div id="tabs-Result">
+
+            @{ Html.RenderPartial("_ResultTab"); }
+        </div>
+
+        <div id="tabs-FinalSummary">
+
+            @{ Html.RenderPartial("_FinalSummaryTab"); }
+        </div>
+
+    </div>
+       
+    </div>
+}
+
+}
+<script src="~/Scripts/Drx/PHStudyReport.js" type="text/javascript"></script>

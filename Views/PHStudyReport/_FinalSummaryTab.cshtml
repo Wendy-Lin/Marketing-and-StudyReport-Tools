@@ -1,0 +1,89 @@
+﻿@using Discoverx.Models;
+@model Discoverx.Models.StudyReport.PHStudyReportViewModel
+
+    <table style="border:hidden;page-break-before:always">
+       
+        <tr>
+            <td class="no_border">
+                 
+                    <div style='font-size:16.0pt;line-height:200%;font-family:Arial;margin-top:35px'>
+                        <div style='padding:2.88pt 2.88pt 2.88pt 2.88pt'>
+
+                            <div>
+                                <div class="tech_principle_title main">Summary: </div>
+                                <div style="width: 1050px; display: inline-block;">
+                                    DiscoverX successfully profiled @Model.numberOfCompounds @if (Model.numberOfCompounds > 1)
+                                    {<text>compounds</text>}
+                                    else
+                                    {<text>compound</text>} with @Model.numberOfAssays Biosensor @if (Model.numberOfAssays > 1)
+                                    {<text>Assays</text>}
+                                    else
+                                    {<text>Assay</text>}.
+                                    <br />
+                                    @if (!Model.isPrimaryScreen)
+{
+                                        <text>A summary is given below. </text>
+}
+                                    The data is also provided in an accompanying spreadsheet file.
+                                </div>
+
+                            </div>
+                            </div>
+                        </div>
+           
+                            </td></tr></table>
+                         <table style="border:hidden;">
+
+                                <tr>
+                                    <td class="no_border">
+@if (!Model.isPrimaryScreen)
+{
+
+                                        <div style='margin-top:35px'>
+                                            <div style='padding:2.88pt 2.88pt 2.88pt 2.88pt'>
+                                                <div style="line-height:100%">
+                                                    @{
+                                                        WebGrid grid = new WebGrid(canPage: false);
+                                                        //grid.Bind(Model.AssayReportSummary.OrderBy(a => (a.AssayID.Contains("REF-") ? 0 : 1)).ThenBy(p => p.AssayTarget).ThenBy(p => p.AssayFormat));
+                                                        grid.Bind(Model.AssayReportSummary.Where(a => a.AssayID.Contains("REF-")).OrderBy(a => a.AssayTarget).ThenBy(a => a.AssayFormat).Union(Model.AssayReportSummary.Where(a => !a.AssayID.Contains("REF-")).OrderBy(a => a.CompoundName)));
+                                                    }
+                                                    @grid.GetHtml(
+                                                                    tableStyle: "webGrid",
+                                                                    headerStyle: "header",
+                                                                    alternatingRowStyle: "alt",
+
+                                                                    columns: grid.Columns(
+                                                                                grid.Column("CompoundName", "Compound Name", null, null, false),
+                                                                                grid.Column("ProjectID", "Project ID", null, null, false),
+                                                                                grid.Column("AssayName", "Assay Name", null, style: "center", canSort: false),
+                                                                                grid.Column("AssayFormat", "Assay Format", null, style: "center", canSort: false),
+                                                                                grid.Column("AssayTarget", "Assay Target", null, style: "center", canSort: false),
+                                                                                grid.Column("ResultType", "Result Type", null, style: "center", canSort: false),
+                                                                 
+                                                                                grid.Column(header: "RC50 (uM)", style: "number", format: (item) =>
+                                                                                   {
+                                                                                       return Html.Raw(string.Format("<text>" + item.ValuePrefix + item.ResultValue + "</text>"));
+
+                                                                                   }),
+                                                                                grid.Column("Hill", "Hill", null, style: "number", canSort: false),
+                                                                                grid.Column("CurveBottom", "Curve Bottom", null, style: "number", canSort: false),
+                                                                                grid.Column("CurveTop", "Curve Top", null, style: "number", canSort: false),
+                                                                                grid.Column("MaxResponse", "Max Response", null, style: "number", canSort: false)
+
+                                                                )
+
+                                                        )
+                                                </div>
+                                            </div>
+                                        </div>
+}
+                                        <div style="margin-top:100px">
+                                            <div style="font-family:Arial; font-size:16pt; color:black; text-decoration:none">This is to certify that the data contained within this report was conducted as described above.</div>
+                                            <div><img src="@string.Format(Utility.GetAPPSettingKey("FullImagePath"), "signiture.png")"></div>
+                                            <div><p style="font-family:Arial; font-size:16pt; color:black; text-decoration:none">Dr. N. W. Charter<br><br>Director, Profiling Services</p></div>
+                                        </div>
+            <td>
+        </tr>
+    </table>
+
+
