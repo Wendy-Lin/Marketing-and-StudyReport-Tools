@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Target Lists";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<h4>Price Lists</h4>
+    @Html.ActionLink("Download Complete Price List", "DownloadWholePriceList", "PriceList")
+        <fieldset>
+            <p>@Html.ActionLink("Summary Price List", "Index", "PriceList")</p>
+            <p>@Html.ActionLink("New Product Price List", "NewProducts", "PriceList", new { displayPDFLink=true }, null )</p>
+            </fieldset>*@
+
+    <h4>Target Lists</h4> 
+@Html.ActionLink("Download Complete PDF Target List", "DownloadWholeTargetListPDF", new { displayPDFLink = true })<br />
+@Html.ActionLink("Download Complete Excel Target List", "DownloadWholeTargetListExcel", new { displayPDFLink = true })
+    <fieldset>
+        <p>
+            @Html.ActionLink("DiscoveRx Total GPCR Product Offering", "DiscoveRxTotalGPCRProductOfferingList", new { displayPDFLink = true })
+        </p>
+
+        <p>
+            @Html.ActionLink("PathHunter Arrestin Orphan GPCR Total Offering", "PathHunterArrestinOrphanGPCRTotalOfferingList", new { displayPDFLink = true })
+        </p>
+
+        <p>
+            @Html.ActionLink("PathHunter Dimerization Assays", "PathHunterDimerizationAssaysList", new { displayPDFLink = true })
+        </p>
+
+        <p>
+            @Html.ActionLink("Nuclear Hormone Receptor Activation Assays", "NuclearHormoneReceptorActivationAssaysList", new { displayPDFLink = true })
+        </p>
+
+        <p>
+            @Html.ActionLink("PathHunter Cell-Based Kinase Assays", "PathHunterCellBasedKinaseAssaysList", new { displayPDFLink = true })
+        </p>
+
+        <p>
+            @Html.ActionLink("PathHunter Pathway Assays", "PathHunterPathwayAssaysList", new { displayPDFLink = true })
+        </p>
+
+        <p>
+            @Html.ActionLink("DiscoveRx InCELL Hunter™ Assays", "DiscoveRxInCELLHunterAssaysList", new { displayPDFLink = true })
+        </p>
+
+        <p>
+            @Html.ActionLink("PathHunter Pharmacotrafficking Assay", "PathHunterPharmacotraffickingAssayList", new { displayPDFLink = true })
+        </p>
+    </fieldset>

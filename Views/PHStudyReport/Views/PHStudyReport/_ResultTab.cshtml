@@ -1,0 +1,205 @@
+﻿@using Discoverx.Models;
+@model Discoverx.Models.StudyReport.PHStudyReportViewModel
+
+
+    <table style="border:hidden;page-break-before:always">
+    <tr>
+        <td style="border:hidden;font-size:18pt;font-weight:bold; font-style:italic;padding-bottom:25px">Results: </td>
+    </tr>
+    <tr>
+        <td class="no_border">
+
+
+            @{ WebGrid grid;}
+            @if (Model.AssayReportSummary!=null && Model.AssayReportSummary.Where(a => a.AssayID.Contains("REF-")).Count() > 0)
+            {
+                {
+                    grid = new WebGrid(canPage: false);
+                    grid.Bind(Model.AssayReportSummary.Where(a => a.AssayID.Contains("REF-")).OrderBy(p => p.AssayTarget).ThenBy(p => p.AssayFormat));
+
+                }
+                @grid.GetHtml(
+                      tableStyle: "webGrid",
+                 headerStyle: "header",
+                 alternatingRowStyle: "altImg",
+
+                   columns: grid.Columns(
+                                              grid.Column("CompoundName", "Compound Name", null, style: "center", canSort: false),
+                                              grid.Column("ProjectID", "Project ID", null, style: "center", canSort: false),
+                                              grid.Column("AssayName", "Assay Name", null, style: "center", canSort: false),
+                                              grid.Column("AssayFormat", "Assay Format", null, style: "center", canSort: false),
+                                              grid.Column("AssayTarget", "Assay Target", null, style: "center", canSort: false),
+                                              grid.Column("ResultType", "Result Type", null, style: "center", canSort: false),
+
+                                              grid.Column(header: "RC50 (uM)", style: "center", format: (item) =>
+                 {
+                     return Html.Raw(string.Format("<text>" + item.ValuePrefix + item.ResultValue + "</text>"));
+                    
+                 }),
+                                              grid.Column("Hill", "Hill", null, style: "center", canSort: false),
+                                              grid.Column("CurveBottom", "Curve Bottom", null, style: "center", canSort: false),
+                                              grid.Column("CurveTop", "Curve Top", null, style: "center", canSort: false),
+                                              grid.Column("MaxResponse", "Max Response", null, style: "center", canSort: false),
+                                              grid.Column(header: "Result Graph", format: (item) =>
+                 {
+                     //if (Utility.IsImageExistRemotely(string.Format(Utility.GetAPPSettingKey("GraphImageURL"), item.AssayID)))
+                     return Html.Raw(string.Format("<text><img src=\"{0}\" alt=\"Result Graph\" height=\"250px\" width=\"250px\"/></text>", string.Format(Utility.GetAPPSettingKey("GraphImageURL"), item.AssayID)));
+                     //else
+                     //    return "";
+
+                 }
+)
+
+)
+
+)
+
+                <div style='margin-top:25px;margin-bottom:25px;font-size:14pt;font-family:Calibri;'>
+                    <p style="font-weight:bold; font-size:16pt">Figure 1: Control dose response curve@((Model.numberOfAssays > 1) ? "s" : "") for the selected @Model.targetClassList Biosensor Assay@((Model.numberOfAssays > 1) ? "s" : "")</p>
+                    <p>
+                        @if (Model.isExportPDF)
+                        {
+                               <span style="white-space: pre-line; font-size:14pt">
+                               @Model.figure1Text</span>
+                        }
+                        else
+                        {
+                               @Html.TextAreaFor(model => model.figure1Text, 10, 80, null);
+                        }
+                    </p>
+               </div>
+                <div style="page-break-before:always"></div>
+            }
+        </td>
+        </tr>
+
+            @if (Model.PrimaryAssayData!=null && Model.PrimaryAssayData.Count() > 0)
+            {
+                <tr>
+                    <td style="border:hidden;font-size:18pt;font-weight:bold; font-style:italic;padding-bottom:25px">Results: </td>
+                </tr>
+                <tr>
+                    <td tyle="border:hidden;">
+                        @{
+                grid = new WebGrid(canPage: false);
+                grid.Bind(Model.PrimaryAssayData.Where(p=>p.CompoundName!=null).OrderBy(p=>p.CompoundName));
+                        }
+
+
+                        @grid.GetHtml(
+                      tableStyle: "webGrid",
+                 headerStyle: "header",
+                 alternatingRowStyle: "alt",
+
+                   columns: grid.Columns(
+                                   grid.Column("CompoundName", "Compound Name", null, style: "center", canSort: false),
+                                   grid.Column("ProjectID", "Project ID", null, style: "center", canSort: false),
+                                   grid.Column("AssayType", "Assay Name", null, style: "center", canSort: false),
+                                   grid.Column("AssayFormat", "Assay Format", null, style: "center", canSort: false),
+                                   grid.Column("AssayTarget", "Assay Target", null, style: "center", canSort: false),
+                                   grid.Column("Concentration", "Conc (uM)", null, style: "align-right", canSort: false),
+                                   grid.Column("Value1", "Value 1", null, style: "align-right", canSort: false),
+                                   grid.Column("Value2", "Value 2", null, style: "align-right", canSort: false),
+                                   grid.Column("AvgValue", "Average Value", null, style: "align-right", canSort: false),
+                                       
+
+                                    grid.Column(header: "Std Deviation", style: "align-right", format: (item) =>
+                                         {
+                                             return Math.Round(Utility.StandardDeviation(new List<double>() { item.Value1, item.Value2 }),1);
+                    
+                                         } )
+                                      ,
+                                    grid.Column(header: "% Efficacy", style: "align-right", format: (item) =>
+                                      {
+                                          return Utility.GetPercentageEfficacy(item.AvgValue, item.NegControl, item.PosControl);
+
+                                      })
+            )
+)
+                        <div style='margin-top:25px;margin-bottom:25px;font-size:14pt;font-family:Calibri;'>
+                            <p style="font-weight:bold; font-size:16pt">Table 1: Compound activity with the @Model.targetClassList Biosensor Assay@((Model.numberOfAssays > 1) ? "s" : "")</p>
+                            <p>
+                                @if (Model.isExportPDF)
+                                {
+                                    <span style="white-space: pre-line; font-size:14pt">@Model.table1Text</span>
+                                }
+                                else
+                                {
+                                    @Html.TextAreaFor(model => model.table1Text, new { @class = "whatever-class", @cols = 80, @rows = 10 });
+                                }
+                                
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+            }
+
+        @if (Model.AssayReportSummary!=null && Model.AssayReportSummary.Where(a => !a.AssayID.Contains("REF-")).Count() > 0)
+        {
+            <tr style="border:hidden;">
+                <td style="border:hidden;font-size:18pt;font-weight:bold; font-style:italic;padding-bottom:25px">Results: </td>
+            </tr>
+            <tr>
+                <td tyle ="border:hidden;">
+                    @{
+                        grid = new WebGrid(canPage: false);
+                        grid.Bind(Model.AssayReportSummary.Where(a => !a.AssayID.Contains("REF-")).OrderBy(p => p.CompoundName));
+                    }
+
+
+                    @grid.GetHtml(
+                        tableStyle: "webGrid",
+                        headerStyle: "header",
+                        alternatingRowStyle: "alt",
+
+                        columns: grid.Columns(
+                                   grid.Column("CompoundName", "Compound Name", null, style: "center", canSort: false),
+                                   grid.Column("ProjectID", "Project ID", null, style: "center", canSort: false),
+                                   grid.Column("AssayName", "Assay Name", null, style: "center", canSort: false),
+                                   grid.Column("AssayFormat", "Assay Format", null, style: "center", canSort: false),
+                                   grid.Column("AssayTarget", "Assay Target", null, style: "center", canSort: false),
+                                   grid.Column("ResultType", "Result Type", null, style: "center", canSort: false),
+                                   grid.Column(header: "RC50 (uM)", style: "center", format: (item) =>
+                                      {
+                                          return Html.Raw(string.Format("<text>" + item.ValuePrefix + item.ResultValue + "</text>"));
+                  
+                                      }),
+                                   grid.Column("Hill", "Hill", null, style: "center", canSort: false),
+                                   grid.Column("CurveBottom", "Curve Bottom", null, style: "center", canSort: false),
+                                   grid.Column("CurveTop", "Curve Top", null, style: "center", canSort: false),
+                                   grid.Column("MaxResponse", "Max Response", null, style: "center", canSort: false),
+                                   grid.Column(header: "Result Graph", format: (item) =>
+                                     {
+
+                                         //if (Utility.IsImageExistRemotely(string.Format(Utility.GetAPPSettingKey("GraphImageURL"), item.AssayID)))
+                                         return Html.Raw(string.Format("<text><img src=\"{0}\" alt=\"Result Graph\" height=\"250px\" width=\"250px\"/></text>", string.Format(Utility.GetAPPSettingKey("GraphImageURL"), item.AssayID)));
+                                         //else
+                                         //    return "";
+
+                                     }
+)
+
+)
+
+)
+                    <div style='margin-top:25px;margin-bottom:25px;font-size:14pt;font-family:Calibri;'>
+                        <p style="font-weight:bold; font-size:16pt">Figure 2: Compound activity with the selected @Model.targetClassList Biosensor Assay@((Model.numberOfAssays > 1) ? "s" : "")</p>
+                        <p>
+                            @if (Model.isExportPDF)
+                            {
+                                <span style="white-space: pre-line; font-size:14pt">@Model.figure2Text</span>
+                            }
+                            else
+                            {
+                                @Html.TextAreaFor(model => Model.figure2Text,  new { @class = "", @cols = 80, @rows = 10 });
+                            }
+                            
+                        </p>
+                    </div>
+                   </td>
+            </tr>
+        }
+    </table>
+
+
+

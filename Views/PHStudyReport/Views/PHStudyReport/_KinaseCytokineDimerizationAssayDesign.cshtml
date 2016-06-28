@@ -1,0 +1,109 @@
+﻿@using Discoverx.Models;
+@model Discoverx.Models.StudyReport.PHStudyReportViewModel
+
+
+
+<table style="border:hidden;page-break-before:always">
+    <tr>
+        <td valign="top" class="no_border">
+
+            <div>
+                <p style='font-size:16pt;font-weight:bold; font-style:italic'>Assay Design: Kinase and Cytokine Receptor Dimerization Assays</p>
+
+
+                <p class='sub-sub'>Cell Handling</p>
+                <ol>
+                    <li>
+                        PathHunter cell lines were expanded from freezer stocks according to standard procedures.
+                    </li>
+                    <li>
+                        Cells were seeded in a total volume of 20 µL into white walled, 384-well microplates and incubated for the appropriate time prior to testing.
+                    </li>
+                </ol>
+
+                <p class='sub-sub'>
+                    Agonist Format
+                </p>
+                <ol>
+                    <li>
+                        For agonist determination, cells were incubated with sample to induce response.
+                    </li>
+                    <li>
+                        Intermediate dilution of sample stocks was performed to generate 5X sample in assay buffer.
+                    </li>
+                    <li>
+                        5 µL of 5X sample was added to cells and incubated at 37°C for 6 to 16 hours depending on the assay.  Vehicle concentration was 1%.
+                    </li>
+                </ol>
+                <p class='sub-sub'>
+                    Antagonist Format
+                </p>
+                <ol>
+                    <li>
+                        For agonist determination, cells were incubated with sample to induce response.
+                    </li>
+                    <li>
+                        Intermediate dilution of sample stocks was performed to generate 5X sample in assay buffer.
+                    </li>
+                    <li>
+                        5 µL of 5X sample was added to cells and incubated at 37°C or room temperature for 60 minutes.  Vehicle concentration was 1%.
+                    </li>
+                    <li>
+                        5 µL of 6X EC80 agonist in assay buffer was added to the cells and incubated at 37°C for 6 to 16 hours depending on the assay.
+                    </li>
+                </ol>
+
+                <p class='sub-sub'>
+                    Ligand Neutralizing Format
+                </p>
+                <ol>
+                    <li>
+                        For ligand neutralizing determination, EC80 ligand was pre-incubated with sample prior to addition to cells.
+                    </li>
+                    <li>
+                        Intermediate dilution of sample stocks was performed to generate 6X sample in assay buffer.
+                    </li>
+                    <li>
+                        6X EC80 agonist in assay buffer was added to the 6X sample and incubated at room temperature for 60 minutes.
+                    </li>
+                    <li>
+                        10 µL of 3X sample was added to cells and incubated at 37°C for 6 to 16 hours depending on the assay.  Vehicle concentration was 1%.
+                    </li>
+                </ol>
+
+                <p class='sub-sub'>Signal Detection</p>
+                <ol>
+                    <li>
+                        Assay signal was generated through a single addition of 12.5 or 15 µL (50 % v/v) of PathHunter Detection reagent cocktail for agonist and antagonist assays respectively, 
+                        followed by a one hour incubation at room temperature.  For some assays, activity was detected using a high sensitivity detection reagent (PathHunter Flash Kit) to improve 
+                        assay performance. In these assays, an equal volume of detection reagent (25 or 30uL) was added to the wells, followed by a one hour incubation at room temperature.
+                    </li>
+                    <li>
+                        Microplates were read following signal generation with a PerkinElmer Envision<sup>TM</sup> instrument for chemilumine-scent signal detection
+                    </li>
+                </ol>
+
+                <p class='sub-sub'>
+                    Data Analysis
+                </p>
+                <ol>
+                    <li>
+                        Compound activity was analyzed using CBIS data analysis suite (ChemInnovation, CA).
+                    </li>
+                    <li>
+                        For agonist mode assays, percentage activity was calculated using the following formula:
+                        <p>
+                            % Activity =100% x (mean RLU of test sample - mean RLU of vehicle control) / (mean MAX RLU control ligand - mean RLU of vehicle control).
+                        </p>
+                    </li>
+                    <li>
+                        For antagonist mode assays, percentage inhibition was calculated using the following formula:
+                        <p>
+                            % Inhibition =100% x (1 - (mean RLU of test sample - mean RLU of vehicle control) / (mean RLU of EC80 control - mean RLU of vehicle control)).
+                        </p>
+                    </li>
+                </ol>
+                </div>
+            </td>
+        </tr>
+    </table>

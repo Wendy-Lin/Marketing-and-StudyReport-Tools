@@ -1,0 +1,110 @@
+﻿@using Discoverx.Models.CBIS_DB;
+@using Discoverx.Models;
+@using Discoverx.Models.TargetPriceList;
+
+@model Discoverx.Models.TargetPriceList.TargetListViewModel
+
+@{
+    ViewBag.Title = "Nuclear Hormone Receptor Activation Assays";
+    Layout = "~/Views/Shared/_PDFLayout.cshtml";
+}
+<style>
+    table {
+        font-size: 12px;
+    }
+
+    th {
+        background-color: #008000;
+    }
+
+    .alter-row {
+        background-color: #CCFFCC;
+    }
+</style>
+@if(Model.displayPDFLink)
+{
+@Html.ActionLink("Export to PDF", "ViewPdf", new { pageTitle = "Nuclear Hormone Receptor Activation Assays", viewName = "NuclearHormoneReceptorActivationAssaysList", fileName = "Nuclear Hormone Receptor Activation Assays" })
+}
+<table id="Content">
+    <caption>Nuclear Hormone Receptor Activation Assays</caption>
+    <col width="120px" />
+    <col width="400px" />
+    <col width="130px" />
+    <col width="130px" />
+    <col width="120px" />
+    <col width="120px" />
+    <tr>
+        <th rowspan="2">TARGET</th>
+        <th rowspan="2">PRODUCT DESCRIPTION</th>
+        <th rowspan="2">PATHHUNTER&reg; NHR<br />CELL LINE</th>
+        <th rowspan="2">PATHHUNTER&reg; NHR<br />EXPRESS KITS</th>
+        <th colspan="2">LeadHunter&#x2120; SERVICE</th>
+    </tr>
+    <tr>
+        <th><span style="font-style:italic">nhr</span> MAX</th><th>PROFILING</th>
+
+    </tr>
+    <tr>
+        <th colspan="6">NUCLEAR TRANSLOCATION ASSAYS</th>
+
+    </tr>
+    @{int i = 0;}
+    @foreach (vw_TPL_Assays assay in Model.AssayList1)
+    {
+
+        <tr @if (i % 2 == 0) { <text> class="alter-row" </text>  }>
+            <td>@assay.TARGET</td>
+            <td nowrap>@assay.DESCRIPTION</td>
+            <td align="center">
+                @if (!String.IsNullOrEmpty(assay.CellLinePN))
+                {<text >X</text> }
+            </td>
+            <td align="center">
+                @if (!String.IsNullOrEmpty(assay.ExpressKitPN))
+                {<text>X</text> }
+            </td>
+            <td align="center">
+                @if (assay.PROF_COMMERCIAL_NAME_PANEL == "nhrMAX")
+                {<text>X</text> }
+            </td>
+            <td align="center">
+                @if (assay.PROF_COMMERCIAL_NAME_PRIMARY_ELECT == "nhrELECT")
+                {<text>X</text> }
+            </td>
+        </tr>
+                i++;
+    }
+    <tr>
+        <th colspan="6">PROTEIN INTERACTION ASSAYS</th>
+
+    </tr>
+    @{i = 0;}
+    @foreach (vw_TPL_Assays assay in Model.AssayList2)
+    {
+
+        <tr @if (i % 2 == 0) { <text> class="alter-row" </text>   }>
+            <td>@assay.TARGET</td>
+            <td nowrap>@assay.DESCRIPTION</td>
+            <td align="center">
+                @if (!String.IsNullOrEmpty(assay.CellLinePN))
+                {<text >X</text> }
+            </td>
+            <td align="center">
+                @if (!String.IsNullOrEmpty(assay.ExpressKitPN))
+                {<text>X</text> }
+            </td>
+            <td align="center">
+                @if (assay.PROF_COMMERCIAL_NAME_PANEL == "nhrMAX")
+                {<text>X</text> }
+            </td>
+            <td align="center">
+                @if (assay.PROF_COMMERCIAL_NAME_PRIMARY_ELECT == "nhrELECT")
+                {<text>X</text> }
+            </td>
+        </tr>
+                i++;
+    }
+</table>
+
+
+

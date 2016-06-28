@@ -1,0 +1,159 @@
+﻿@using Discoverx.Models.CBIS_DB;
+@using Discoverx.Models;
+@using Discoverx.Models.TargetPriceList;
+
+
+@model Discoverx.Models.TargetPriceList.TargetListViewModel
+
+@{
+    ViewBag.Title = "DiscoverX<sup>®</sup> Total GPCR Product Offering";
+    Layout = "~/Views/Shared/_PDFLayout.cshtml";
+}
+<style>
+    table {
+        font-size: 9px;
+        width:1183px;
+        
+    }
+
+        table:not(:first-of-type) {
+            page-break-before:always;
+        }
+
+    th {
+        background-color: #FF0000;
+    }
+    
+    .alter-row {
+        background-color: #FFCCCC;
+    }
+    th, td {
+            padding: 3px;
+        }
+</style>
+@if(Model.displayPDFLink)
+{
+@Html.ActionLink("Export to PDF", "ViewPdf", new { pageTitle = "DiscoverX Total GPCR Product Offering", viewName = "DiscoveRxTotalGPCRProductOfferingList", fileName = "DiscoverX Total GPCR Product Offering" })
+}
+
+<div id="Content">
+    @{int i = 0;
+    vw_TPL_TotalGPCR assay;
+    }
+    @while (i < Model.TotalGPCRList.Count)
+    {
+        <table>
+            <caption>DiscoverX<sup>®</sup> Total GPCR Product Offering</caption>
+            <col width="163px" />
+            <col width="152px" />
+            <col width="92px" />
+            <col width="60px" />
+            <col width="60px" />
+            <col width="60px" />
+            <col width="60px" />
+            <col width="55px" />
+            <col width="50px" />
+            <col width="55px" />
+            <col width="78px" />
+            <col width="78px" />
+            <col width="78px" />
+            <col width="54px" />
+            <col width="85px" />
+            <tr>
+                <th rowspan="2">FAMILY</th>
+                <th rowspan="2">COMMON NAME</th>
+                <th rowspan="2">GPCR GENE</th>
+                <th colspan="2">PATHHUNTER&reg;<br />ARRESTIN</th>
+                <th colspan="2">cAMP HUNTER</th>
+                <th rowspan="2">CALCIUM<br />CELL<br />LINE</th>
+                <th colspan="2">INTERNALIZATION</th>
+                <th>BIOLOGICS</th>
+                <th colspan="2">LeadHunter&#x2120; SERVICE</th>
+            </tr>
+
+            <tr>
+                <th>CELL<br />LINE</th>
+                <th>EXPRESS<br />KITS</th>
+                <th>CELL<br />LINE</th>
+                <th>EXPRESS<br />KITS</th>
+                <th>CELL<br />LINE</th>
+                <th>EXPRESS<br />KITS</th>
+                <th>PATHHUNTER<br />BIOASSAY KITS</th>
+                <th><i>gpcr</i> MAX</th>
+                <th>PROFILING**</th>
+            </tr>
+            <tr>
+                <td colspan="13" style="font-size:10px; font-weight:bold;">* Available in Ortholog<br />** Profiling Service: c=Available in cAMP only; F=Available in Calcium Flux only</td>
+            </tr>
+
+            @do
+            {
+                assay = Model.TotalGPCRList[i];
+                <tr @if (i % 2 == 0) { <text> class="alter-row" </text>     }>
+                    <td nowrap>@assay.Family</td>
+                    <td nowrap>@assay.CommonName</td>
+                    <td nowrap>@assay.TARGET</td>
+                    <td align="center">
+                        @if (assay.ArrestinCellLines.ParseString() != string.Empty)
+                        {<text >X</text> }
+                        @Model.IsCellLineOrthologAvailable(assay)
+                    </td>
+                    <td align="center">
+                        @if (assay.ArrestinKits.ParseString() != string.Empty)
+                        {<text >X</text> }
+                        @Model.IsKitsOrthologAvailable(assay)
+                    </td>
+                    <td align="center">
+                        @if (assay.cAMPReadout != "Calc")
+                        {
+                            if (assay.cAMPCellLines.ParseString() != string.Empty)
+                            {<text >X</text> }
+                            @Model.IscAMPCellLineOrthologAvailable(assay)
+                        }
+                    </td>
+                    <td align="center">
+                        @if (assay.cAMPKits.ParseString() != string.Empty)
+                        {<text >X</text> }
+                        @Model.IscAMPKitOrthologAvailable(assay)
+                    </td>
+                    <td align="center">
+                        @if (assay.CalciumCellLine.ParseString() != string.Empty)
+                        {<text>X</text> }
+                    </td>
+                    <td align="center">
+                        @if (assay.InternalizationCellLines.ParseString() != string.Empty)
+                        {<text >X</text> }
+                    </td>
+                    <td align="center">
+                        @if (assay.InternalizationKits.ParseString() != string.Empty)
+                        {<text >X</text> }
+                    </td>
+                    
+                    <td align="center">
+                        @if (assay.PathHunterKits.ParseString() != string.Empty)
+                        {<text >X</text> }
+                    </td>
+                    <td align="center">
+                        @if (assay.LeadHunterServiceMax.ParseString() != string.Empty)
+                        {<text>X</text> }
+                    </td>
+                    <td align="center">
+                        @if (assay.LeadHunterServiceProfiling.ParseString() != string.Empty)
+                        {<text>X</text> }
+                        else if (assay.cAMPProfiling.ParseString() != string.Empty)
+                        {<text>C</text> }
+                        else if (assay.CalciumProfiling.ParseString() != string.Empty)
+                        {<text>F</text> }
+                    </td>
+                </tr>
+                        i++;
+
+            } while (i < Model.TotalGPCRList.Count && ((Model.displayPDFLink) ||( i % 70 != 0)));
+
+        </table>
+    }
+</div>
+
+
+
+

@@ -1,0 +1,174 @@
+﻿@using Discoverx.Models;
+@model Discoverx.Models.StudyReport.PHStudyReportViewModel
+
+<table style="border:hidden;page-break-before:always">
+    <tr>
+        <td valign="top" class="no_border">
+
+            <div>
+                <p style='font-size:16pt;font-weight:bold; font-style:italic'>
+                    Assay Design: GPCR cAMP Modulation
+                </p>
+                <p class='sub-sub'>Cell Handling</p>
+                <p>
+                    1. cAMP Hunter cell lines were expanded from freezer stocks according to standard procedures.
+                </p>
+                <p>
+                    2. Cells were seeded in a total volume of 20 μL into white walled, 384‐well microplates and incubated at 37°C for the appropriate time prior to testing.
+                </p>
+                <p>
+                    3. cAMP modulation was determined using the DiscoverX HitHunter cAMP XS+ assay.
+                </p>
+                <p class='sub-sub'>
+                    Gs Agonist Format
+                </p>
+                <p>
+                    1. For agonist determination, cells were incubated with sample to induce response.
+                </p>
+                <p>
+                    2. Media was aspirated from cells and replaced with 15 μL 2:1 HBSS/10mM Hepes : cAMP XS+ Ab reagent.
+                </p>
+                <p>
+                    3. Intermediate dilution of sample stocks was performed to generate 4X sample in assay buffer.
+                </p>
+                <p>
+                    4. 5 μL of 4X sample was added to cells and incubated at 37°C or room temperature for 30 or 60 minutes. Final assay vehicle concentration was 1%.
+                </p>
+
+                <p class='sub-sub'>
+                    Gi Agonist Format
+                </p>
+                <p>
+                    1. For agonist determination, cells were incubated with sample in the presence of EC80 forskolin to induce response.
+                </p>
+                <p>
+                    2. Media was aspirated from cells and replaced with 15 μL 2:1 HBSS/10mM Hepes : cAMP XS+ Ab reagent.
+                </p>
+                <p>
+                    3. Intermediate dilution of sample stocks was performed to generate 4X sample in assay buffer containing 4X EC80 forskolin.
+                </p>
+                <p>
+                    4. 5 μL of 4X sample was added to cells and incubated at 37°C or room temperature for 30 or 60 minutes. Final assay vehicle concentration was 1%.
+                </p>
+
+
+                <p class='sub-sub'>
+                    Allosteric Modulation Format
+                </p>
+                <p>
+                    1. For allosteric determination, cells were pre‐incubated with sample followed by agonist induction at the EC20 concentration.
+                </p>
+                <p>
+                    2. Media was aspirated from cells and replaced with 10 μL 1:1 HBSS/10mM Hepes : cAMP XS+ Ab reagent.
+                </p>
+                <p>
+                    3. Intermediate dilution of sample stocks was performed to generate 4X sample in assay buffer.
+                </p>
+                <p>
+                    4. 5 μL of 4X compound was added to the cells and incubated at room temperature or 37°C for 30 minutes.
+                </p>
+                <p>
+                    5. 5 μL of 4X EC20 agonist was added to the cells and incubated at room temperature or 37°C for 30 or 60 minutes. For Gi‐coupled GPCRs, EC80 forskolin was included.
+                </p>
+
+
+                <p class='sub-sub'>
+                    Inverse Agonist Format (Gi only)
+                </p>
+                <p>
+                    1. For inverse agonist determination, cells were preincubated with sample in the presence of EC20 forskolin.
+                </p>
+                <p>
+                    2. Media was aspirated from cells and replaced with 15 μL 2:1 HBSS/10mM Hepes : cAMP XS+ Ab reagent.
+                </p>
+                <p>
+                    3. Intermediate dilution of sample stocks was performed to generate 4X sample in assay buffer containing 4X EC20 forskolin.
+                </p>
+                <p>
+                    4. 5 μL of 4X sample was added to cells and incubated at 37°C or room temperature for 30 or 60 minutes. Final assay vehicle concentration was 1%.
+                </p>
+
+                <p class='sub-sub'>
+                    Antagonist Format
+                </p>
+                <p>
+                    1. For antagonist determination, cells were pre‐incubated with sample followed by agonist challenge at the EC80 concentration.
+                </p>
+                <p>
+                    2. Media was aspirated from cells and replaced with 10 μL 1:1 HBSS/Hepes : cAMP XS+ Ab reagent.
+                </p>
+                <p>
+                    3. 5 μL of 4X compound was added to the cells and incubated at 37°C or room temperature for 30 minutes.
+                </p>
+                <p>
+                    4. 5 μL of 4X EC80 agonist was added to cells and incubated at 37°C or room temperature for 30 or 60 minutes. For Gi coupled GPCRs, EC80 forksolin was included.
+                </p>
+
+
+                <p class='sub-sub'>
+                    Signal Detection
+                </p>
+                <p>
+                    1. A􀅌er appropriate compound incubation, assay signal was generated through incubation with 20 μL cAMP XS+ ED/ CL lysis cocktail for one hour followed by incubation with 20 μL cAMP XS+ EA reagent for three hours at room temperature.
+                </p>
+                <p>
+                    2. Microplates were read following signal generation with a PerkinElmer Envision<sup>TM</sup> instrument for chemiluminescent signal detection.
+                </p>
+                <p class='sub-sub'>
+                    Data Analysis
+                </p>
+                <p>
+                    1. Compound activity was analyzed using CBIS data analysis suite (ChemInnovation, CA).
+                </p>
+                <p>
+                    2. For Gs agonist mode assays, percentage activity is calculated using the following formula:
+                </p>
+                <p style="margin-left:25px">
+                    % Activity =100% x (mean RLU of test sample - mean RLU of vehicle control) / (mean RLU of MAX control - mean RLU of vehicle control).
+                </p>
+                <p>
+                    3. For Gs positive allosteric mode assays, percentage modulation is calculated using the following formula:
+                </p>
+                <p style="margin-left:25px">
+                    % Modulation =100% x (mean RLU of test sample - mean RLU of EC20 control) / (mean RLU of MAX control - mean RLU of EC20 control).
+                </p>
+                <p>
+                    4. For Gs antagonist or negative allosteric mode assays, percentage inhibition is calculated using the following formula:
+                </p>
+                <p style="margin-left:25px">
+                    % Inhibition =100% x (1 - (mean RLU of test sample - mean RLU of vehicle control) / (mean RLU of EC80 control - mean RLU of vehicle control)).
+                </p>
+                <p>
+                    5. For Gi agonist mode assays, percentage activity is calculated using the following formula:
+                </p>
+                <p style="margin-left:25px">
+                    % Activity = 100% x (1 - (mean RLU of test sample - mean RLU of MAX control) / (mean RLU of vehicle control - mean RLU of MAX control)).
+                </p>
+                <p>
+                    6. For Gi positive allosteric mode assays, percentage modulation is calculated using the following formula:
+                </p>
+                <p style="margin-left:25px">
+                    % Modulation =100% x (1‐(mean RLU of test sample - mean RLU of MAX control) / (mean RLU of EC20 control - mean RLU of MAX control)).
+                </p>
+                <p>
+                    7. For Gi inverse agonist mode assays, percentage activity is calculated using the following formula:
+                </p>
+                <p style="margin-left:25px">
+                    % Inverse Agonist Activity =100% x ((mean RLU of test sample - mean RLU of EC20 forskolin) / (mean RLU of forskolin positive control - mean RLU of EC20 control)).
+                </p>
+                <p>
+                    8. For Gi antagonist or negative allosteric mode assays, percentage inhibition is calculated using the following formula:
+                </p>
+                <p style="margin-left:25px">
+                    % Inhibition = 100% x (mean RLU of test sample - mean RLU of EC80 control) / (mean RLU of forskolin positive control - mean RLU of EC80 control).
+                </p>
+            </div>
+
+        </td>
+    </tr>
+
+</table>
+
+
+
+

@@ -1,0 +1,395 @@
+﻿@model Discoverx.Models.TargetPriceList.PriceListViewModel
+    ViewBag.Title = "IndexPDF";
+}
+
+@{
+    ViewBag.Title = "Summary Price List";
+    Layout = "~/Views/Shared/_PDFLayout.cshtml";
+}
+
+<style>
+    table {
+        font-size: 13px;
+    }
+
+        table:not(:first-of-type) {
+            page-break-before: always;
+        }
+
+    .MainHeader {
+        background-color: #0078B3;
+    }
+
+    .SubHeader {
+        background-color: #DDE7F0;
+        color: black;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    
+</style>
+
+
+
+
+<h2>DiscoverX Summary Price List</h2>
+<div id="Content">
+    <table>
+        <col width="480px" />
+        <col width="240px" />
+        <col width="210px" />
+        <col width="120px" />
+        <col width="120px" />
+
+        <tr class="MainHeader">
+            <th colspan="5">
+                DiscoverX Corporation<br />
+                42501 Albrae Street, Suite 100, Fremont, CA 94538 <span style="margin-left:20px">tel | 510.979.1415</span> <span style="margin-left:20px">fax | 510.979.1650</span> <span style="margin-left:20px">http://www.discoverx.com</span>
+            </th>
+        </tr>
+        <tr class="MainHeader"><th colspan="2">DESCRIPTION</th><th>CONFIGURATION</th><th>USD</th><th>USD NFP</th></tr>
+        <tr><th class="SubHeader" colspan="5">CELL LINES</th></tr>
+        <tr>
+            <td colspan="2">PathHunter<sup>&reg;</sup> β-Arrestin (Human & Ortholog, Orphan, Total GPCR Internalization, Activated GPCR Internalization) Cell Line; PathHunter<sup>&reg;</sup> Dimerization Assays</td>
+            <td class="price">Clone</td>
+            <td class="price">$19,800</td>
+            <td class="price">$7,180</td>
+        </tr>
+        <tr>
+            <td colspan="2">PathHunter<sup>&reg;</sup> β-Arrestin (Ortholog, Total GPCR Internalization, Activated GPCR Internalization) Cell Pool</td>
+            <td class="price">Cell Pool</td>
+            <td class="price">$19,800</td>
+            <td class="price">$8,780</td>
+        </tr>
+        <tr><td colspan="2">PathHunter<sup>&reg;</sup> Pharmacotrafficking Assays</td><td class="price">Clone</td>
+        <td class="price">$29,500</td>
+        <td class="price">Inquire</td></tr>
+        <tr>
+            <td colspan="2">cAMP Hunter™ Cell Line (Human & Ortholog); Native Calcium Cell Line; PathHunter<sup>&reg;</sup> (Nuclear Translocation, Protein Interaction) Cell Line; PathHunter<sup>&reg;</sup> Protease Cell Line</td>
+            <td class="price">Clone</td>
+            <td class="price">$13,950</td>
+            <td class="price">$8,540</td>
+        </tr>
+        <tr>
+            <td colspan="2">PathHunter<sup>&reg;</sup> Cell-Based (RTK Activity, RTK Functional (& DDR2 Bulk), CTK Activity, CTK Functional) Assay; PathHunter<sup>&reg;</sup> Pathway Assays</td>
+            <td class="price">Clone</td>
+            <td class="price">$19,800</td>
+            <td class="price">$7,180</td>
+        </tr>
+        <tr><td colspan="2">InCELL Hunter™ (Bromodomain, Histone Methyltransferase, Kinase, Pathway) Cell Lines</td>
+        <td class="price">Clone</td>
+        <td class="price">$19,800</td>
+        <td class="price">$7,180</td></tr>
+        <tr><td colspan="2">InCELL Hunter™ Target Engagement Assay System Kit</td>
+        <td class="price">Kit</td>
+        <td class="price">$8,780</td>
+        <td class="price">Inquire</td></tr>
+
+        <tr><th class="SubHeader" colspan="5">ASSAY-READY KITS</th></tr>
+        <tr>
+            <td rowspan="3" colspan="2">PathHunter<sup>&reg;</sup> eXpress (Human & Ortholog, Orphan) β-Arrestin GPCR Assay; PathHunter<sup>&reg;</sup> eXpress (Total GPCR Internalization, Activated GPCR Internalization) Assay; PathHunter<sup>&reg;</sup> GPCR Explorer Kit (only 100dp and 1000dp available); PathHunter<sup>&reg;</sup> Dimerization Assay-Ready Kits</td>
+            <td class="price">100 dp (1 x 96-well)</td>
+            <td class="price">$1,350</td>
+            <td class="price">$900</td>
+        </tr>
+        <tr><td class="price">200 dp (2 x 96-well)</td>
+        <td class="price">$1,930</td>
+        <td class="price">$1,290</td></tr>
+        <tr><td class="price">1000 dp (10 x 96-well)</td>
+        <td class="price">$6,420</td>
+        <td class="price">$5,330</td></tr>
+
+        <tr>
+            <td rowspan="3" colspan="2">cAMP Hunter™ eXpress GPCR Assay</td>
+            <td class="price">100 dp (1 x 96-well)</td>
+            <td class="price">$790</td>
+            <td class="price">$530</td>
+        </tr>
+        <tr><td class="price">200 dp (2 x 96-well)</td>
+        <td class="price">$1,070</td>
+        <td class="price">$750</td></tr>
+        <tr><td class="price">1000 dp (10 x 96-well)</td>
+        <td class="price">$4,800</td>
+        <td class="price">$3,200</td></tr>
+
+        <tr>
+            <td colspan="2">PathHunter<sup>&reg;</sup> eXpress GPCR Profiler Kit (10 targets, mix and match receptors or readouts)</td>
+            <td class="price">1000 dp (10 x 96-well)</td>
+            <td class="price">$7,490</td>
+            <td class="price">Inquire</td>
+        </tr>
+
+        <tr>
+            <td rowspan="3" colspan="2">PathHunter<sup>&reg;</sup> eXpress (RTK Activity, RTK Functional, CTK Activity, CTK Functional) Assay</td>
+            <td class="price">100 dp (1 x 96-well)</td>
+            <td class="price">$1,350</td>
+            <td class="price">$900</td>
+        </tr>
+        <tr><td class="price">200 dp (2 x 96-well)</td>
+        <td class="price">$1,920</td>
+        <td class="price">$1,280</td></tr>
+        <tr><td class="price">1000 dp (10 x 96-well)</td>
+        <td class="price">$6,420</td>
+        <td class="price">$5,330</td></tr>
+
+        <tr>
+            <td rowspan="2" colspan="2">PathHunter<sup>&reg;</sup> eXpress NHR Protein Interaction and NHR Nuclear Translocation Assay</td>
+            <td class="price">48-well</td>
+            <td class="price">$420</td>
+            <td class="price">$420</td>
+        </tr>
+        <tr><td class="price">96-well</td>
+        <td class="price">$600</td>
+        <td class="price">$600</td></tr>
+
+        <tr>
+            <td rowspan="3" colspan="2">PathHunter<sup>&reg;</sup> eXpress Pathway Assay</td>
+            <td class="price">100 dp (1 x 96-well)</td>
+            <td class="price">$1,350</td>
+            <td class="price">$900</td>
+        </tr>
+        <tr><td class="price">200 dp (2 x 96-well)</td>
+        <td class="price">$1,920</td>
+        <td class="price">$1,280</td></tr>
+        <tr><td class="price">1000 dp (10 x 96-well)</td>
+        <td class="price">$6,420</td>
+        <td class="price">$5,330</td></tr>
+
+        <tr><td colspan="2">PathHunter<sup>&reg;</sup> Bioassay Kits</td>
+        <td class="price">1000 dp (10 x 96-well)</td>
+        <td class="price">$6,990</td>
+        <td class="price">N/A</td></tr>
+
+        <tr>
+            <td rowspan="3" colspan="2">InCELL Hunter™ eXpress (Bromodomain, Histone Methyltransferase, Kinase, Pathway) Assay</td>
+            <td class="price">100 dp (1 x 96-well)</td>
+            <td class="price">$1,330</td>
+            <td class="price">$880</td>
+        </tr>
+        <tr><td class="price">200 dp (2 x 96-well)</td>
+        <td class="price">$1,885</td>
+        <td class="price">$1,260</td></tr>
+        <tr><td class="price">1000 dp (10 x 96-well)</td>
+        <td class="price">$6,300</td>
+        <td class="price">$5,230</td></tr>
+
+        <tr>
+            <td rowspan="3" colspan="2">Ab Hunter™ GPCR Functional Kit; Ab Hunter™ RTK Functional Kit</td>
+            <td class="price">100 dp (1 x 96-well)</td>
+            <td class="price">$1,375</td>
+            <td class="price">$955</td>
+        </tr>
+        <tr><td class="price">200 dp (2 x 96-well)</td>
+        <td class="price">$1,995</td>
+        <td class="price">$1,400</td></tr>
+        <tr><td class="price">1000 dp (10 x 96-well)</td>
+        <td class="price">$6,999</td>
+        <td class="price">$5,975</td></tr>
+
+        <tr><td colspan="2">Ab Hunter™ GPCR Antibody Binding Kit; Ab Hunter™ RTK Antibody Binding Kit</td>
+        <td class="price">1 vial, 1 x 10<sup>6</sup> cells</td>
+        <td class="price">$525</td>
+        <td class="price">$525</td></tr>
+
+        <tr><th class="SubHeader" colspan="5">DETECTION REAGENTS</th></tr>
+        <tr>
+            <td rowspan="4" colspan="2">PathHunter<sup>&reg;</sup> Detection Kit</td>
+            <td class="price">5 mL (100 dp, 96-well)</td>
+            <td class="price">$330</td>
+            <td class="price">$300</td>
+        </tr>
+        <tr><td class="price">48 mL (4,000 dp, 384-well)</td>
+        <td class="price">$2,890</td>
+        <td class="price">$2,450</td></tr>
+        <tr><td class="price">480 mL (40,000 dp, 384-well)</td>
+        <td class="price">$14,870</td>
+        <td class="price">$16,620</td></tr>
+        <tr><td class="price">2400 mL (200,000 dp, 384-well)</td>
+        <td class="price">Inquire</td>
+        <td class="price">Inquire</td></tr>
+
+        <tr><td rowspan="2" colspan="2">PathHunter<sup>&reg;</sup> Flash Detection Kit</td>
+        <td class="price">100 mL (4,000 dp, 384-well)</td>
+        <td class="price">$4,060</td>
+        <td class="price">$4,060</td></tr>
+        <tr><td class="price">1000 mL (40,000 dp, 384-well)</td>
+        <td class="price">$22,680</td>
+        <td class="price">$18,900</td></tr>
+    </table>
+
+
+    <table>
+        <col width="480px" />
+        <col width="240px" />
+        <col width="210px" />
+        <col width="120px" />
+        <col width="120px" />
+
+        <tr class="MainHeader">
+            <th colspan="5">
+                DiscoverX Corporation<br />
+                42501 Albrae Street, Suite 100, Fremont, CA 94538 <span style="margin-left:20px">tel | 510.979.1415</span> <span style="margin-left:20px">fax | 510.979.1650</span> <span style="margin-left:20px">http://www.discoverx.com</span>
+            </th>
+        </tr>
+        <tr class="MainHeader"><th colspan="2">DESCRIPTION</th><th>CONFIGURATION</th><th>USD</th><th>USD NFP</th></tr>
+        <tr>
+            <td rowspan="3" colspan="2">PathHunter<sup>&reg;</sup> Bioassay Detection Kit</td>
+            <td class="price">5 mL (100 dp, 96-well)</td>
+            <td class="price">$530</td>
+            <td class="price">$530</td>
+        </tr>
+        <tr><td class="price">48 mL (1,000 dp, 384-well)</td>
+        <td class="price">$4,280</td>
+        <td class="price">$4,280</td></tr>
+        <tr><td class="price">480 mL (10,000 dp, 384-well)</td>
+        <td class="price">$31,620</td>
+        <td class="price">$31,620</td></tr>
+
+        <tr>
+            <td rowspan="3" colspan="2">InCELL Hunter™ Detection Kit (Bromodomain, Histone Methyltransferase, Pathway); InCELL Hunter™ Detection Kit II (Kinase)</td>
+            <td class="price">12 mL (400 dp, 384-well)</td>
+            <td class="price">$530</td>
+            <td class="price">$530</td>
+        </tr>
+        <tr><td class="price">120 mL (4000 dp, 384-well)</td>
+        <td class="price">$4,280</td>
+        <td class="price">$4,280</td></tr>
+        <tr><td class="price">1200 ml (40,000 dp, 384-well)</td>
+        <td class="price">$31,620</td>
+        <td class="price">$31,620</td></tr>
+
+        <tr>
+            <td rowspan="3" colspan="2">InCELL Hunter™ Target Engagement Assay (TEA) Detection Kit</td>
+            <td class="price">12 mL (400 dp, 384-well)</td>
+            <td class="price">$890</td>
+            <td class="price">$890</td>
+        </tr>
+        <tr><td class="price">120 mL (4000 dp, 384-well)</td>
+        <td class="price">$4,490</td>
+        <td class="price">$4,490</td></tr>
+        <tr><td class="price">1200 ml (40,000 dp, 384-well)</td>
+        <td class="price">$33,000</td>
+        <td class="price">$33,000</td></tr>
+       
+        <tr>
+            <td rowspan="4" colspan="2">HitHunter<sup>&reg;</sup> (cAMP Assay for Small Molecules)
+            <br /> HitHunter<sup>&reg;</sup> (cAMP Assay for Biologics) </td>
+            <td class="price">100 dp (96-well)</td>
+            <td class="price">$245</td>
+            <td class="price">$195</td>
+        </tr>
+        <tr><td class="price">800 dp (384-well)</td><td class="price">$840</td><td class="price">$605</td></tr>
+        <tr><td class="price">10,000 dp (384-well)</td><td class="price">$3,025</td><td class="price">$2,230</td></tr>
+        <tr><td class="price">40,000 dp (384-well)</td><td class="price">$7,995</td><td class="price">Inquire</td></tr>
+
+        <tr>
+            <td rowspan="3" colspan="2">Calcium No WashPLUS</td>
+            <td class="price">10 plates (384-well)</td>
+            <td class="price">$440</td>
+            <td class="price">$440</td>
+        </tr>
+        <tr><td class="price">20 plates (384-well)</td><td class="price">$660</td><td class="price">$660</td></tr>
+        <tr><td class="price">100 plates (384-well)</td><td class="price">$2,660</td><td class="price">Inquire</td></tr>
+
+        <tr><th class="SubHeader" colspan="5">SYNERGY</th></tr>
+        <tr>
+            <td colspan ="2">PathHunter<sup>&reg;</sup> Synergy Starter Pack (include Cell Culture Kit, Cell Plating Reagent, Preserve™ Freezing Reagent, Preserve™ Freezing Reagent, Cell Detachment Reagent)</tdcolspan>
+            <td class="price">Pack</td>
+            <td class="price">$540/td>
+            <td class="price">$540</td>
+        </tr>
+
+        <tr>
+            <td rowspan="2" colspan="2">Cell plating reagent</td>
+            <td class="price">100 mL</td>
+            <td class="price">$180</td>
+            <td class="price">$180</td>
+        </tr>
+        <tr><td class="price">500 mL</td><td class="price">$450</td><td class="price">$450</td></tr>
+
+        <tr>
+            <td colspan ="2">Revive™ Media</td>
+            <td class="price">2 x 20 mL</td>
+            <td class="price">$120</td>
+            <td class="price">$120</td>
+        </tr>
+
+        <tr>
+            <td colspan="2">Preserve™ Freezing Reagent</td>
+            <td class="price">2 x 50 mL</td>
+            <td class="price">$250</td>
+            <td class="price">$250</td>
+        </tr>
+
+        <tr>
+            <td colspan="2">Cell Culture Kit</td>
+            <td class="price">Kit</td>
+            <td class="price">$230</td>
+            <td class="price">$230</td>
+        </tr>
+        <tr>
+            <td colspan="2">Control Ligands</td>
+            <td class="price">Refer to Price List</td>
+            <td class="price">$ 75 - $1050</td>
+            <td class="price">$ 75 - $1050</td>
+        </tr>
+        <tr>
+            <td colspan="2">CytoTracker™</td>
+            <td class="price">Refer to Price List</td>
+            <td class="price">$ 165 - 675</td>
+            <td class="price">$ 165 - 675</td>
+        </tr>
+        <tr class="MainHeader">
+            <th colspan="5">
+                BULK CELL LINE PRODUCTION SERVICE
+            </th>
+        </tr>
+        <tr>
+            <td rowspan="2" colspan="2">Bulk cell service for any prevously purchsed DRx cell lines</td>
+            <td class="price">Bulk 500 MM cells;<br />(25MM/vial; 20 vials)</td>
+            <td class="price">$6,200</td>
+            <td class="price">$6,200</td>
+        </tr>
+        <tr><td class="price">Bulk 1 BB cells;<br />(25MM/vial; 40 vials)</td><td class="price">$9,670</td><td class="price">$9,670</td></tr>
+        <tr class="MainHeader">
+            <th colspan="5">
+                CERTIFIED REAGENT VOLUMES REQUIRED FOR DATA POINT SCREENS (384-well plate)
+            </th>
+        </tr>
+        <tr class="MainHeader">
+            <th>
+                Data Points (dp)
+            </th>
+            <th colspan="2">
+                PathHunter<sup>&reg;</sup>select<br />
+                Cell Culture Kit<br />
+                (500 mL/kit)
+            </th>
+            <th colspan="2">
+                Cell Plating Reagent<br />
+                (500 mL/kit)
+            </th>
+        </tr>
+        <tr><td class="price">50,000</td><td colspan="2" class="price">1000 mL (2 kits)</td><td colspan="2" class="price">1125 mL (2.25 kits)</td></tr>
+        <tr><td class="price">100,000</td><td colspan="2" class="price">2000 mL (4 kits)</td><td colspan="2" class="price">2250 mL (4.5 kits)</td></tr>
+        <tr><td class="price">200,000</td><td colspan="2" class="price">4000 mL (8 kits)</td><td colspan="2" class="price">4500 mL (9 kits)</td></tr>
+        <tr><td class="price">500,000</td><td colspan="2" class="price">10000 mL (20 kits)</td><td colspan="2" class="price">11250 mL (22.5 kits)</td></tr>
+        <tr><td class="price">1,000,000</td><td colspan="2" class="price">20000 mL (40 kits)</td><td colspan="2" class="price">22500 mL (45 kits)</td></tr>
+        <tr class="MainHeader">
+            <th colspan="5">
+                ORDER PLACEMENT
+            </th>
+        </tr>
+        <tr>
+            <td colspan="5">
+                1. Purchase Order - a copy of the purchase order will need to be send to DiscoverX via fax (<span style="text-decoration:underline; color:red">510.979.9930</span> or email (<span style="text-decoration:underline; color:red">orders@discoverx.com</span>).<br /><br />
+    2. Credit Card - we accept VISA, MASTERCARD, and AMERICAN EXPRESS. Order can be placed via customer service (<span style="text-decoration:underline; color:red">510.979.1415 option 4</span> or email (<span style="text-decoration:underline; color:red">orders@discoverx.com</span>).<br /><br />
+    For Technical support, please call 510.979.1415 or email info@discoverx.com.
+</td>
+        </tr>
+    </table>
+</div>
+

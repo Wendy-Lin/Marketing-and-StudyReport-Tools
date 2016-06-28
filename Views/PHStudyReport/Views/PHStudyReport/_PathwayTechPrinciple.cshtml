@@ -1,0 +1,86 @@
+﻿
+@using Discoverx.Models;
+@model Discoverx.Models.StudyReport.PHStudyReportViewModel
+
+
+
+    <table class="PrincipleTable">
+    <tr>
+        <td valign="top" class="no_border">
+
+
+            <div>
+                <div class="div_column">
+                    <p class="tech_principle_title main">Technology Principle</p>
+                    <p class="tech_principle_title sub">Pathway Assays</p>
+                    <p>
+                        Cancer, inflammation and many other disease states are
+                        associated with abnormal signaling pathways. Targeting
+                        these signaling pathways at different nodal points has
+                        gained popularity in drug development efforts.
+
+                    </p>
+
+                    <p class="center"><img src="@string.Format(Utility.GetAPPSettingKey("FullImagePath"), "TechPath_1.png")"></p>
+
+
+                    <br /><br />
+                    <p class="tech_principle_title sub">Protein Degradation Assays</p>
+                    <p>
+                        Protein degradation can be monitored in a whole cell, homogeneous
+                        assay format with the PathHunter<sup>®</sup> Protein
+                        Degradation assay. In this system, a small enzyme fragment,
+                        ProLabelTM (PL) is fused to the protein of interest. Activation
+                        of the pathway results in protein degradation. Protein levels
+                        are detected with the addition of exogenous Enzyme Acceptor
+                        (EA), the complementary enzyme fragment to PL and
+                        PathHunter<sup>®</sup> detection reagents.
+                    </p>
+                    <br /><br />
+                    <p class="tech_principle_title sub">Nuclear Translocation Assays</p>
+                    <p>
+                        The PathHunter<sup>®</sup> Nuclear Translocation assay detects transloca
+                        tion of a target protein to, or from, the nucleus. In this
+                        system, ProLinkTM (PK), a small enzyme fragment, is fused to
+                    </p>
+                </div>
+                <div class="div_column right">
+                    <p>
+                        the protein of interest and EA is localized in the nucleus.
+                        Activation of the signaling pathway induces the target protein
+                        to either transit into the nucleus, thus forcing complementa
+                        tion of the PK and EA fragments, or out of the nucleus,
+                        hindering complementation of the fragments.
+                    </p>
+
+
+                    <p class="tech_principle_title sub">Profile Overview</p>
+                    <p>
+                        DiscoverX was contracted by Dr. @Model.contract.ContactName at @Model.order.Company to profile @Model.order.NumberOfCompounds
+                        compounds with @Model.order.NumberOfAssays Pathway assay PathHunter<sup>®</sup> biosensor cell lines.
+                        Details are given below:
+                    </p>
+                    <p class="center">
+                        <table style="table-layout:fixed;font-size:16px;" cellpadding="5">
+                            <caption>Project Description</caption>
+                            <colgroup>
+                                <col style="width:175px">
+                                <col style="width:250px">
+
+                            </colgroup>
+                            <tr><td>Product:</td><td>@Model.contract.Product</td></tr>
+                            <tr><td>Assays:</td><td>@Model.numberOfAssays</td></tr>
+                            <tr><td># Compound(s):</td><td>@Model.numberOfCompounds</td></tr>
+                            <tr><td># Datapoints:</td><td>@Model.numberOfDatapoints.ToString()</td></tr>
+                            <tr><td valign="top">Targets:</td><td>@Html.Raw(Model.targetAssayList)</td></tr>
+                        </table>
+                    </p>
+                </div>
+            </div>
+        </td>
+    </tr>
+
+</table>
+
+
+

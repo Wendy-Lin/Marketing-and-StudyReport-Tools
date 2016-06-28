@@ -1,0 +1,91 @@
+﻿
+@using Discoverx.Models;
+@model Discoverx.Models.StudyReport.PHStudyReportViewModel
+
+
+
+    <table class="PrincipleTable">
+    <tr>
+        <td valign="top" class="no_border">
+
+            <div>
+                <div class="div_column">
+                    <p class="tech_principle_title main">Technology Principle</p>
+                    <p class="tech_principle_title sub">Nuclear Hormone Receptor Assays</p>
+                    <p>
+                        PathHunter<sup><sup>®</sup></sup> NHR Protein Interaction (Pro) and Nuclear
+                        Translocation (NT) assays monitor the activation of a nuclear
+                        hormone receptor in a homogenous, non-imaging assay
+                        format using a technology developed by DiscoverX called
+                        Enzyme Fragment Complementation (EFC).
+
+                    </p>
+                    <p>
+                        The NHR Pro assay is based on detection of protein-protein
+                        interactions between an activated, full length NHR protein
+                        and a nuclear fusion protein containing Steroid Receptor Co
+                        -activator Peptide (SRCP) domains with one or more canonical
+                        LXXLL interaction motifs.
+                    </p>
+                    <p class="center"><img src="@string.Format(Utility.GetAPPSettingKey("FullImagePath"), "TechNHR_1.png")"></p>
+
+                    <p>
+                        The NHR is tagged with the ProLinkTM component of our EFC
+                        assay system, and the SRCP domain is fused to the enzyme
+                        acceptor component (EA) expressed in the nucleus. When
+                        bound by ligand, the NHR will migrate to the nucleus and
+                        recruit the SRCP domain, whereby complementation occurs,
+                        generating a unit of active β-Galactosidase (β-Gal) and produc
+                        tion of chemiluminescent signal. Benefits associated
+                        with this approach include reduced compound incubation
+                        times, direct measurement of the NHR target, use of fulllength
+                        human NHR sequences, and the ability to select novel
+                        compound classes based on disruption of protein-protein
+                        interactions.
+                    </p>
+                    <p>
+                        The NHR NT assay monitors movement of a NHR between
+                        the cytoplasmic and nuclear compartments. The receptor is
+                        tagged with the ProLabel<sup>TM</sup> component of our EFC assay
+                        system, and EA is fused to a nuclear location sequence that
+                        restricts the expression of EA to the nucleus. Migration of
+                    </p>
+                </div>
+                <div class="div_column right">
+                    <p>
+                        the NHR to the nucleus results in complementation with EA
+                        generating a unit of active β-Gal and production of a chemiluminescent
+                        signal.
+                    </p>
+                    <p class="center"><img src="@string.Format(Utility.GetAPPSettingKey("FullImagePath"), "TechNHR_2.png")"></span></p>
+
+                    <p class="tech_principle_title sub">Profile Overview</p>
+                    <p>
+                        DiscoverX was contracted by Dr. @Model.contract.ContactName at @Model.order.Company to profile @Model.order.NumberOfCompounds
+                        compounds with @Model.order.NumberOfAssays PathHunter<sup>®</sup> NHR biosensor cell lines. The compounds were tested @Model.assayModeList.ToLower() mode@((Model.assayModeList.Contains("and")) ? "s" : "").
+                        Details are given below:
+                    </p>
+                    <p class="center">
+                        <table style="table-layout:fixed;font-size:16px;" cellpadding="5">
+                            <caption>Project Description</caption>
+                            <colgroup>
+                                <col style="width:175px">
+                                <col style="width:350px">
+
+                            </colgroup>
+                            <tr><td>Product:</td><td>@Model.contract.Product</td></tr>
+                            <tr><td>Assays:</td><td>@Model.numberOfAssays</td></tr>
+                            <tr><td># Compound(s):</td><td>@Model.numberOfCompounds</td></tr>
+                            <tr><td># Datapoints:</td><td>@Model.numberOfDatapoints.ToString()</td></tr>
+                            <tr><td valign="top">Targets:</td><td>@Html.Raw(Model.targetAssayList)</td></tr>
+                        </table>
+                    </p>
+                </div>
+            </div>
+        </td>
+    </tr>
+
+</table>
+
+  
+

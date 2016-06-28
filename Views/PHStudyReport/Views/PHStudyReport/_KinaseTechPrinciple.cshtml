@@ -1,0 +1,141 @@
+﻿@using Discoverx.Models;
+@model Discoverx.Models.StudyReport.PHStudyReportViewModel
+
+
+
+    <table class="PrincipleTable">
+    <tr>
+        <td valign="top" class="no_border">
+
+            <div>
+                <div class="div_column">
+                    <p class="tech_principle_title main">Technology Principle</p>
+                    <p class="tech_principle_title sub">Cellular Kinase Assays</p>
+                    <p>
+                        Kinases are implicated in cancer, metabolic disease, inflammatory disease,
+                        cardiovascular disease and many other areas, making them key regulatory targets of research and development efforts.
+
+                    </p>
+                    <p>
+                        The PathHunter<sup>®</sup> technology is an adaptation of Enzyme Fragment Complementation (EFC) that provides a novel,
+                        generic cell-based assay format for detecting kinase interactions at multiple levels, enabling researchers to investigate
+                        the effect compounds have on kinase function, activity, receptor dimerization and target engagement.
+
+                    </p>
+                    <p class="tech_principle_title sub">Functional Kinase Assays</p>
+                    <p>
+                        In the PathHunter<sup>®</sup> Functional Kinase EFC approach, a small peptide epitope (ProLink™ or PK) is expressed recombinantly on
+                        the intracellular C-terminus of the kinase domain. One of the many different partner proteins containing SH2 domains
+                        (such as SHC1, SHC2, Grb2, PTPN6, PLCG1 or PLCG2) is co-expressed with a larger fragment, termed Enzyme Acceptor (EA).
+                        Ligand-induced activation of the receptor leads to phosphorylation of the C-terminal tail. The SH2-EA
+                    </p>
+                    <p class="center"><img src="@string.Format(Utility.GetAPPSettingKey("FullImagePath"), "TechKinase_1.jpg")" width="480px"></p>
+                    <p>
+                        fusion protein binds phosphorylated receptor, facilitating complementation of PK and EA fragments. This interaction generates
+                        an active unit of b-galactosidase, which is detected using a chemiluminescent substrate.  The technology has facilitated the investigation
+                        of both Receptor Tyrosine Kinases (RTK) and Cytosolic Tyrosine Kinases (CTK).
+                    </p>
+                </div>
+                <div class="div_column right">
+                    <p>
+                        In the Functional RTK assay, full length protein (native ligand binding domain and kinase domain) is expressed allowing for the interrogation of compounds acting at either site.
+                        In PathHunter<sup>®</sup> CTK assays, a cytokine receptor is co-expressed with the  CTK of interest (cytokine receptors lack kinase activity themselves and instead are phosphorylated by CTKs).
+                        Ligand-induced activation of the cytokine receptor and subsequent receptor phosphorylation by a CTK facilitates binding of SH2-EA.
+
+                    </p>
+
+                    <p class="tech_principle_title sub">Activity Kinase Assays</p>
+                    <p>
+                        The PathHunter<sup>®</sup> Activity Kinase Assay uses the same approach as the Functional Kinase Assay in interrogating kinase cellular activity.
+                        In the Activity Assay, the kinase domain of interest is fused with a generic ligand binding domain, making them suitable for the investigation
+                        of small molecule inhibitors of the kinase domain.
+
+                    </p>
+
+                    <p class="tech_principle_title sub">Kinase Dimerization Assays</p>
+                    <p>
+                        The PathHunter<sup>®</sup> Kinase Dimerization assay is ideal for investigating the activity of biologics and antibody therapeutics that activate
+                        or block receptor dimerization by either binding to the target or ligand. The approach is applicable to a number of receptor kinase homodimers or heterodimers.
+
+
+                    </p>
+                    <p class="center"><img src="@string.Format(Utility.GetAPPSettingKey("FullImagePath"), "TechKinase_2.jpg")" width="480px"></p>
+                    <p>
+                        In the PathHunter<sup>®</sup> Kinase Dimerization assay, target receptors are tagged with either ProLink™ (PK) or Enzyme Acceptor (EA).  Ligand binding induces dimerization of the two
+                        receptors facilitating complementation of PK and EA fragments.  This interaction generates an active unit of b-galactosidase, which is detected using a chemiluminescent substrate.
+                    </p>
+
+                </div>
+            </div>
+        </td>
+    </tr>
+
+</table>
+
+<table class="PrincipleTable">
+    <tr>
+        <td valign="top" class="no_border">
+
+
+            <div>
+                <div class="div_column">
+
+                    <p class="tech_principle_title sub">Target Engagement Assays</p>
+                    <p>
+                        The PathHunter<sup>®</sup> Target Engagement approach relies on the well-described change in cytosolic protein half-lives in response to binding
+                        other proteins or small molecules. Protein half life is relatively low and as a result exists at minimal concentrations within a cell.
+                        Binding to another protein or small molecule can stabilize the target protein, resulting in an increase in cytosolic concentrations.
+
+                    </p>
+                    <p class="center"><img src="@string.Format(Utility.GetAPPSettingKey("FullImagePath"), "TechKinase_3.jpg")" style="width:480px"></p>
+                    <p>
+                        In the PathHunter<sup>®</sup> Target Engagement Assay, the protein of interest is fused to an enhanced ProLabel (ePL) tag.  The ePL tag is a small
+                        peptide tag lacking significant tertiary structure, and hence does not alter the life cycle of the tagged protein. Stabilization of the
+                        protein by binding to another protein or small molecule results in an increase in protein concentrations within a cell, measured using EFC.
+                        This technology provides the ability to measure engagement of compound with a target kinase within a cellular environment.
+
+                    </p>
+
+                </div>
+                <div class="div_column right">
+
+
+                    <p class="tech_principle_title sub">Profile Overview</p>
+                    <p>
+                        DiscoverX was contracted by Dr. @Model.contract.ContactName at @Model.order.Company to profile @Model.numberOfCompounds
+                        @if (Model.numberOfCompounds > 1)
+                        {<text>compounds</text>}
+                        else
+                        {<text>compound</text>}
+                        with @Model.numberOfAssays GPCR biosensor
+                        @if (Model.numberOfAssays > 1)
+                        {<text>assays</text>}
+                        else
+                        {<text>assay</text>}.
+
+                        Details are given below:
+                    </p>
+                    <p class="center">
+                        <table style="table-layout:fixed;font-size:16px;" cellpadding="5">
+                            <caption>Project Description</caption>
+                            <colgroup>
+                                <col style="width:175px">
+                                <col style="width:250px">
+
+                            </colgroup>
+                            <tr><td>Product:</td><td>@Model.contract.Product</td></tr>
+                            <tr><td>Assays:</td><td>@Model.numberOfAssays</td></tr>
+                            <tr><td># Compound(s):</td><td>@Model.numberOfCompounds</td></tr>
+                            <tr><td># Datapoints:</td><td>@Model.numberOfDatapoints.ToString()</td></tr>
+                            <tr><td valign="top">Targets:</td><td>@Html.Raw(Model.targetAssayList)</td></tr>
+                        </table>
+                    </p>
+
+                </div>
+            </div>
+        </td>
+    </tr>
+
+</table>
+
+

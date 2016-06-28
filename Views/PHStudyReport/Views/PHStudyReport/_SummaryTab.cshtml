@@ -1,0 +1,143 @@
+﻿@using Discoverx.Models;
+@model Discoverx.Models.StudyReport.PHStudyReportViewModel
+
+
+<table style="border:hidden; page-break-before:always">
+
+    <tr>
+        <td class="no_border">
+            <p>
+                <span style='font-size:24.0pt;font-weight:bold;color:black'>Customer Information</span>
+            </p>
+            <table style='border:hidden;font-size:20.0pt;line-height:200%;margin-top:35px; table-layout:fixed' cellpadding="5">
+                <colgroup>
+                    <col width="200"/>
+                </colgroup>
+                <tr>
+                    <td class="no_border" style="vertical-align: top">
+                        Company :
+                    </td>
+                    <td class="no_border"> @Model.order.Company</td>
+                </tr>
+
+                <tr>
+                    <td class="no_border">
+                        Client Name :
+                    </td>
+                    <td class="no_border"> @Model.contract.ContactName</td>
+                </tr>
+                <tr>
+                    <td class="no_border" style="vertical-align: top">
+                        Address :
+                    </td>
+                    <td class="no_border"> @Model.contract.Address @Model.contract.Address2 @Model.contract.Address3<br /> @Model.contract.City, @(Model.contract.StateProvince=="--None--"?"":Model.contract.StateProvince) @Model.contract.Country @Model.contract.PostalCode</td>
+                </tr>
+                <tr>
+                    <td class="no_border">
+                        Email :
+                    </td>
+                    <td class="no_border"> @Model.contract.DistributionList.Split(new string[] { ";" }, StringSplitOptions.None)[0]</td>
+                </tr>
+            </table>
+
+            <div style='font-size:20.0pt;line-height:200%;margin-top:35px;font-weight:bold;'>
+                    <p>
+                        <span style='font-size:24.0pt;font-weight:bold;color:black'>Report Summary</span>
+                    </p>
+                <table class="no_border" style='font-size:18.0pt;line-height:200%;margin-top:35px' cellpadding="5">
+                    <tr>
+                        <td class="no_border">
+                            Assays :
+                        </td>
+                        <td class="no_border"> @Model.numberOfAssays</td>
+                    </tr>
+                    <tr>
+                        <td class="no_border" style="white-space:nowrap">
+                            Compounds :
+                        </td>
+                        <td class="no_border"> @Model.numberOfCompounds</td>
+                    </tr>
+                    <tr>
+                        <td class="no_border" valign="top">
+                            Objective :
+                        </td>
+                        <td class="no_border"> @Model.Objective</td>
+                    </tr>
+                    <tr>
+                        <td class="no_border" valign="top">
+                            Summary :
+                        </td>
+                        <td class="no_border">
+                            DiscoverX successfully profiled @Model.numberOfCompounds 
+                            @if (Model.numberOfCompounds > 1)
+                            {<text>compounds</text>}
+                            else
+                            {<text>compound</text>} with @Model.numberOfAssays Biosensor 
+
+                            @if (Model.numberOfAssays > 1)
+                            {<text>Assays</text>}
+                            else
+                            {<text>Assay</text>}.
+
+                            @if (Model.isPrimaryScreen)
+                            {
+                                <p>
+                                    The data is provided on the result page. The data is also provided in the an accompanying
+                                    spreadsheet file.
+                                </p>
+                            }
+                            else
+                            {
+                                <p>
+                                    A summary is given below. The data is also provided in an accompanying
+                                    spreadsheet file.
+                                </p>
+                            }
+                                                
+                        </td>
+                    </tr>
+                </table>
+                    
+                   
+@if (!Model.isPrimaryScreen)
+                            {
+                    <div style="line-height:100%">
+                        @{
+                            WebGrid grid = new WebGrid(canPage: false);
+                            //grid.Bind(Model.AssayReportSummary.OrderBy(a=>(a.AssayID.Contains("REF-")?0:1)).ThenBy(a=>a.CompoundName));
+                            //grid.Bind(Model.AssayReportSummary.OrderBy(a => (a.AssayID.Contains("REF-") ? 0 : 1)).ThenBy(a => a.AssayTarget).ThenBy(a => a.AssayFormat));
+                            grid.Bind(Model.AssayReportSummary.Where(a => a.AssayID.Contains("REF-")).OrderBy(a => a.AssayTarget).ThenBy(a => a.AssayFormat).Union(Model.AssayReportSummary.Where(a => !a.AssayID.Contains("REF-")).OrderBy(a => a.CompoundName)));
+
+                        }
+
+                        @grid.GetHtml(
+                        tableStyle: "webGrid",
+                        headerStyle: "header",
+                        alternatingRowStyle: "alt",
+
+                        columns: grid.Columns(
+                                         grid.Column("CompoundName", "Compound Name", null, null, false),
+                                         grid.Column("ProjectID", "Project ID", null, null, false),
+                                         grid.Column("AssayName", "Assay Name", null, style: "center", canSort: false),
+                                         grid.Column("AssayFormat", "Assay Format", null, style: "center", canSort: false),
+                                         grid.Column("AssayTarget", "Assay Target", null, style: "center", canSort: false),
+                                         grid.Column("ResultType", "Result Type", null, style: "center", canSort: false),
+                                         grid.Column(header: "RC50 (uM)", style: "number", format: (item) =>
+                                          {
+                                              return Html.Raw(string.Format("<text>" + item.ValuePrefix + item.ResultValue + "</text>"));
+
+                                          }),
+                                         grid.Column("Hill", "Hill", null, style: "number", canSort: false),
+                                         grid.Column("CurveBottom", "Curve Bottom", null, style: "number", canSort: false),
+                                         grid.Column("CurveTop", "Curve Top", null, style: "number", canSort: false),
+                                         grid.Column("MaxResponse", "Max Response", null, style: "number", canSort: false)
+
+                                  )
+
+                               )
+                    </div>
+}
+                </div>
+        <td>
+    </tr>
+</table>

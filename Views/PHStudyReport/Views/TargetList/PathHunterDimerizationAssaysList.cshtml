@@ -1,0 +1,84 @@
+﻿@using Discoverx.Models.CBIS_DB;
+@using Discoverx.Models;
+@using Discoverx.Models.TargetPriceList;
+
+@model Discoverx.Models.TargetPriceList.TargetListViewModel
+
+@{
+    ViewBag.Title = "PathHunter Dimerization Assay";
+    Layout = "~/Views/Shared/_PDFLayout.cshtml";
+}
+<style>
+    table {
+        font-size: 10px;
+    }
+
+    th, td {
+        padding: 4px;
+    }
+
+    th {
+        background-color: #E26B05;
+        font-weight: bold;
+    }
+
+    .alter-row {
+        background-color: #FDE9D9;
+    }
+</style>
+@if(Model.displayPDFLink)
+{
+@Html.ActionLink("Export to PDF", "ViewPdf", new { pageTitle = "PathHunter Dimerization Assay", viewName = "PathHunterDimerizationAssaysList", fileName = "PathHunter Dimerization Assay" })
+}
+<table id="Content">
+    <caption>PathHunter&reg; Dimerization Assays</caption>
+    <col width="105px" />
+    <col width="350px" />
+    <col width="165px" />
+    <col width="115px" />
+    <col width="115px" />
+    <col width="150px" />
+    <tr>
+        <th rowspan="2">TARGET</th>
+        <th rowspan="2">PRODUCT DESCRIPTION</th>
+        <th rowspan="2">ASSSAY MEASURES</th>
+        <th rowspan="2">PATHHUNTER&reg;<br />CELL LINE</th>
+        <th rowspan="2">PATHHUNTER&reg;<br />EXPRESS KITS</th>
+        <th>LeadHunter&#x2120; SERVICE</th>
+    </tr>
+    <tr>
+        <th>PROFILING</th>
+
+    </tr>
+    <tr>
+        <th colspan="6">PathHunter&reg; Dimerization Assay</th>
+
+    </tr>
+    @{int i = 0;}
+    @foreach (vw_TPL_Assays assay in Model.AssayList1)
+    {
+
+        <tr @if (i % 2 == 0) { <text> class="alter-row" </text>   }>
+            <td>@assay.TARGET</td>
+            <td nowrap>@assay.DESCRIPTION</td>
+            <td nowrap>@assay.Assay_Measures</td>
+            <td align="center">
+                @if (!String.IsNullOrEmpty(assay.CellLinePN))
+                {<text >X</text> }
+            </td>
+            <td align="center">
+                @if (!String.IsNullOrEmpty(assay.ExpressKitPN))
+                {<text>X</text> }
+            </td>
+            <td align="center">
+                @if (assay.PROF_COMMERCIAL_NAME_PRIMARY_ELECT.ParseString() == "pathELECT")
+                {<text>X</text> }
+            </td>
+        </tr>
+                i++;
+    }
+</table>
+
+
+
+

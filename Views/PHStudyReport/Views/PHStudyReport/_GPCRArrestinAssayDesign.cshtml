@@ -1,0 +1,133 @@
+﻿@using Discoverx.Models;
+@model Discoverx.Models.StudyReport.PHStudyReportViewModel
+ <table style="border:hidden;page-break-before:always">
+        <tr>
+            <td valign="top" class="no_border">
+                
+                <div>
+                    <p style='font-size:16pt;font-weight:bold; font-style:italic'>Assay Design: GPCR Arrestin</p>
+
+                    <p style='font-size:14pt;font-weight:bold;'>Cell Handling</p>
+                    <ol>
+                        <li>
+                            PathHunter cell lines were expanded from freezer stocks according to standard procedures.
+                        </li>
+                        <li>
+                            Cells were seeded in a total volume of 20 µL into white walled, 384-well microplates and incubated at 37°C for the appropriate time prior to testing.
+                        </li>
+                    </ol>
+                    <p style='font-size:14pt;font-weight:bold;'>
+                        Agonist Format
+                    </p>
+                    <ol>
+                        <li>
+                            For agonist determination, cells were incubated with sample to induce response.
+                        </li>
+
+                        <li>
+                            Intermediate dilution of sample stocks was performed to generate 5X sample in assay buffer.
+                        </li>
+                        <li>
+                            5 µL of 5X sample was added to cells and incubated at 37°C or room temperature for 90 to 180 minutes.  Vehicle concentration was 1%.
+                        </li>
+                    </ol>
+                    <p class='sub-sub'>
+                        Inverse Agonist Format
+                    </p>
+                    <ol>
+                        <li>
+                            For inverse agonist determination, cells were incubated with sample to induce response.
+                            </li>
+                            <li>
+                                Intermediate dilution of sample stocks was performed to generate 5X sample in assay buffer.
+                            </li>
+                            <li>
+                                5 µL of 5X sample was added to cells and incubated at 37°C or room temperature for 3 to 5 hours.  Vehicle concentration was 1%.  Extended incubation is typically required to observe an inverse agonist response in the PathHunter arrestin assay.
+                            </li>
+                        </ol>
+                    <p class='sub-sub'>
+                        Positive Allosteric Modulation Format
+                    </p>
+                    <ol>
+                        <li>
+                            For allosteric determination, cells were pre-incubated with sample followed by agonist induction at the EC20 concentration.
+                        </li>
+                        <li>
+                            Intermediate dilution of sample stocks was performed to generate 5X sample in assay buffer.
+                        </li>
+                        <li>
+                            5 µL of 5x sample was added to cells and incubated at 37°C or room temperature for 30 minutes.  Vehicle concentration was 1%.
+                        </li>
+                        <li>
+                            5 µL of 6X EC20 agonist in assay buffer was added to the cells and incubated at 37°C or room temperature for 90 or 180 minutes.
+
+                        </li>
+                    </ol>
+                            <p class='sub-sub'>
+                                Antagonist/Negative Allosteric Modulation Format
+                            </p>
+                    <ol>
+                        <li>
+                            For antagonist determination, cells were pre-incubated with antagonist followed by agonist challenge at the EC80 concentration.
+                        </li>
+                        <li>
+                            Intermediate dilution of sample stocks was performed to generate 5X sample in assay buffer.
+                        </li>
+                        <li>
+                            5 µL of 5x sample was added to cells and incubated at 37°C or room temperature for 30 minutes.  Vehicle concentration was 1%.
+                        </li>
+                        <li>
+                            5 µL of 6X EC80 agonist in assay buffer was added to the cells and incubated at 37°C or room temperature for 90 or 180 minutes.
+
+                        </li>
+                    </ol>
+                            <p class='sub-sub'>
+                                Signal Detection
+                            </p>
+                    <ol>
+                        <li>
+                            Assay signal was generated through a single addition of 12.5 or 15 µL (50% v/v) of PathHunter Detection reagent cocktail, followed by a one hour incubation at room temperature.
+                        </li>
+                        <li>
+                            Microplates were read following signal generation with a PerkinElmer Envision<sup>TM</sup> instrument for chemiluminescent signal detection.
+                        </li>
+                    </ol>
+                            <p class='sub-sub'>
+                                Data Analysis
+                            </p>
+                    <ol>
+                        <li>
+                            Compound activity was analyzed using CBIS data analysis suite (ChemInnovation, CA).
+                        </li>
+                        <li>
+                            For agonist mode assays, percentage activity was calculated using the following formula:
+                        
+                        <p>
+                            % Activity =100% x (mean RLU of test sample - mean RLU of vehicle control) / (mean MAX control ligand - mean RLU of vehicle control).
+                            </p>
+                        </li>
+                        <li>
+                            For inverse agonist mode assays, percentage activity was calculated using the following formula:
+                            <p>
+                                % Inverse Agonist Activity =100% x (1 - (mean RLU of test sample - mean RLU of vehicle control) / (mean RLU of vehicle control)).
+                            </p>
+                        </li>
+                        <li>
+                            For positive allosteric mode assays, percentage modulation was calculated using the following formula:
+                            <p>
+                                % Modulation =100% x ((mean RLU of test sample - mean RLU of EC20 control) / (mean RLU of MAX control ligand - mean RLU of EC20 control)).
+                            </p>
+                        </li>
+                        <li>
+                            For antagonist and negative allosteric mode assays, percentage inhibition was calculated using the following formula:
+                            <p>
+                                % Inhibition =100% x (1 - (mean RLU of test sample - mean RLU of vehicle control) / (mean RLU of EC80 control - mean RLU of vehicle control)).
+                            </p>
+                        </li>
+                    </ol>
+                </div>
+
+            </td>
+        </tr>
+
+    </table>

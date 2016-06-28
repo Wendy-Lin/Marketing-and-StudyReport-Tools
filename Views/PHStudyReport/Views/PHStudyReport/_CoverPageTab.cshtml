@@ -1,0 +1,81 @@
+﻿@using Discoverx.Models;
+@model Discoverx.Models.StudyReport.PHStudyReportViewModel
+
+<div id="Content" style="width: 1200px;">
+    <table class="no_border">
+        <tr class="no_border">
+            <td valign="top" class="no_border" width="650px">
+                <div id="left" style="padding:40px 40px 40px 0px;">
+                    
+                    <div style='font-size:25.0pt;line-height:130%;font-family:Calibri;color:#005BB8;'>
+                        <div style='padding:2.88pt 2.88pt 2.88pt 2.88pt'>
+                            <p>
+                                <span style='font-size:34.0pt;font-weight:bold;color:black'>Study Report</span>
+                            </p>
+                            <p>
+                                Requester(s): <span style="color:black">@Model.contractList[0].ContactName</span>
+                            </p>
+                            <p>
+                                Company: <span style="color:black">@Model.order.Company</span></p>
+                            <p>
+                                Report Date: <span style="color:black">@DateTime.Now.ToShortDateString()</span></p>
+                            <p>
+                                <div style="display:table-cell; width:137px">Quote ID:</div><div style="color:black; display:table-cell">@Model.quoteIDList</div></p>
+                            <p>
+                                Order ID: <span style="color:black">@Model.order.AmbitOrderID.Left(6)</span></p>
+                            <p>
+                                Service: <span style="color:black">@Model.serviceType</span></p>
+                            <p>
+                                Number of Compounds Tested: <span style="color:black">@Model.numberOfCompounds</span></p>
+                            <p>
+                                Number of Assays Tested: <span style="color:black">@Model.numberOfAssays</span></p>
+                        </div>
+
+
+
+                        <div style=' font-size:20.0pt;padding:2.88pt 2.88pt 2.88pt 2.88pt;margin-top:200px;line-height:100%;'>
+                            <p>
+                                Director, Profiling Services: <span style="color:black">Dr. Neil Charter</span>
+</p>
+                            <p>
+                                Phone: <span style="color:black">(510) 771-3542</span>
+</p>
+                            <p>
+                                Project Manager: <span style="color:black">Sharon Irelan / Melinda Stampfl</span>
+</p>
+                            <p>
+                                Phone: <span style="color:black">(858) 224-6925 / (858) 224-6933</span>
+</p>
+                            <p>
+                                www.services.discoverx.com
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div style='font-size:20.0pt;line-height:120%;font-family:Calibri;margin-top:30px;'>
+
+                        <div style='padding:2.88pt 2.88pt 2.88pt 2.88pt'>
+
+                            <p style="font-weight:bold;">
+                                DiscoverX Corporation
+                            </p>
+                            <p>
+                                42501 Albrae Street, Suit 100
+                            </p>
+                            <p>
+                                Fremont, CA 94538
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td valign="top">
+                <div id="right" style="padding:80px 40px 40px 80px; ">
+                    <div><img src="@string.Format(Utility.GetAPPSettingKey("FullImagePath"), @Model.serviceType + ".jpg")" class="cirle_img"></div>
+
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

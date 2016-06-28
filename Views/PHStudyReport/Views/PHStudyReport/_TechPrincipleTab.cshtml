@@ -1,0 +1,31 @@
+﻿@using Discoverx.Models;
+
+@model Discoverx.Models.StudyReport.PHStudyReportViewModel
+<div style="page-break-before:always; line-height:200%">
+
+    @if (Model.targetClassList.ToUpper().Contains("GPCR"))
+    {
+        { Html.RenderPartial("_GPCRTechPrinciple"); }
+    }
+    
+    @if (Model.targetClassList.ToUpper().Contains("NHR"))
+    {
+        { Html.RenderPartial("_NHRTechPrinciple"); }
+    }
+    else if (Model.serviceType == ServiceType.Kinase)
+    {
+        { Html.RenderPartial("_KinaseTechPrinciple"); }
+    }
+    else if (Model.serviceType == ServiceType.Pathway)
+    {
+        { Html.RenderPartial("_PathwayTechPrinciple"); }
+    }
+    else if (Model.serviceType == ServiceType.Epigenetics)
+    {
+        { Html.RenderPartial("_EpigeneticsTechPrinciple"); }
+    }
+    else if (Model.serviceType == ServiceType.Cytokine)
+    {
+        { Html.RenderPartial("_CytokineTechPrinciple"); }
+    }
+</div>     

@@ -1,0 +1,90 @@
+﻿@using Discoverx.Models;
+
+@model Discoverx.Models.StudyReport.PHStudyReportViewModel
+
+<div>
+    @if (Model.targetClassList.ToUpper().Contains("GPCR") || Model.contract.Product == "Ortholog_GPCR")
+    {
+        if (Model.assayTypeList.Contains("arrestin"))
+        { 
+            Html.RenderPartial("_GPCRArrestinAssayDesign"); 
+        }
+        
+        if (Model.assayTypeList.Contains("camp"))
+        { 
+            Html.RenderPartial("_GPCRcAMPModulationAssayDesign"); 
+        }
+        
+        if (Model.assayTypeList.Contains("calcium"))
+        { 
+            Html.RenderPartial("_GPCRCalciumAssayDesign"); 
+        }
+        
+        if (Model.assayTypeList.Contains("internalization"))
+        { 
+            Html.RenderPartial("_GPCREndocytosisAssayDesign"); 
+        }
+        
+        if (Model.assayTypeList.Contains("activity"))
+        {
+            Html.RenderPartial("_PharmacochaperoneTraffickingAssayDesign"); 
+        }
+        
+
+    }
+    
+    @if (Model.targetClassList.ToUpper().Contains("NHR"))
+    {
+        {
+            Html.RenderPartial("_NHRAssayDesign");
+        }
+    }
+    else if (Model.contract.Product == "Orphan_GPCR")
+    {
+        if (Model.assayTypeList.ToLower().Contains("arrestin"))
+        { 
+            Html.RenderPartial("_OrphanGPCRArrestinAssayDesign"); 
+        }
+        if (Model.assayTypeList.ToLower().Contains("camp"))
+        {
+            Html.RenderPartial("_OrphanGPCRcAMPModulationAssayDesign"); 
+        }
+        if (Model.assayTypeList.ToLower().Contains("calcium"))
+        { 
+            Html.RenderPartial("_OrphanGPCRCalciumAssayDesign"); 
+        }
+    }
+   
+    else if ((Model.contract.Product == "Kinase" && Model.assayTypeList.ToLower().Contains("dimerization")) || Model.contract.Product.ToLower() == "cytokine_receptor")
+    {
+        { 
+            Html.RenderPartial("_KinaseCytokineDimerizationAssayDesign"); 
+        }
+    }
+
+    else if (Model.contract.Product == "Kinase")
+    {
+        if(  Model.assayTypeList.ToLower().Contains("engagement") )
+        { 
+            Html.RenderPartial("_CellularBindingTargetEngagementAssayDesign"); 
+        }
+        else if (Model.assayTypeList.ToLower().Contains("functional") || Model.assayTypeList.ToLower().Contains("activity"))
+        { 
+            Html.RenderPartial("_KinaseCellBaseAssayDesign"); 
+        }
+        
+    }
+    else if (Model.contract.Product.ToLower() == "pathway")
+    {
+        { 
+            Html.RenderPartial("_PathwayAssayDesign"); 
+        }
+    }
+    else if (Model.contract.Product.ToLower() == "epigenetics")
+    {
+        { 
+            Html.RenderPartial("_CellularBindingTargetEngagementAssayDesign"); 
+        }
+    }
+    
+</div>

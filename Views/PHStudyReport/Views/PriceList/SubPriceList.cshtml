@@ -1,0 +1,109 @@
+﻿@using Discoverx.Models;
+@using Discoverx.Models.TargetPriceList;
+@using Discoverx.Models.CBIS_DB;
+
+@model Discoverx.Models.TargetPriceList.PriceListViewModel
+
+@{
+    ViewBag.Title = "Price List";
+    Layout = "~/Views/Shared/_PDFLayout.cshtml";
+}
+<style>
+    table {
+        font-size: 10px;
+        
+    }
+
+        table:not(:first-of-type) {
+            page-break-before: always;
+        }
+
+    th {
+        background-color: #0078BC;
+    }
+
+    .alter-row {
+        background-color: #DDE7F0;
+    }
+
+    th, td {
+        padding: 6px;
+    }
+</style>
+
+@if (Model.CommonPriceList.Count>0)
+{ 
+    if(Model.displayPDFLink)
+    { 
+    @Html.ActionLink("Export to PDF", "ViewPdf", new { pageTitle = Model.caption, viewName = "SubPriceList", fileName = Model.caption })
+    }
+
+<div id="Content">
+    @{int i = 0;
+      vw_TPL_ProductPrice assay;
+    }
+    @while (i < Model.CommonPriceList.Count)
+    {
+        <table>
+            <caption>@Model.caption</caption>
+            <col width="120px" />
+            <col width="70px" />
+            <col width="160px" />
+            <col width="400px" />
+            <col width="200px" />
+            <col width="90px" />
+            <col width="90px" />
+            
+            <tr>
+                <th>PART #</th>
+                <th>NEW </th>
+                <th>TARGET</th>
+                <th>DESCRIPTION</th>
+                <th>CONFIGURATION</th>
+                <th>PRICE USD</th>
+                <th>PRICE USD<br />NFP</th>
+                
+            </tr>
+
+            @do
+            {
+                assay = Model.CommonPriceList[i];
+                <tr @if (i % 2 == 0) { <text> class="alter-row" </text>      }>
+                    <td nowrap>@assay.PartNumber</td>
+                    <td nowrap>@if(assay.Date_Added.ParseDate().CompareTo(DateTime.Now.AddDays(-90))>0){<span style="color:red">NEW</span>}</td>
+                    <td nowrap>@assay.TARGET</td>
+                    <td>
+                       @assay.DESCRIPTION
+                    </td>
+                    <td align="center">
+                       @assay.CONFIGURATION
+                    </td>
+                    <td align="right">
+                       @string.Format("{0:c0}", assay.PRICE_USD)
+                    </td>
+                    <td align="right">
+                        @string.Format("{0:c0}", assay.NFP_DISCOUNT)
+                        
+                    </td>
+                   
+                </tr>
+                        i++;
+
+            } while (i < Model.CommonPriceList.Count && i % 56 != 0);
+
+        </table>
+    }
+</div>
+}
+else
+{
+    <div id="Content">No results found.</div>
+         }
+
+
+
+
+
+
+
+

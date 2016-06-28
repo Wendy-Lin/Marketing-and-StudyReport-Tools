@@ -1,0 +1,97 @@
+﻿@using Discoverx.Models.CBIS_DB;
+@using Discoverx.Models;
+@using Discoverx.Models.TargetPriceList;
+
+@model Discoverx.Models.TargetPriceList.TargetListViewModel
+
+@{
+    ViewBag.Title = "PathHunter<sup>®</sup> Arrestin Orphan GPCR Total Offering";
+    Layout = "~/Views/Shared/_PDFLayout.cshtml";
+}
+<style>
+    table {
+        font-size: 12px;
+    }
+
+    table:not(:first-of-type) {
+        page-break-before:always;
+    }
+
+    th {
+        background-color: #FF00FF;
+    }
+
+    .alter-row {
+        background-color: #FFCCFF;
+    }
+</style>
+@if(Model.displayPDFLink)
+{
+@Html.ActionLink("Export to PDF", "ViewPdf", new { pageTitle = "PathHunter Arrestin Orphan GPCR Total Offering", viewName = "PathHunterArrestinOrphanGPCRTotalOfferingList", fileName = "PathHunter Arrestin Orphan GPCR Total Offering" })
+}
+<div id="Content">
+    @{int i = 0;
+    vw_TPL_Assays assay;
+    }
+    @while (i < Model.AssayList1.Count)
+    {
+        <table>
+            <caption>PathHunter<sup>®</sup> Arrestin Orphan GPCR Total Offering</caption>
+            <col width="120px" />
+            <col width="430px" />
+            <col width="130px" />
+            <col width="120px" />
+            <col width="120px" />
+            <tr>
+                <th rowspan="2">TARGET</th>
+                <th rowspan="2">PRODUCT DESCRIPTION</th>
+                <th rowspan="2">PATHHUNTER&reg;CELL LINE<br />(Orphan)</th>
+
+                <th colspan="2">LeadHunter&#x2120; SERVICE</th>
+            </tr>
+            <tr>
+                <th><span style="font-style:italic">orphan</span> MAX</th>
+                <th>PROFILING**</th>
+
+            </tr>
+
+            @do
+            {
+                assay = Model.AssayList1[i];
+                <tr @if (i % 2 == 0) { <text> class="alter-row" </text>      }>
+                    <td>@assay.TARGET</td>
+                    <td nowrap>@assay.DESCRIPTION</td>
+                    <td align="center">
+                        @if (!String.IsNullOrEmpty(assay.CellLinePN))
+                        {<text >X</text> }
+                        @if (!String.IsNullOrEmpty(assay.ExpressKitPN))
+                        {<text>*</text> }
+                    </td>
+                    <td align="center">
+                        @if (assay.PROF_COMMERCIAL_NAME_PANEL == "orphanMAX")
+                        {<text>X</text> }
+
+                    </td>
+                    <td align="center">
+                        @if (assay.PROF_COMMERCIAL_NAME_PRIMARY_ELECT == "gpcrELECT")
+                        {<text>X</text> }
+
+                    </td>
+                </tr>
+                        i++;
+            } while (i < Model.AssayList1.Count && ((Model.displayPDFLink) || (i % 48 != 0)));
+
+        </table>
+    }
+
+    <p>
+        Some Targets are Available in Multiple Cell Backgrounds. Please Inquire.<br />
+        * Available in Assay Ready PathHunter<sup>®</sup> LEADHUNTER<br />
+        ± Liganded orphans that have a demonstrated Arrestin response are generally run as part of the gpcrMAX panel.<br />
+        ** When two different cell backgrounds are available for the same target, the CHO-K1 background is used for profiling requests but the alternate background can
+        be requested if necessary.  Alternate backgrounds cannot be requested for the panel.
+
+    </p>
+</div>
+
+

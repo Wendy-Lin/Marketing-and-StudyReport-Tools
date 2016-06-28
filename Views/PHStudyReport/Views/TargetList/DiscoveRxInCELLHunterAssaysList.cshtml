@@ -1,0 +1,174 @@
+﻿@using Discoverx.Models.CBIS_DB;
+@using Discoverx.Models;
+@using Discoverx.Models.TargetPriceList;
+
+@model Discoverx.Models.TargetPriceList.TargetListViewModel
+
+@{
+    ViewBag.Title = "DiscoverX InCell Hunter Assays";
+    Layout = "~/Views/Shared/_PDFLayout.cshtml";
+}
+<style>
+    table{
+        font-size:10px;
+    }
+    th {
+        background-color: #93990F;
+        font-weight:bold;
+    }
+    th, td {
+            padding: 3px;
+        }
+
+    .alter-row {
+        background-color: #EDF0BA;
+    }
+</style>
+@if(Model.displayPDFLink)
+{
+@Html.ActionLink("Export to PDF", "ViewPdf", new { pageTitle = "DiscoverX InCell Hunter Assays", viewName = "DiscoveRxInCELLHunterAssaysList", fileName = "DiscoverX InCell Hunter Assays" })
+}
+<table id="Content">
+    <caption>DiscoverX&reg; InCell Hunter&#153; Assays</caption>
+    <col width="100px" />
+    <col width="400px" />
+    <col width="115px" />
+    <col width="115px" />
+    <col width="120px" />
+    <col width="150px" />
+    <tr>
+        <th rowspan="2">TARGET</th>
+        <th rowspan="2">PRODUCT DESCRIPTION</th>
+        <th rowspan="2">InCell Hunter&#153;<br />CELL POOL</th>
+        <th rowspan="2">InCell Hunter&#153;<br />CELL LINE</th>
+        <th rowspan="2">InCell Hunter&#153;<br />EXPRESS KITS</th>
+        <th>LeadHunter&#x2120; SERVICE</th>
+    </tr>
+    <tr>
+        <th>PROFILING</th>
+
+    </tr>
+    <tr>
+        <th colspan="6">InCell Hunter&#153; Compound Binding Assays - Bromodomain</th>
+
+    </tr>
+    @{int i = 0;}
+    @foreach (vw_TPL_Assays assay in Model.AssayList1)
+    {
+
+        <tr @if (i % 2 == 0) { <text> class="alter-row" </text>  }>
+            <td>@assay.TARGET</td>
+            <td nowrap>@assay.DESCRIPTION</td>
+            <td align="center">
+                @if (!String.IsNullOrEmpty(assay.CellPoolPN))
+                {<text >X</text> }
+            </td>
+            <td align="center">
+                @if (!String.IsNullOrEmpty(assay.CellLinePN))
+                {<text >X</text> }
+            </td>
+            <td align="center">
+                @if (!String.IsNullOrEmpty(assay.ExpressKitPN))
+                {<text>X</text> }
+            </td>
+            <td align="center">
+                @if (assay.PROF_COMMERCIAL_NAME_PRIMARY_ELECT.ParseString().Contains("ICH ELECT"))
+                {<text>X</text> }
+            </td>
+            </tr>
+                i++;
+    }
+
+    <tr>
+        <th colspan="6">InCell Hunter&#153; Compound Binding Assays - Kinase</th>
+
+    </tr>
+    @{i = 0;}
+    @foreach (vw_TPL_Assays assay in Model.AssayList2)
+    {
+
+        <tr @if (i % 2 == 0) { <text> class="alter-row" </text>   }>
+            <td>@assay.TARGET</td>
+            <td nowrap>@assay.DESCRIPTION</td>
+            <td align="center">
+                @if (!String.IsNullOrEmpty(assay.CellPoolPN))
+                {<text >X</text> }
+            </td>
+            <td align="center">
+                @if (!String.IsNullOrEmpty(assay.CellLinePN))
+                {<text >X</text> }
+            </td>
+            <td align="center">
+                @if (!String.IsNullOrEmpty(assay.ExpressKitPN))
+                {<text>X</text> }
+            </td>
+            <td align="center">
+                @if (assay.PROF_COMMERCIAL_NAME_PRIMARY_ELECT.ParseString().Contains("ICH ELECT"))
+                {<text>X</text> }
+            </td>
+        </tr>
+                i++;
+    }
+
+    <tr>
+        <th colspan="6">InCell Hunter&#153; Compound Binding Assays - Methyltransferase</th>
+
+    </tr>
+    @{i = 0;}
+    @foreach (vw_TPL_Assays assay in Model.AssayList3)
+    {
+
+        <tr @if (i % 2 == 0) { <text> class="alter-row" </text>    }>
+            <td>@assay.TARGET</td>
+            <td nowrap>@assay.DESCRIPTION</td>
+            <td align="center">
+                @if (!String.IsNullOrEmpty(assay.CellPoolPN))
+                {<text >X</text> }
+            </td>
+            <td align="center">
+                @if (!String.IsNullOrEmpty(assay.CellLinePN))
+                {<text >X</text> }
+            </td>
+            <td align="center">
+                @if (!String.IsNullOrEmpty(assay.ExpressKitPN))
+                {<text>X</text> }
+            </td>
+            <td align="center">
+                @if (assay.PROF_COMMERCIAL_NAME_PRIMARY_ELECT.ParseString().Contains("ICH ELECT"))
+                {<text>X</text> }
+            </td>
+        </tr>
+                i++;
+    }
+    <tr>
+        <th colspan="6">InCell Hunter&#153; Protein Binding Assays</th>
+
+    </tr>
+    @{i = 0;}
+    @foreach (vw_TPL_Assays assay in Model.AssayList4)
+    {
+
+        <tr @if (i % 2 == 0) { <text> class="alter-row" </text>     }>
+            <td>@assay.TARGET</td>
+            <td nowrap>@assay.DESCRIPTION</td>
+            <td align="center">
+                @if (!String.IsNullOrEmpty(assay.CellPoolPN))
+                {<text >X</text> }
+            </td>
+            <td align="center">
+                @if (!String.IsNullOrEmpty(assay.CellLinePN))
+                {<text >X</text> }
+            </td>
+            <td align="center">
+                @if (!String.IsNullOrEmpty(assay.ExpressKitPN))
+                {<text>X</text> }
+            </td>
+            <td align="center">
+                @if (assay.PROF_COMMERCIAL_NAME_PRIMARY_ELECT.ParseString().Contains("ICH ELECT"))
+                {<text>X</text> }
+            </td>
+        </tr>
+                i++;
+    }
+</table>
+

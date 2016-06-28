@@ -1,0 +1,183 @@
+﻿@using Discoverx.Models.CBIS_DB;
+@using Discoverx.Models;
+@using Discoverx.Models.TargetPriceList;
+
+
+@model Discoverx.Models.TargetPriceList.TargetListViewModel
+
+@{
+    ViewBag.Title = "PathHunter<sup>®</sup> Cell-Based Kinase Assays";
+    Layout = "~/Views/Shared/_PDFLayout.cshtml";
+}
+<style>
+    table {
+        font-size: 10px;
+        width: 1030px;
+    }
+
+    th {
+        background-color: #800080;
+    }
+
+    .alter-row {
+        background-color: #E4C9FF;
+    }
+
+    th, td {
+        padding: 4px;
+    }
+</style>
+@if(Model.displayPDFLink)
+{
+@Html.ActionLink("Export to PDF", "ViewPdf", new { pageTitle = "PathHunter Cell-Based Kinase Assays", viewName = "PathHunterCellBasedKinaseAssaysList", fileName = "PathHunter Cell-Based Kinase Assays" })
+}
+<table id="Content">
+    <caption>PathHunter<sup>®</sup> Cell-Based Kinase Assays</caption>
+    <col width="120px" />
+    <col width="300px" />
+    <col width="60px" />
+    <col width="60px" />
+    
+    <col width="120px" />
+    
+    <col width="80px" />
+    <col width="80px" />
+    <col width="80px" />
+    <col width="55px" />
+    <col width="75px" />
+    <tr>
+        <th rowspan="2">Target</th>
+        <th rowspan="2">Product Description</th>
+        <th colspan="2">PATHHUNTER&reg;</th>
+        
+        <th rowspan="2">INTERNALIZATION<br />CELL LINE<br />(* Assay-Ready available)</th>
+        <th>BIOLOGICS</th>
+        <th colspan="2">LeadHunter&#x2120; SERVICE</th>
+    </tr>
+
+    <tr>
+        <th>CELL<br />LINE</th>
+        <th>EXPRESS<br />KITS</th>
+        <th>PATHHUNTER<br />BIOASSAY KITS</th>
+        <th><i>rtk</i> MAX</th>
+        <th>PROFILING</th>
+    </tr>
+    <tr><th colspan="8">RECEPTOR TYROSINE KINASE ASSAYS</th></tr>
+    
+    @{int i = 0;}
+    @foreach (vw_TPL_CellBasedKinase assay in Model.RECEPTORList)
+    {
+
+        <tr @if (i % 2 == 0) { <text> class="alter-row" </text>     }>
+           
+            <td nowrap>@assay.TARGET</td>
+            <td nowrap>@if (assay.DESCRIPTION.Contains("Activity"))
+                           {
+                           <text>PathHunter<sup>®</sup> @assay.TARGET Activity Assay</text>
+                           }
+                       else if (assay.DESCRIPTION.Contains("Functional"))
+                       {
+                        <text>PathHunter<sup>®</sup> @assay.TARGET Functional Assay</text>
+                       }
+                       else if (assay.DESCRIPTION.Contains("Internalization"))
+                       {
+                        <text>PathHunter<sup>®</sup> @assay.TARGET Internalization Assay</text>
+                       }
+                       else
+                       { 
+                            @assay.DESCRIPTION
+                       }
+            </td>
+            <td align="center">
+                @if (assay.CellLines.ParseString() != string.Empty)
+                {<text >X</text> }
+                
+            </td>
+            <td align="center">
+                @if (assay.ExpressKits.ParseString() != string.Empty)
+                {<text >X</text> }
+               
+            </td>
+            
+            <td align="center">
+                @if (assay.InternalizationCellLines.ParseString() != string.Empty)
+                {<text >X</text> }
+                @if (assay.InternalizationKits.ParseString() != string.Empty)
+                {<text >*</text> }
+            </td>
+           
+           
+            <td align="center">
+                @if (assay.PathHunterKits.ParseString() != string.Empty)
+                {<text >X</text> }
+            </td>
+            <td align="center">
+                @if (assay.LeadHunterServiceMax.ParseString() == "tkMAX")
+                {<text>X</text> }
+            </td>
+            <td align="center">
+                @if (assay.LeadHunterServiceProfiling.ParseString() == "tkELECT")
+                {<text>X</text> }
+               
+            </td>
+        </tr>
+                i++;
+    }
+    <tr><th colspan="8">CYTOSOLIC TYROSINE KINASE ASSAYS</th></tr>
+
+    @{i = 0;}
+    @foreach (vw_TPL_CellBasedKinase assay in Model.CYTOSOLICList)
+    {
+
+        <tr @if (i % 2 == 0) { <text> class="alter-row" </text>      }>
+
+            <td nowrap>@assay.TARGET</td>
+            <td nowrap>
+                @if (assay.DESCRIPTION.Contains("Activity Assay"))
+                {
+                    <text>PathHunter<sup>®</sup> @assay.TARGET Activity Assay</text>
+                }
+                else if (assay.DESCRIPTION.Contains("Functional Assay"))
+                {
+                    <text>PathHunter<sup>®</sup> @assay.TARGET Functional Assay</text>
+                }
+        </td>
+        <td align="center">
+            @if (assay.CellLines.ParseString() != string.Empty)
+            {<text >X</text> }
+
+        </td>
+        <td align="center">
+            @if (assay.ExpressKits.ParseString() != string.Empty)
+            {<text >X</text> }
+
+        </td>
+
+        <td align="center">
+            @if (assay.InternalizationCellLines.ParseString() != string.Empty)
+            {<text >X</text> }
+        </td>
+
+        
+        <td align="center">
+            @if (assay.PathHunterKits.ParseString() != string.Empty)
+            {<text >X</text> }
+        </td>
+        <td align="center">
+            @if (assay.LeadHunterServiceMax.ParseString() != string.Empty)
+            {<text>X</text> }
+        </td>
+        <td align="center">
+            @if (assay.LeadHunterServiceProfiling.ParseString() != string.Empty)
+            {<text>X</text> }
+
+        </td>
+    </tr>
+            i++;
+    }
+
+</table>
+
+
+
+
